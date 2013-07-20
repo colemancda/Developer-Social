@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="APIClient" syncable="YES">
+        <attribute name="clientName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="geolocationData" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GeolocationData" inverseName="client" inverseEntity="GeolocationData" syncable="YES"/>
+        <relationship name="token" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Token" inverseName="client" inverseEntity="Token" syncable="YES"/>
+    </entity>
+    <entity name="GeolocationData" syncable="YES">
+        <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="client" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIClient" inverseName="geolocationData" inverseEntity="APIClient" syncable="YES"/>
+    </entity>
+    <entity name="GitHubAccount" parentEntity="SiteAccount" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GithubRepository" parentEntity="RepositoryLink" syncable="YES"/>
+    <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="extension" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="image" inverseEntity="Team" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="image" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="ImageLink" parentEntity="Link" syncable="YES"/>
+    <entity name="Link" representedClassName="Link" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="post" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="links" inverseEntity="Post" syncable="YES"/>
+    </entity>
+    <entity name="LinkedInAccount" parentEntity="SiteAccount" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Post" representedClassName="Post" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="child" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="parent" inverseEntity="Post" syncable="YES"/>
+        <relationship name="links" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Link" inverseName="post" inverseEntity="Link" syncable="YES"/>
+        <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="child" inverseEntity="Post" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="QAStackOverflowLink" parentEntity="QuestionAnswerLink" syncable="YES"/>
+    <entity name="QuestionAnswerLink" isAbstract="YES" parentEntity="Link" syncable="YES"/>
+    <entity name="RepositoryLink" isAbstract="YES" parentEntity="Link" syncable="YES"/>
+    <entity name="SiteAccount" isAbstract="YES" syncable="YES">
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="accounts" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Skill" representedClassName="Skill" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="team" inverseEntity="Image" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="teams" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Token" representedClassName="Token" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="stringValue" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="client" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIClient" inverseName="token" inverseEntity="APIClient" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tokens" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="TwitterAccount" parentEntity="SiteAccount" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permissions" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SiteAccount" inverseName="user" inverseEntity="SiteAccount" syncable="YES"/>
+        <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="user" inverseEntity="Image" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="user" inverseEntity="Post" syncable="YES"/>
+        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
+        <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Token" inverseName="user" inverseEntity="Token" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Image" positionX="-1100" positionY="-180" width="128" height="118"/>
+        <element name="Link" positionX="-108" positionY="207" width="128" height="88"/>
+        <element name="QuestionAnswerLink" positionX="99" positionY="288" width="128" height="43"/>
+        <element name="RepositoryLink" positionX="97" positionY="209" width="128" height="43"/>
+        <element name="Post" positionX="-522" positionY="2" width="128" height="148"/>
+        <element name="Team" positionX="-900" positionY="-189" width="128" height="118"/>
+        <element name="User" positionX="-1098" positionY="29" width="128" height="223"/>
+        <element name="QAStackOverflowLink" positionX="315" positionY="261" width="128" height="43"/>
+        <element name="GithubRepository" positionX="322" positionY="137" width="128" height="43"/>
+        <element name="Token" positionX="-488" positionY="455" width="128" height="103"/>
+        <element name="SiteAccount" positionX="-1098" positionY="419" width="128" height="58"/>
+        <element name="TwitterAccount" positionX="-1197" positionY="540" width="128" height="60"/>
+        <element name="GitHubAccount" positionX="-1035" positionY="540" width="128" height="60"/>
+        <element name="LinkedInAccount" positionX="-1343" positionY="540" width="128" height="58"/>
+        <element name="APIClient" positionX="-657" positionY="522" width="128" height="88"/>
+        <element name="GeolocationData" positionX="-729" positionY="306" width="128" height="73"/>
+        <element name="ImageLink" positionX="79" positionY="83" width="128" height="43"/>
+        <element name="Skill" positionX="-99" positionY="513" width="128" height="103"/>
+    </elements>
+</model>

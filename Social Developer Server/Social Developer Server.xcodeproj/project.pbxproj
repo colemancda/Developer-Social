@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E3A17BB179AE061004F44FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3A17BA179AE061004F44FA /* Cocoa.framework */; };
+		6E3A17C5179AE061004F44FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E3A17C3179AE061004F44FA /* InfoPlist.strings */; };
+		6E3A17C7179AE061004F44FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A17C6179AE061004F44FA /* main.m */; };
+		6E3A17CB179AE061004F44FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6E3A17C9179AE061004F44FA /* Credits.rtf */; };
+		6E3A17CE179AE061004F44FA /* CDAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A17CD179AE061004F44FA /* CDAAppDelegate.m */; };
+		6E3A17D1179AE061004F44FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E3A17CF179AE061004F44FA /* MainMenu.xib */; };
+		6E5A5DF8179AE5FD00D287C2 /* Model.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A5DF7179AE5FD00D287C2 /* Model.xcdatamodeld */; };
+		6E5A5DFB179AE6DF00D287C2 /* CDADataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5DFA179AE6DF00D287C2 /* CDADataStore.m */; };
+		6E5A5DFF179B0C5B00D287C2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A5DFE179B0C5B00D287C2 /* Security.framework */; };
+		6E5A5E0B179B106700D287C2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E0A179B106700D287C2 /* User.m */; };
+		6E5A5E1A179B106700D287C2 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E19179B106700D287C2 /* Post.m */; };
+		6E5A5E1D179B106700D287C2 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E1C179B106700D287C2 /* Skill.m */; };
+		6E5A5E20179B106700D287C2 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E1F179B106700D287C2 /* Token.m */; };
+		6E5A5E23179B106700D287C2 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E22179B106700D287C2 /* Image.m */; };
+		6E5A5E26179B106700D287C2 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E25179B106700D287C2 /* Link.m */; };
+		6E5A5E29179B106700D287C2 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E28179B106700D287C2 /* Team.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6E3A17B7179AE061004F44FA /* Social Developer Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Developer Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E3A17BA179AE061004F44FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6E3A17BD179AE061004F44FA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6E3A17BE179AE061004F44FA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6E3A17BF179AE061004F44FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6E3A17C2179AE061004F44FA /* Social Developer Server-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Social Developer Server-Info.plist"; sourceTree = "<group>"; };
+		6E3A17C4179AE061004F44FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6E3A17C6179AE061004F44FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E3A17C8179AE061004F44FA /* Social Developer Server-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Social Developer Server-Prefix.pch"; sourceTree = "<group>"; };
+		6E3A17CA179AE061004F44FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6E3A17CC179AE061004F44FA /* CDAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAAppDelegate.h; sourceTree = "<group>"; };
+		6E3A17CD179AE061004F44FA /* CDAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAAppDelegate.m; sourceTree = "<group>"; };
+		6E3A17D0179AE061004F44FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6E5A5DF6179AE5FD00D287C2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6E5A5DF9179AE6DF00D287C2 /* CDADataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADataStore.h; sourceTree = "<group>"; };
+		6E5A5DFA179AE6DF00D287C2 /* CDADataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADataStore.m; sourceTree = "<group>"; };
+		6E5A5DFE179B0C5B00D287C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6E5A5E09179B106600D287C2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6E5A5E0A179B106700D287C2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		6E5A5E18179B106700D287C2 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		6E5A5E19179B106700D287C2 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		6E5A5E1B179B106700D287C2 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		6E5A5E1C179B106700D287C2 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		6E5A5E1E179B106700D287C2 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		6E5A5E1F179B106700D287C2 /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		6E5A5E21179B106700D287C2 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		6E5A5E22179B106700D287C2 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		6E5A5E24179B106700D287C2 /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
+		6E5A5E25179B106700D287C2 /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
+		6E5A5E27179B106700D287C2 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		6E5A5E28179B106700D287C2 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E3A17B4179AE061004F44FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E5A5DFF179B0C5B00D287C2 /* Security.framework in Frameworks */,
+				6E3A17BB179AE061004F44FA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E3A17AE179AE061004F44FA = {
+			isa = PBXGroup;
+			children = (
+				6E3A17C0179AE061004F44FA /* Social Developer Server */,
+				6E3A17B9179AE061004F44FA /* Frameworks */,
+				6E3A17B8179AE061004F44FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E3A17B8179AE061004F44FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E3A17B7179AE061004F44FA /* Social Developer Server.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E3A17B9179AE061004F44FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A5DFE179B0C5B00D287C2 /* Security.framework */,
+				6E3A17BA179AE061004F44FA /* Cocoa.framework */,
+				6E3A17BC179AE061004F44FA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E3A17BC179AE061004F44FA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E3A17BD179AE061004F44FA /* AppKit.framework */,
+				6E3A17BE179AE061004F44FA /* CoreData.framework */,
+				6E3A17BF179AE061004F44FA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		6E3A17C0179AE061004F44FA /* Social Developer Server */ = {
+			isa = PBXGroup;
+			children = (
+				6E3A17CC179AE061004F44FA /* CDAAppDelegate.h */,
+				6E3A17CD179AE061004F44FA /* CDAAppDelegate.m */,
+				6E3A17CF179AE061004F44FA /* MainMenu.xib */,
+				6E5A5DF7179AE5FD00D287C2 /* Model.xcdatamodeld */,
+				6E5A5E2A179B108B00D287C2 /* Models */,
+				6E5A5DFC179AE71300D287C2 /* Stores */,
+				6E3A17C1179AE061004F44FA /* Supporting Files */,
+			);
+			path = "Social Developer Server";
+			sourceTree = "<group>";
+		};
+		6E3A17C1179AE061004F44FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E3A17C2179AE061004F44FA /* Social Developer Server-Info.plist */,
+				6E3A17C3179AE061004F44FA /* InfoPlist.strings */,
+				6E3A17C6179AE061004F44FA /* main.m */,
+				6E3A17C8179AE061004F44FA /* Social Developer Server-Prefix.pch */,
+				6E3A17C9179AE061004F44FA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E5A5DFC179AE71300D287C2 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A5DFD179AE71B00D287C2 /* Data Store */,
+			);
+			name = Stores;
+			sourceTree = "<group>";
+		};
+		6E5A5DFD179AE71B00D287C2 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A5DF9179AE6DF00D287C2 /* CDADataStore.h */,
+				6E5A5DFA179AE6DF00D287C2 /* CDADataStore.m */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		6E5A5E2A179B108B00D287C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A5E2B179B109700D287C2 /* NSManagedObject */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6E5A5E2B179B109700D287C2 /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A5E27179B106700D287C2 /* Team.h */,
+				6E5A5E28179B106700D287C2 /* Team.m */,
+				6E5A5E24179B106700D287C2 /* Link.h */,
+				6E5A5E25179B106700D287C2 /* Link.m */,
+				6E5A5E21179B106700D287C2 /* Image.h */,
+				6E5A5E22179B106700D287C2 /* Image.m */,
+				6E5A5E1E179B106700D287C2 /* Token.h */,
+				6E5A5E1F179B106700D287C2 /* Token.m */,
+				6E5A5E1B179B106700D287C2 /* Skill.h */,
+				6E5A5E1C179B106700D287C2 /* Skill.m */,
+				6E5A5E18179B106700D287C2 /* Post.h */,
+				6E5A5E19179B106700D287C2 /* Post.m */,
+				6E5A5E09179B106600D287C2 /* User.h */,
+				6E5A5E0A179B106700D287C2 /* User.m */,
+			);
+			name = NSManagedObject;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E3A17B6179AE061004F44FA /* Social Developer Server */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E3A17D7179AE061004F44FA /* Build configuration list for PBXNativeTarget "Social Developer Server" */;
+			buildPhases = (
+				6E3A17B3179AE061004F44FA /* Sources */,
+				6E3A17B4179AE061004F44FA /* Frameworks */,
+				6E3A17B5179AE061004F44FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Social Developer Server";
+			productName = "Social Developer Server";
+			productReference = 6E3A17B7179AE061004F44FA /* Social Developer Server.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E3A17AF179AE061004F44FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = ColemanCDA;
+			};
+			buildConfigurationList = 6E3A17B2179AE061004F44FA /* Build configuration list for PBXProject "Social Developer Server" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6E3A17AE179AE061004F44FA;
+			productRefGroup = 6E3A17B8179AE061004F44FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E3A17B6179AE061004F44FA /* Social Developer Server */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E3A17B5179AE061004F44FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E3A17C5179AE061004F44FA /* InfoPlist.strings in Resources */,
+				6E3A17CB179AE061004F44FA /* Credits.rtf in Resources */,
+				6E3A17D1179AE061004F44FA /* MainMenu.xib in Resources */,
+				6E5A5DF8179AE5FD00D287C2 /* Model.xcdatamodeld in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E3A17B3179AE061004F44FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E3A17C7179AE061004F44FA /* main.m in Sources */,
+				6E3A17CE179AE061004F44FA /* CDAAppDelegate.m in Sources */,
+				6E5A5DFB179AE6DF00D287C2 /* CDADataStore.m in Sources */,
+				6E5A5E0B179B106700D287C2 /* User.m in Sources */,
+				6E5A5E1A179B106700D287C2 /* Post.m in Sources */,
+				6E5A5E1D179B106700D287C2 /* Skill.m in Sources */,
+				6E5A5E20179B106700D287C2 /* Token.m in Sources */,
+				6E5A5E23179B106700D287C2 /* Image.m in Sources */,
+				6E5A5E26179B106700D287C2 /* Link.m in Sources */,
+				6E5A5E29179B106700D287C2 /* Team.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6E3A17C3179AE061004F44FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E3A17C4179AE061004F44FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6E3A17C9179AE061004F44FA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E3A17CA179AE061004F44FA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		6E3A17CF179AE061004F44FA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E3A17D0179AE061004F44FA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E3A17D5179AE061004F44FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E3A17D6179AE061004F44FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E3A17D8179AE061004F44FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Social Developer Server/Social Developer Server-Prefix.pch";
+				INFOPLIST_FILE = "Social Developer Server/Social Developer Server-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6E3A17D9179AE061004F44FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Social Developer Server/Social Developer Server-Prefix.pch";
+				INFOPLIST_FILE = "Social Developer Server/Social Developer Server-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E3A17B2179AE061004F44FA /* Build configuration list for PBXProject "Social Developer Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3A17D5179AE061004F44FA /* Debug */,
+				6E3A17D6179AE061004F44FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E3A17D7179AE061004F44FA /* Build configuration list for PBXNativeTarget "Social Developer Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3A17D8179AE061004F44FA /* Debug */,
+				6E3A17D9179AE061004F44FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6E5A5DF7179AE5FD00D287C2 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6E5A5DF6179AE5FD00D287C2 /* Model.xcdatamodel */,
+			);
+			currentVersion = 6E5A5DF6179AE5FD00D287C2 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../../SocialDev/SocialDev/Model.xcdatamodeld;
+			sourceTree = "<group>";
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6E3A17AF179AE061004F44FA /* Project object */;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:SocialDev/../Social Developer Server/Social Developer Server.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:SocialDev/SocialDev.xcodeproj">
+   </FileRef>
+</Workspace>
