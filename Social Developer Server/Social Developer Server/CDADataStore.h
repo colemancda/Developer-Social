@@ -12,15 +12,17 @@
 {
     NSManagedObjectContext *_context;
     NSManagedObjectModel *_model;
+    
+    NSOperationQueue *_collectionsQueue;
 }
 
 + (CDADataStore *)sharedStore;
 
 #pragma mark - Store Actions
 
-@property (readonly) NSString *archivePath;
+@property (readonly) NSURL *archiveURL;
 
--(BOOL)save;
+-(NSError *)save;
 
 #pragma mark - Collections
 

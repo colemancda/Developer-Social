@@ -80,6 +80,10 @@
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
         <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Token" inverseName="user" inverseEntity="Token" syncable="YES"/>
     </entity>
+    <fetchRequest name="AllImages" entity="Image"/>
+    <fetchRequest name="AllLinks" entity="Link"/>
+    <fetchRequest name="AllPosts" entity="Post"/>
+    <fetchRequest name="AllUsers" entity="User"/>
     <elements>
         <element name="Image" positionX="-1100" positionY="-180" width="128" height="118"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="88"/>

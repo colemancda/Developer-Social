@@ -13,7 +13,7 @@
 		6E3A17CB179AE061004F44FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6E3A17C9179AE061004F44FA /* Credits.rtf */; };
 		6E3A17CE179AE061004F44FA /* CDAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A17CD179AE061004F44FA /* CDAAppDelegate.m */; };
 		6E3A17D1179AE061004F44FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E3A17CF179AE061004F44FA /* MainMenu.xib */; };
-		6E5A5DF8179AE5FD00D287C2 /* Model.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A5DF7179AE5FD00D287C2 /* Model.xcdatamodeld */; };
+		6E5A5DF8179AE5FD00D287C2 /* DataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A5DF7179AE5FD00D287C2 /* DataModel.xcdatamodeld */; };
 		6E5A5DFB179AE6DF00D287C2 /* CDADataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5DFA179AE6DF00D287C2 /* CDADataStore.m */; };
 		6E5A5DFF179B0C5B00D287C2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A5DFE179B0C5B00D287C2 /* Security.framework */; };
 		6E5A5E0B179B106700D287C2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A5E0A179B106700D287C2 /* User.m */; };
@@ -39,7 +39,7 @@
 		6E3A17CC179AE061004F44FA /* CDAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAAppDelegate.h; sourceTree = "<group>"; };
 		6E3A17CD179AE061004F44FA /* CDAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAAppDelegate.m; sourceTree = "<group>"; };
 		6E3A17D0179AE061004F44FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		6E5A5DF6179AE5FD00D287C2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6E5A5DF6179AE5FD00D287C2 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6E5A5DF9179AE6DF00D287C2 /* CDADataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADataStore.h; sourceTree = "<group>"; };
 		6E5A5DFA179AE6DF00D287C2 /* CDADataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADataStore.m; sourceTree = "<group>"; };
 		6E5A5DFE179B0C5B00D287C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -115,9 +115,9 @@
 				6E3A17CC179AE061004F44FA /* CDAAppDelegate.h */,
 				6E3A17CD179AE061004F44FA /* CDAAppDelegate.m */,
 				6E3A17CF179AE061004F44FA /* MainMenu.xib */,
-				6E5A5DF7179AE5FD00D287C2 /* Model.xcdatamodeld */,
-				6E5A5E2A179B108B00D287C2 /* Models */,
+				6E5A5DF7179AE5FD00D287C2 /* DataModel.xcdatamodeld */,
 				6E5A5DFC179AE71300D287C2 /* Stores */,
+				6E5A5E2A179B108B00D287C2 /* Models */,
 				6E3A17C1179AE061004F44FA /* Supporting Files */,
 			);
 			path = "Social Developer Server";
@@ -236,7 +236,7 @@
 				6E3A17C5179AE061004F44FA /* InfoPlist.strings in Resources */,
 				6E3A17CB179AE061004F44FA /* Credits.rtf in Resources */,
 				6E3A17D1179AE061004F44FA /* MainMenu.xib in Resources */,
-				6E5A5DF8179AE5FD00D287C2 /* Model.xcdatamodeld in Resources */,
+				6E5A5DF8179AE5FD00D287C2 /* DataModel.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,14 +397,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6E5A5DF7179AE5FD00D287C2 /* Model.xcdatamodeld */ = {
+		6E5A5DF7179AE5FD00D287C2 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6E5A5DF6179AE5FD00D287C2 /* Model.xcdatamodel */,
+				6E5A5DF6179AE5FD00D287C2 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 6E5A5DF6179AE5FD00D287C2 /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = ../../SocialDev/SocialDev/Model.xcdatamodeld;
+			currentVersion = 6E5A5DF6179AE5FD00D287C2 /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = ../../SocialDev/SocialDev/DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 		};
 /* End XCVersionGroup section */

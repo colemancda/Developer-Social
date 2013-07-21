@@ -11,6 +11,8 @@
 
 @class Post;
 
+extern 
+
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSDate * date;

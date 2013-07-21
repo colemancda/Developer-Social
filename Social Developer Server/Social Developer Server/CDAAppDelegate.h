@@ -7,14 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class CDADataStore;
 
 @interface CDAAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly) CDADataStore *dataStore;
+
+@property (readonly) NSURL *applicationFilesDirectory;
 
 - (IBAction)saveAction:(id)sender;
 

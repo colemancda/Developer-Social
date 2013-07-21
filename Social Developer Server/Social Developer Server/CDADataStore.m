@@ -32,21 +32,20 @@
         
         NSLog(@"Initializing DataStore...");
         
+        // create NSOperationQueue to 
+        
         // read in all Core Data Model files
         _model = [NSManagedObjectModel modelByMergingModels:nil];
         
         // persistent store coordinator
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
         
-        // where to save SQL file
-        NSURL *persistanceURL = [NSURL fileURLWithPath:self.archivePath];
-        
         // open persistentStore
         NSError *openPersistanceError;
         
         NSPersistentStore *persistentStore = [psc addPersistentStoreWithType:NSSQLiteStoreType
                                                                configuration:nil
-                                                                         URL:persistanceURL
+                                                                         URL:self.archiveURL
                                                                      options:nil
                                                                        error:&openPersistanceError];
         if (!persistentStore) {
@@ -57,8 +56,25 @@
         }
         
         // create context
-        _context = [NSManagedObjectContext]
+        _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         
+        [_context performBlockAndWait:^{
+            
+            _context.persistentStoreCoordinator = psc;
+            
+            // dont support undo
+            _context.undoManager = nil;
+            
+            // start loading everything from archive into arrays
+            [self loadUsers];
+            [self loadPosts];
+            [self loadTeams];
+            [self loadLinks];
+            [self loadImages];
+            
+        }];
+        
+        NSLog(@"Finished initializing DataStore");
         
     }
     return self;
@@ -66,13 +82,7 @@
 
 #pragma mark - Store Actions
 
--(NSString *)archivePath
-{
-    
-    
-}
-
--(BOOL)save
+-(NSError *)save
 {
     
     
@@ -80,7 +90,14 @@
 
 #pragma mark - Loading
 
-
+-(void)loadUsers
+{
+    if (!_users) {
+        
+        
+        
+    }
+}
 
 
 
