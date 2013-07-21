@@ -1,5 +1,5 @@
 //
-//  main.m
+//  SDSDocument.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 7/21/13.
@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class SDSDataStore;
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
-}
+@interface SDSDocument : NSDocument
+
+@property (readonly) SDSDataStore *dataStore;
+
+@end
