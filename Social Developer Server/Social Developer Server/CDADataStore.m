@@ -71,7 +71,11 @@
         _tempContext.parentContext = _context;
         
         // load admin
-        
+        [self fetchNumberOfUsers:^(NSUInteger numberOfUsers) {
+            
+            
+            
+        }];
         
         NSLog(@"Finished initializing DataStore");
         
@@ -178,9 +182,26 @@
 }
 
 -(void)fetchNumberOfUsers:(void (^)(NSUInteger))completionBlock
-{
+{    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    fetchRequest.resultType = NSCountResultType;
     
-    
+    [_tempContext performBlock:^{
+        
+        NSError *fetchError;
+        NSArray *result = [_tempContext executeFetchRequest:fetchRequest
+                                                      error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        
+        
+    }];
 }
 
 
