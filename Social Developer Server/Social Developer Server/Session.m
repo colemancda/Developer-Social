@@ -1,22 +1,22 @@
 //
-//  Image.m
+//  Session.m
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 7/21/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "Image.h"
-#import "Team.h"
+#import "Session.h"
 #import "User.h"
 
 
-@implementation Image
+@implementation Session
 
 @dynamic date;
-@dynamic filename;
-@dynamic id;
-@dynamic team;
+@dynamic ip;
+@dynamic lastUse;
+@dynamic token;
+@dynamic useragent;
 @dynamic user;
 
 @end

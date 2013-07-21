@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+CompletionBlock.h"
+@class User, Token, Skill, Image, Team, Link;
 
 @interface CDADataStore : NSObject
 {
     NSManagedObjectContext *_context;
     NSManagedObjectModel *_model;
     
-    NSOperationQueue *_collectionsQueue;
+    NSManagedObjectContext *_tempContext;
 }
 
 + (CDADataStore *)sharedStore;
@@ -22,37 +24,23 @@
 
 @property (readonly) NSURL *archiveURL;
 
--(NSError *)save;
-
-#pragma mark - Collections
-
-@property (readonly) NSSet *users;
-
-@property (readonly) NSArray *teams;
-
-@property (readonly) NSArray *posts;
-
-@property (readonly) NSArray *images;
-
-@property (readonly) NSArray *links;
-
-#pragma mark - Loading
-
--(void)loadUsers;
-
--(void)loadTeams;
-
--(void)loadPosts;
-
--(void)loadImages;
-
--(void)loadLinks;
+-(void)save:(completionBlock)completionBlock;
 
 #pragma mark - Users
 
--(NSManagedObject *)createUser;
+-(void)fetchUserWithUsername:(NSString *)username
+                  completion:(void (^)(User *user))completionBlock;
 
--(void)removeUser:(NSManagedObject *)user;
+-(void)fetchNumberOfUsers:(void (^)(NSUInteger numberOfUsers))completionBlock;
+
+-(void)createUser:(void (^)(User *user))completionBlock;
+
+-(void)removeUser:(User *)user
+       completion:(void (^)(void))completionBlock;
+
+#pragma mark - Teams
+
+-(void)fetchTeamWithID:(NSUInteger)teamID completion:(void (^)(Team *team))completionBlock;
 
 
 

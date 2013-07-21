@@ -2,7 +2,7 @@
 //  Team.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 7/20/13.
+//  Created by Alsey Coleman Miller on 7/21/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 
 @interface Team : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * index;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSSet *members;
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Image *image;
+@property (nonatomic, retain) NSSet *members;
 @end
 
 @interface Team (CoreDataGeneratedAccessors)

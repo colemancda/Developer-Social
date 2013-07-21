@@ -9,13 +9,15 @@
 #import <Cocoa/Cocoa.h>
 @class CDADataStore;
 
+extern NSString *const CDADataStoreArchivePathUserPreferencesKey;
+
 @interface CDAAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
 @property (readonly) CDADataStore *dataStore;
 
-@property (readonly) NSURL *applicationFilesDirectory;
++ (NSString *)applicationFilesDirectory;
 
 - (IBAction)saveAction:(id)sender;
 

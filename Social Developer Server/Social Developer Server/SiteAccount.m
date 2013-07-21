@@ -1,22 +1,19 @@
 //
-//  Image.m
+//  SiteAccount.m
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 7/21/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "Image.h"
-#import "Team.h"
+#import "SiteAccount.h"
 #import "User.h"
 
 
-@implementation Image
+@implementation SiteAccount
 
-@dynamic date;
-@dynamic filename;
-@dynamic id;
-@dynamic team;
+@dynamic type;
+@dynamic username;
 @dynamic user;
 
 @end

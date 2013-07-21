@@ -9,6 +9,8 @@
 #import "CDAAppDelegate.h"
 #import "CDADataStore.h"
 
+NSString *const CDADataStoreArchivePathUserPreferencesKey = @"CDADataStoreArchivePath";
+
 @implementation CDAAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -18,28 +20,39 @@
     _dataStore = [CDADataStore sharedStore];
 }
 
-
-- (NSURL *)applicationFilesDirectory
++ (NSString *)applicationFilesDirectory
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+    static NSString *applicationFilesDirectory = nil;
     
-    NSString *folderName = [[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleIdentifier"];
-    
-    NSURL *folderURL = [appSupportURL URLByAppendingPathComponent:folderName
-                                                      isDirectory:YES];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:folderURL.filePathURL.absoluteString])
-    {
-        [[NSFileManager defaultManager] createDirectoryAtURL:folderURL
-                                  withIntermediateDirectories:NO
-                                                   attributes:nil
-                                                        error:nil];
+    if (!applicationFilesDirectory) {
+        
+        // set default save location
+        NSArray *appSupportDirectories = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+        NSString *appSupportDirectoryPath = [appSupportDirectories objectAtIndex:0];
+        
+        NSString *folderName = [[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleIdentifier"];
+        
+        NSString *folderPath = [appSupportDirectoryPath stringByAppendingPathComponent:folderName];
+        
+        BOOL foundDirectory;
+        BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath
+                                                               isDirectory:&foundDirectory];
+        
+        if (!fileExists || !foundDirectory) {
+            
+            // create app support subfolder folder for our app
+            [[NSFileManager defaultManager] createDirectoryAtPath:folderPath
+                                      withIntermediateDirectories:NO
+                                                       attributes:nil
+                                                            error:nil];
+        }
+        
+        
+        applicationFilesDirectory = folderPath;
     }
     
-    return folderURL;
+    return applicationFilesDirectory;
 }
-
 
 
 @end

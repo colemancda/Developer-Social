@@ -1,5 +1,5 @@
 //
-//  Image.h
+//  Session.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 7/21/13.
@@ -9,14 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Team, User;
+@class User;
 
-@interface Image : NSManagedObject
+@interface Session : NSManagedObject
 
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSString * filename;
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) Team *team;
+@property (nonatomic, retain) NSString * ip;
+@property (nonatomic, retain) NSDate * lastUse;
+@property (nonatomic, retain) NSString * token;
+@property (nonatomic, retain) NSString * useragent;
 @property (nonatomic, retain) User *user;
 
 @end

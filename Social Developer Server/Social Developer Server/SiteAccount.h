@@ -1,5 +1,5 @@
 //
-//  Image.h
+//  SiteAccount.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 7/21/13.
@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Team, User;
+@class User;
 
-@interface Image : NSManagedObject
+@interface SiteAccount : NSManagedObject
 
-@property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSString * filename;
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) Team *team;
+@property (nonatomic, retain) NSNumber * type;
+@property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) User *user;
 
 @end

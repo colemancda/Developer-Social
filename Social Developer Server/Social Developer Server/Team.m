@@ -2,7 +2,7 @@
 //  Team.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 7/20/13.
+//  Created by Alsey Coleman Miller on 7/21/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @implementation Team
 
-@dynamic index;
-@dynamic name;
 @dynamic date;
-@dynamic members;
+@dynamic id;
+@dynamic name;
 @dynamic image;
+@dynamic members;
 
 @end
