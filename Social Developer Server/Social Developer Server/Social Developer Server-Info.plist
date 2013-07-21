@@ -17,10 +17,6 @@
 			<array/>
 			<key>CFBundleTypeName</key>
 			<string>Social Developer Server Data</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>????</string>
-			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>

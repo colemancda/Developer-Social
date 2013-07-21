@@ -16,7 +16,6 @@
     NSManagedObjectModel *_model;
     
     NSPersistentStore *_memoryStore;
-    NSPersistentStore *_sqliteStore;
 }
 
 #pragma mark - Store Actions
@@ -25,23 +24,26 @@
 
 @property (readonly) NSURL *sqliteURL;
 
--(void)open:(completionBlock)completionBlock;
+-(NSError *)open;
 
--(void)save:(completionBlock)completionBlock;
+-(NSError *)save;
 
 #pragma mark - Users
 
--(User *)userWithUsername:(NSString *)username;
+-(void)userWithUsername:(NSString *)username
+             completion:(completionBlock)completionBlock;
 
--(NSUInteger)numberOfUsers;
+-(void)numberOfUsers:(void (^) (NSUInteger numberOfUsers))completionBlock;
 
--(User *)createUser;
+-(void)createUser:(void (^) (User *user))completionBlock;
 
--(void)removeUser:(User *)user;
+-(void)removeUser:(User *)user
+       completion:(void (^) (void))completionBlock;
 
 #pragma mark - Teams
 
--(Team *)fetchTeamWithID:(NSUInteger)teamID;
+-(void)fetchTeamWithID:(NSUInteger)teamID
+            completion:(void (^) (Team *team))completionBlock;
 
 
 @end

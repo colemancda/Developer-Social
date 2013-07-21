@@ -12,6 +12,49 @@
 
 @implementation SDSDataStore
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+        NSLog(@"Creating SDSDataStore...");
+        
+        // load Core Data Model
+        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+        
+        // store coodinator
+        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
+        
+        // create Context
+        _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        _context.persistentStoreCoordinator = psc;
+        _context.undoManager = nil;
+        
+        // create in memory store
+        NSError *inMemoryStoreCreateError;
+        _memoryStore = [psc addPersistentStoreWithType:NSInMemoryStoreType
+                                         configuration:nil
+                                                   URL:nil
+                                               options:nil
+                                                 error:&inMemoryStoreCreateError];
+        if (!_memoryStore) {
+            [NSException raise:@"Could not create In-Memory Store"
+                        format:@"%@", inMemoryStoreCreateError];
+        }
+        
+        // create admin for empty store
+        [self createUser:^(User *user) {
+            
+            user.username = @"Admin";
+            user.password = @"admin";
+            user.permissions = [NSNumber numberWithInteger:Admin];
+            
+        }];
+        
+    }
+    return self;
+}
+
 #pragma mark
 
 -(NSURL *)sqliteURL
@@ -21,23 +64,67 @@
     
     NSURL *sqliteURL = [self.packageURL URLByAppendingPathComponent:@"data.sqlite"];
     
+    return sqliteURL;
 }
 
 #pragma mark - Store Actions
 
--(void)open:(completionBlock)completionBlock
+-(NSError *)open
 {
+    // get the store coordinator
+    NSPersistentStoreCoordinator *psc = _context.persistentStoreCoordinator;
+
     
+    // remove our in memory store
+    NSError *removeMemoryStoreError;
+    [psc removePersistentStore:_memoryStore
+                         error:&removeMemoryStoreError];
     
+    if (removeMemoryStoreError) {
+        return removeMemoryStoreError;
+    }
+        
+    // create SQLite store from url
+    NSError *openSQLiteError;
+    NSPersistentStore *sqliteStore = [psc addPersistentStoreWithType:NSSQLiteStoreType
+                                                       configuration:nil
+                                                                 URL:self.sqliteURL
+                                                             options:nil
+                                                               error:&openSQLiteError];
+    
+    if (openSQLiteError) {
+        return openSQLiteError;
+    }
+    
+    // migrate SQLite store to In-Memory store
+    NSError *migrationError;
+    _memoryStore = [psc migratePersistentStore:sqliteStore
+                                         toURL:nil
+                                       options:nil
+                                      withType:NSInMemoryStoreType
+                                         error:&migrationError];
+    
+    if (migrationError) {
+        return migrationError;
+    }
+    
+    // remove sqlite store
+    NSError *removeSQLiteStore;
+    [psc removePersistentStore:sqliteStore
+                         error:&removeSQLiteStore];
+    
+    if (removeSQLiteStore) {
+        return removeSQLiteStore;
+    }
+    
+    // no error
+    return nil;
 }
 
--(void)save:(completionBlock)completionBlock
+-(NSError *)save
 {
-    [_context performBlock:^{
-        
-        
-        
-    }];
+    
+    
 }
 
 #pragma mark - User

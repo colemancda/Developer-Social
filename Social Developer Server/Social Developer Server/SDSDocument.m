@@ -16,6 +16,9 @@
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
+        
+        _dataStore = [[SDSDataStore alloc] init];
+        
     }
     return self;
 }
@@ -31,6 +34,7 @@
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    
 }
 
 + (BOOL)autosavesInPlace
@@ -42,19 +46,32 @@
             ofType:(NSString *)typeName
              error:(NSError *__autoreleasing *)outError
 {
-    _dataStore = [[SDSDataStore alloc] init];
     _dataStore.packageURL = url;
     
+    NSError *error = [_dataStore open];
     
+    if (error) {
+        *outError = error;
+        return NO;
+    }
     
+    return YES;
 }
 
 -(BOOL)writeToURL:(NSURL *)url
            ofType:(NSString *)typeName
             error:(NSError *__autoreleasing *)outError
 {
+    _dataStore.packageURL = url;
     
+    NSError *error = [_dataStore save];
     
+    if (error) {
+        *outError = error;
+        return NO;
+    }
+    
+    return YES;
 }
 
 
