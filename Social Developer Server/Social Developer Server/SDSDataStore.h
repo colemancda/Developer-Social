@@ -31,7 +31,7 @@
 #pragma mark - Users
 
 -(void)userWithUsername:(NSString *)username
-             completion:(completionBlock)completionBlock;
+             completion:(void (^) (User *user))completionBlock;
 
 -(void)numberOfUsers:(void (^) (NSUInteger numberOfUsers))completionBlock;
 

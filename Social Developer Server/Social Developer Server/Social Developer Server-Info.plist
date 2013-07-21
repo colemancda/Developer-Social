@@ -11,16 +11,14 @@
 			<array>
 				<string>sdsdata</string>
 			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array/>
 			<key>CFBundleTypeName</key>
 			<string>Social Developer Server Data</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
-			<array/>
+			<array>
+				<string>1.0</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<true/>
 			<key>NSDocumentClass</key>
@@ -55,5 +53,21 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>Social Developer Server Data</string>
+			<key>UTTypeIdentifier</key>
+			<string>1.0</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.mime-type</key>
+				<array>
+					<string>sdsdata</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

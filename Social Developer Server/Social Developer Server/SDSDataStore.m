@@ -17,8 +17,6 @@
     self = [super init];
     if (self) {
         
-        NSLog(@"Creating SDSDataStore...");
-        
         // load Core Data Model
         _model = [NSManagedObjectModel mergedModelFromBundles:nil];
         
@@ -123,19 +121,41 @@
 
 -(NSError *)save
 {
+    // get the store coordinator
+    NSPersistentStoreCoordinator *psc = _context.persistentStoreCoordinator;
     
+    // migrate in memory store to sqlite file
+    NSError *migrationError;
+    NSPersistentStore *sqliteStore = [psc migratePersistentStore:_memoryStore
+                                                           toURL:self.sqliteURL
+                                                         options:nil
+                                                        withType:NSSQLiteStoreType
+                                                           error:&migrationError];
+    if (migrationError) {
+        return migrationError;
+    }
     
+    // remove sqlStore
+    NSError *removeSQLiteStoreError;
+    [psc removePersistentStore:sqliteStore
+                         error:&removeSQLiteStoreError];
+    
+    if (removeSQLiteStoreError) {
+        return removeSQLiteStoreError;
+    }
+    
+    return nil;
 }
 
 #pragma mark - User
 
--(User *)userWithUsername:(NSString *)username
+-(void)userWithUsername:(NSString *)username
+             completion:(void (^) (User *user))completionBlock
 {
     NSFetchRequest *fetchRequest = [_model fetchRequestFromTemplateWithName:@"UserWithUsername"
                                                       substitutionVariables:@{@"USERNAME": username}];
     
-    __block User *user;
-    [_context performBlockAndWait:^{
+    [_context performBlock:^{
         
         NSError *fetchError;
         NSArray *result = [_context executeFetchRequest:fetchRequest
@@ -153,18 +173,19 @@
             return;
         }
         
-        user = result[0];
+        User *user = result[0];
+        
+        if (completionBlock) {
+            completionBlock(user);
+        }
         
     }];
-    
-    return user;
 }
 
--(NSUInteger)numberOfUsers
+-(void)numberOfUsers:(void (^)(NSUInteger))completionBlock
 {
-    __block NSUInteger numberOfUsers = 0;
-    [_context performBlockAndWait:^{
-        
+    [_context performBlock:^{
+       
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
         fetchRequest.resultType = NSCountResultType;
         
@@ -179,26 +200,27 @@
             return;
         }
         
-        NSNumber *count = result[0];
+        NSNumber *numberOfUsers = result[0];
         
-        numberOfUsers = count.integerValue;
-        
+        if (completionBlock) {
+            completionBlock(numberOfUsers.integerValue);
+        }
     }];
     
-    return numberOfUsers;
 }
 
--(User *)createUser
+-(void)createUser:(void (^)(User *))completionBlock
 {
-    __block User *user;
-    [_context performBlockAndWait:^{
+    [_context performBlock:^{
+       
+        User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                   inManagedObjectContext:_context];
         
-        user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                             inManagedObjectContext:_context];
+        if (completionBlock) {
+            completionBlock(user);
+        }
         
     }];
-    
-    return user;
 }
 
 -(void)removeUser:(User *)user

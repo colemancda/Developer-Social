@@ -13,4 +13,13 @@
 
 @property (readonly) SDSDataStore *dataStore;
 
+#pragma mark - UI
+
+@property (strong) IBOutlet NSTextField *numberOfUsersTextField;
+
+#pragma mark - UI Fetch Values
+
+-(void)refreshNumberOfUsers;
+
+
 @end

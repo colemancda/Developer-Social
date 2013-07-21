@@ -17,6 +17,8 @@
     if (self) {
         // Add your subclass-specific initialization here.
         
+        NSLog(@"Creating new SDSDocument");
+        
         _dataStore = [[SDSDataStore alloc] init];
         
     }
@@ -34,6 +36,12 @@
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    
+    // disable undo manager
+    self.undoManager = nil;
+    
+    // UI
+    [self refreshNumberOfUsers];
     
 }
 
@@ -72,6 +80,22 @@
     }
     
     return YES;
+}
+
+#pragma mark - UI Fetch Values
+
+-(void)refreshNumberOfUsers
+{
+    // load statistics
+    [_dataStore numberOfUsers:^(NSUInteger numberOfUsers) {
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            self.numberOfUsersTextField.integerValue = numberOfUsers;
+            
+        }];
+    }];
+    
 }
 
 
