@@ -16,6 +16,7 @@
     NSManagedObjectModel *_model;
     
     NSPersistentStore *_memoryStore;
+    NSPersistentStore *_sqliteStore;
 }
 
 #pragma mark - Store Actions
@@ -26,7 +27,7 @@
 
 -(NSError *)open;
 
--(NSError *)save;
+-(void)save:(completionBlock)completionBlock;
 
 #pragma mark - Users
 

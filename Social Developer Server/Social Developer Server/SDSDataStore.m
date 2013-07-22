@@ -72,6 +72,8 @@
     // get the store coordinator
     NSPersistentStoreCoordinator *psc = _context.persistentStoreCoordinator;
 
+    // clear context
+    [_context reset];
     
     // remove our in memory store
     NSError *removeMemoryStoreError;
@@ -84,11 +86,11 @@
         
     // create SQLite store from url
     NSError *openSQLiteError;
-    NSPersistentStore *sqliteStore = [psc addPersistentStoreWithType:NSSQLiteStoreType
-                                                       configuration:nil
-                                                                 URL:self.sqliteURL
-                                                             options:nil
-                                                               error:&openSQLiteError];
+    _sqliteStore = [psc addPersistentStoreWithType:NSSQLiteStoreType
+                                     configuration:nil
+                                               URL:self.sqliteURL
+                                           options:nil
+                                             error:&openSQLiteError];
     
     if (openSQLiteError) {
         return openSQLiteError;
@@ -96,7 +98,7 @@
     
     // migrate SQLite store to In-Memory store
     NSError *migrationError;
-    _memoryStore = [psc migratePersistentStore:sqliteStore
+    _memoryStore = [psc migratePersistentStore:_sqliteStore
                                          toURL:nil
                                        options:nil
                                       withType:NSInMemoryStoreType
@@ -106,45 +108,96 @@
         return migrationError;
     }
     
-    // remove sqlite store
-    NSError *removeSQLiteStore;
-    [psc removePersistentStore:sqliteStore
-                         error:&removeSQLiteStore];
-    
-    if (removeSQLiteStore) {
-        return removeSQLiteStore;
-    }
-    
     // no error
     return nil;
 }
 
--(NSError *)save
+-(void)save:(completionBlock)completionBlock
 {
     // get the store coordinator
     NSPersistentStoreCoordinator *psc = _context.persistentStoreCoordinator;
     
-    // migrate in memory store to sqlite file
-    NSError *migrationError;
-    NSPersistentStore *sqliteStore = [psc migratePersistentStore:_memoryStore
-                                                           toURL:self.sqliteURL
-                                                         options:nil
-                                                        withType:NSSQLiteStoreType
-                                                           error:&migrationError];
-    if (migrationError) {
-        return migrationError;
-    }
-    
-    // remove sqlStore
-    NSError *removeSQLiteStoreError;
-    [psc removePersistentStore:sqliteStore
-                         error:&removeSQLiteStoreError];
-    
-    if (removeSQLiteStoreError) {
-        return removeSQLiteStoreError;
-    }
-    
-    return nil;
+    [_context performBlock:^{
+        
+        // if this is a new document
+        if (!_sqliteStore) {
+            
+            // save
+            NSError *saveError;
+            [_context save:&saveError];
+            
+            if (saveError) {
+                if (completionBlock) {
+                    completionBlock(saveError);
+                }
+                
+                return;
+            }
+            
+            // migrate in memory store to sqlite file (create copy of memory store to sql store)...
+            NSError *migrationError;
+            _sqliteStore = [psc migratePersistentStore:_memoryStore
+                                                 toURL:self.sqliteURL
+                                               options:nil
+                                              withType:NSSQLiteStoreType
+                                                 error:&migrationError];
+            
+            if (migrationError) {
+                if (completionBlock) {
+                    completionBlock(migrationError);
+                }
+                
+                return;
+            }
+        }
+        
+        // if we're saving a opened document
+        else {
+            
+            // add SQLite file
+            NSError *loadSQLiteStoreError;
+            _sqliteStore = [psc addPersistentStoreWithType:NSSQLiteStoreType
+                                             configuration:nil
+                                                       URL:self.sqliteURL
+                                                   options:nil
+                                                     error:&loadSQLiteStoreError];
+            
+            if (loadSQLiteStoreError) {
+                if (completionBlock) {
+                    completionBlock(loadSQLiteStoreError);
+                }
+                
+                return;
+            }
+            
+            // save
+            NSError *saveError;
+            [_context save:&saveError];
+            
+            if (saveError) {
+                if (completionBlock) {
+                    completionBlock(saveError);
+                }
+                
+                return;
+            }
+            
+        }
+        
+        // remove sqlStore
+        NSError *removeSQLiteStoreError;
+        [psc removePersistentStore:_sqliteStore
+                             error:&removeSQLiteStoreError];
+        
+        if (removeSQLiteStoreError) {
+            if (completionBlock) {
+                completionBlock(removeSQLiteStoreError);
+            }
+            
+            return;
+        }
+        
+    }];
 }
 
 #pragma mark - User

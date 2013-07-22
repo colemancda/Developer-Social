@@ -50,6 +50,13 @@
     return NO;
 }
 
+-(BOOL)canAsynchronouslyWriteToURL:(NSURL *)url
+                            ofType:(NSString *)typeName
+                  forSaveOperation:(NSSaveOperationType)saveOperation
+{
+    return YES;
+}
+
 -(BOOL)readFromURL:(NSURL *)url
             ofType:(NSString *)typeName
              error:(NSError *__autoreleasing *)outError
@@ -66,37 +73,43 @@
     return YES;
 }
 
--(BOOL)writeToURL:(NSURL *)url
-           ofType:(NSString *)typeName
-            error:(NSError *__autoreleasing *)outError
+-(void)saveToURL:(NSURL *)url
+          ofType:(NSString *)typeName
+forSaveOperation:(NSSaveOperationType)saveOperation
+completionHandler:(void (^)(NSError *))completionHandler
 {
+    [self unblockUserInteraction];
+    
     _dataStore.packageURL = url;
     
-    // create folder if none exists
-    BOOL foundFolder;
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:url.filePathURL.absoluteString
-                                                           isDirectory:&foundFolder];
-    if (!fileExists || !foundFolder) {
-        
-        NSError *createFolderError;
-        [[NSFileManager defaultManager] createDirectoryAtURL:url
-                                 withIntermediateDirectories:YES
-                                                  attributes:nil
-                                                       error:&createFolderError];
-        if (createFolderError) {
-            *outError = createFolderError;
-            return NO;
+    [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
+       
+        // create folder if none exists
+        BOOL foundFolder;
+        BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:url.filePathURL.absoluteString
+                                                               isDirectory:&foundFolder];
+        if (!fileExists || !foundFolder) {
+            
+            NSError *createFolderError;
+            [[NSFileManager defaultManager] createDirectoryAtURL:url
+                                     withIntermediateDirectories:YES
+                                                      attributes:nil
+                                                           error:&createFolderError];
+            if (createFolderError) {
+                completionHandler(createFolderError);
+                
+                return;
+            }
         }
-    }
-    
-    NSError *error = [_dataStore save];
-    
-    if (error) {
-        *outError = error;
-        return NO;
-    }
-    
-    return YES;
+        
+        [_dataStore save:^(NSError *error) {
+            
+            completionHandler(error);
+            
+            return;
+            
+        }];
+    }];
 }
 
 #pragma mark - UI Fetch Values

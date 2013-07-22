@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>kSDSSaveInterval</key>
-	<integer>60</integer>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -13,13 +11,15 @@
 			<array>
 				<string>sdsdata</string>
 			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array/>
 			<key>CFBundleTypeName</key>
 			<string>Social Developer Server Data</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>1.0</string>
+				<string>com.ColemanCDA.socialdeveloperserver-data</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<true/>
@@ -58,18 +58,26 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.package</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>Social Developer Server Data</string>
 			<key>UTTypeIdentifier</key>
-			<string>1.0</string>
+			<string>com.ColemanCDA.socialdeveloperserver-data</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
-				<key>public.mime-type</key>
+				<key>public.filename-extension</key>
 				<array>
 					<string>sdsdata</string>
 				</array>
+				<key>public.mime-type</key>
+				<array/>
 			</dict>
 		</dict>
 	</array>
+	<key>kSDSSaveInterval</key>
+	<integer>60</integer>
 </dict>
 </plist>
