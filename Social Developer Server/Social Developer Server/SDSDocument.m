@@ -72,6 +72,23 @@
 {
     _dataStore.packageURL = url;
     
+    // create folder if none exists
+    BOOL foundFolder;
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:url.filePathURL.absoluteString
+                                                           isDirectory:&foundFolder];
+    if (!fileExists || !foundFolder) {
+        
+        NSError *createFolderError;
+        [[NSFileManager defaultManager] createDirectoryAtURL:url
+                                 withIntermediateDirectories:YES
+                                                  attributes:nil
+                                                       error:&createFolderError];
+        if (createFolderError) {
+            *outError = createFolderError;
+            return NO;
+        }
+    }
+    
     NSError *error = [_dataStore save];
     
     if (error) {
