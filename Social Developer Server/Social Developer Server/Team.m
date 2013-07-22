@@ -19,4 +19,12 @@
 @dynamic image;
 @dynamic members;
 
+-(void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    
+    // set date
+    self.date = [NSDate date];
+}
+
 @end

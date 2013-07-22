@@ -8,7 +8,7 @@
 
 #import "Session.h"
 #import "User.h"
-
+#import "NSString+RandomString.h"
 
 @implementation Session
 
@@ -18,5 +18,17 @@
 @dynamic token;
 @dynamic useragent;
 @dynamic user;
+
+-(void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    
+    // set date
+    self.date = [NSDate date];
+    
+    // generate token
+    NSUInteger tokenLength = 
+    self.token = [NSString randomStringWithLength:tokenLength];
+}
 
 @end

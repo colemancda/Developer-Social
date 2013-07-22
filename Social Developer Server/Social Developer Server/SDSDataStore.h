@@ -21,13 +21,25 @@
 
 #pragma mark - Store Actions
 
-@property NSURL *packageURL;
-
-@property (readonly) NSURL *sqliteURL;
-
 -(NSError *)open;
 
 -(void)save:(completionBlock)completionBlock;
+
+#pragma mark - Properties
+
+@property NSURL *packageURL;
+
+#pragma mark
+
+@property (readonly) NSURL *sqliteURL;
+
+@property (readonly) NSURL *preferencesURL;
+
+#pragma mark - Saved Preferences
+
+@property NSUInteger tokenLength;
+
+
 
 #pragma mark - Users
 
@@ -54,6 +66,8 @@
        completion:(void (^)(void))completionBlock;
 
 #pragma mark - Posts
+
+
 
 
 @end

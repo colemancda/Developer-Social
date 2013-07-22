@@ -9,6 +9,8 @@
 #import "SDSDocument.h"
 #import "SDSDataStore.h"
 
+NSString *const kSDSDomain = @"com.ColemanCDA.Social-Developer-Server";
+
 @implementation SDSDocument
 
 - (id)init
@@ -109,6 +111,7 @@ completionHandler:(void (^)(NSError *))completionHandler
         }];
     }];
 }
+
 
 #pragma mark - UI Fetch Values
 

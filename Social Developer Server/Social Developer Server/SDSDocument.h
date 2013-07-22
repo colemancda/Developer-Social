@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 @class SDSDataStore;
 
+extern NSString *const kSDSDomain;
+
 @interface SDSDocument : NSDocument
 
 @property (readonly) SDSDataStore *dataStore;

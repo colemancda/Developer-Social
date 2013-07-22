@@ -9,6 +9,10 @@
 #import "SDSDataStore.h"
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "Team.h"
+#import "Post.h"
+#import "Link.h"
+#import "SDSDocument.h"
 
 @implementation SDSDataStore
 
@@ -16,6 +20,9 @@
 {
     self = [super init];
     if (self) {
+        
+        // default document preferences
+        self.tokenLength = 10;
         
         // load Core Data Model
         _model = [NSManagedObjectModel mergedModelFromBundles:nil];
@@ -65,6 +72,14 @@
     return sqliteURL;
 }
 
+-(NSURL *)preferencesURL
+{
+    NSAssert(self.packageURL,
+             @"Must have the package URL before you can get the url for the Preferences file");
+    
+    return [self.packageURL URLByAppendingPathComponent:@"preferences.plist"];
+}
+
 #pragma mark - Store Actions
 
 -(NSError *)open
@@ -107,6 +122,34 @@
     if (migrationError) {
         return migrationError;
     }
+    
+    // open preferences file
+    NSDictionary *preferencesDictionary = [NSDictionary dictionaryWithContentsOfURL:self.preferencesURL];
+    
+    NSString *invalidPreferencesErrorDescrption = NSLocalizedString(@"Invalid Preferences File",
+                                                                    @"Invalid Preferences File");
+    
+    NSError *invalidPreferencesDictionaryError = [NSError errorWithDomain:kSDSDomain
+                                                                     code:100
+                                                                 userInfo:@{NSLocalizedDescriptionKey: invalidPreferencesErrorDescrption}];
+    
+    // validate preferences
+    if (!preferencesDictionary ||
+        ![preferencesDictionary isKindOfClass:[NSDictionary class]]) {
+        
+        return invalidPreferencesDictionaryError;
+    }
+    
+    NSNumber *tokenLength = [preferencesDictionary objectForKey:@"tokenLength"];
+    
+    // validate preferences
+    if (!preferencesDictionary ||
+        ![preferencesDictionary isKindOfClass:[NSDictionary class]]) {
+        
+        return invalidPreferencesDictionaryError;
+    }
+    
+    self.tokenLength = tokenLength.integerValue;
     
     // no error
     return nil;
@@ -334,6 +377,62 @@
     }];
 }
 
+-(void)numberOfTeams:(void (^)(NSUInteger))completionBlock
+{
+    [_context performBlock:^{
+       
+        NSFetchRequest *fetchRequest = [_model fetchRequestTemplateForName:@"AllTeams"];
+        fetchRequest.resultType = NSCountResultType;
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        NSNumber *numberOfTeams = result[0];
+        
+        if (completionBlock) {
+            completionBlock(numberOfTeams.integerValue);
+        }
+        
+    }];
+}
+
+-(void)createTeam:(void (^)(Team *))completionBlock
+{
+    [_context performBlock:^{
+       
+        Team *team = [NSEntityDescription insertNewObjectForEntityForName:@"Team"
+                                                   inManagedObjectContext:_context];
+        
+        if (completionBlock) {
+            completionBlock(team);
+        }
+        
+    }];
+}
+
+-(void)removeTeam:(Team *)team
+       completion:(void (^)(void))completionBlock
+{
+    [_context performBlock:^{
+       
+        [_context deleteObject:team];
+        
+        if (completionBlock) {
+            completionBlock();
+        }
+        
+    }];
+}
+
+#pragma mark - Post
 
 
 
