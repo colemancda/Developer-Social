@@ -16,9 +16,7 @@
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
-        
-        NSLog(@"Creating new SDSDocument");
-        
+                
         _dataStore = [[SDSDataStore alloc] init];
         
     }
