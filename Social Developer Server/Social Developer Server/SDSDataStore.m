@@ -223,6 +223,10 @@
         
         if (!result.count) {
             
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
             return;
         }
         
@@ -277,12 +281,59 @@
 }
 
 -(void)removeUser:(User *)user
+       completion:(void (^)(void))completionBlock
 {
     [_context performBlockAndWait:^{
         
         [_context deleteObject:user];
+        
+        if (completionBlock) {
+            completionBlock();
+        }
+        
     }];
 }
+
+#pragma mark - Teams
+
+-(void)teamWithID:(NSUInteger)teamID
+       completion:(void (^)(Team *))completionBlock
+{
+    [_context performBlock:^{
+        
+        NSFetchRequest *fetchRequest = [_model fetchRequestFromTemplateWithName:@"TeamWithID"
+                                                          substitutionVariables:@{@"ID": [NSNumber numberWithInteger:teamID]}];
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+            
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        Team *team = result[0];
+        
+        if (completionBlock) {
+            completionBlock(team);
+        }
+        
+    }];
+}
+
 
 
 

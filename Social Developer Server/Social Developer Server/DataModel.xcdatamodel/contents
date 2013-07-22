@@ -62,10 +62,12 @@
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
     </entity>
+    <fetchRequest name="AllTeams" entity="Team"/>
     <fetchRequest name="AllUsers" entity="User"/>
+    <fetchRequest name="TeamWithID" entity="Team" predicateString="id ==[c] $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
-        <element name="Image" positionX="-1100" positionY="-180" width="128" height="118"/>
+        <element name="Image" positionX="-1100" positionY="-180" width="128" height="120"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="103"/>
         <element name="Post" positionX="-522" positionY="2" width="128" height="148"/>
         <element name="Session" positionX="-488" positionY="455" width="128" height="135"/>

@@ -43,8 +43,17 @@
 
 #pragma mark - Teams
 
--(void)fetchTeamWithID:(NSUInteger)teamID
-            completion:(void (^) (Team *team))completionBlock;
+-(void)teamWithID:(NSUInteger)teamID
+       completion:(void (^) (Team *team))completionBlock;
+
+-(void)numberOfTeams:(void (^) (NSUInteger numberOfUsers))completionBlock;
+
+-(void)createTeam:(void (^) (Team *team))completionBlock;
+
+-(void)removeTeam:(Team *)team
+       completion:(void (^)(void))completionBlock;
+
+#pragma mark - Posts
 
 
 @end
