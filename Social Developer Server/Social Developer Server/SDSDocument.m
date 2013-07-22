@@ -78,8 +78,6 @@ NSString *const kSDSDomain = @"com.ColemanCDA.Social-Developer-Server";
 forSaveOperation:(NSSaveOperationType)saveOperation
 completionHandler:(void (^)(NSError *))completionHandler
 {
-    [self unblockUserInteraction];
-    
     _dataStore.packageURL = url;
     
     [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
@@ -103,6 +101,8 @@ completionHandler:(void (^)(NSError *))completionHandler
         }
         
         [_dataStore save:^(NSError *error) {
+            
+            [self unblockUserInteraction];
             
             completionHandler(error);
             

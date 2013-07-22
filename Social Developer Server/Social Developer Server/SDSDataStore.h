@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+CompletionBlock.h"
-@class User, Token, Skill, Image, Team, Link;
+@class User, Token, Skill, Image, Team, Link, Session;
 
 @interface SDSDataStore : NSObject
 {
@@ -40,7 +40,6 @@
 @property NSUInteger tokenLength;
 
 
-
 #pragma mark - Users
 
 -(void)userWithUsername:(NSString *)username
@@ -58,12 +57,26 @@
 -(void)teamWithID:(NSUInteger)teamID
        completion:(void (^) (Team *team))completionBlock;
 
--(void)numberOfTeams:(void (^) (NSUInteger numberOfUsers))completionBlock;
+-(void)numberOfTeams:(void (^) (NSUInteger numberOfTeams))completionBlock;
 
 -(void)createTeam:(void (^) (Team *team))completionBlock;
 
 -(void)removeTeam:(Team *)team
        completion:(void (^)(void))completionBlock;
+
+@property (readonly) NSUInteger lastTeamID;
+
+#pragma mark - Session
+
+-(void)sessionWithToken:(NSString *)token
+             completion:(void (^) (Session *session))completionBlock;
+
+-(void)createSessionForUser:(User *)user
+                 completion:(void (^) (Session *session))completionBlock;
+
+-(void)removeSession:(Session *)session
+          completion:(void (^) (void))completionBlock;
+
 
 #pragma mark - Posts
 

@@ -12,7 +12,9 @@
 #import "Team.h"
 #import "Post.h"
 #import "Link.h"
+#import "Session.h"
 #import "SDSDocument.h"
+#import "NSString+RandomString.h"
 
 @implementation SDSDataStore
 
@@ -123,33 +125,20 @@
         return migrationError;
     }
     
-    // open preferences file
+    // open preferences file...
     NSDictionary *preferencesDictionary = [NSDictionary dictionaryWithContentsOfURL:self.preferencesURL];
     
-    NSString *invalidPreferencesErrorDescrption = NSLocalizedString(@"Invalid Preferences File",
-                                                                    @"Invalid Preferences File");
-    
-    NSError *invalidPreferencesDictionaryError = [NSError errorWithDomain:kSDSDomain
-                                                                     code:100
-                                                                 userInfo:@{NSLocalizedDescriptionKey: invalidPreferencesErrorDescrption}];
-    
-    // validate preferences
-    if (!preferencesDictionary ||
-        ![preferencesDictionary isKindOfClass:[NSDictionary class]]) {
+    // import preferences if file exists
+    if (preferencesDictionary ||
+        [preferencesDictionary isKindOfClass:[NSDictionary class]]) {
         
-        return invalidPreferencesDictionaryError;
-    }
-    
-    NSNumber *tokenLength = [preferencesDictionary objectForKey:@"tokenLength"];
-    
-    // validate preferences
-    if (!preferencesDictionary ||
-        ![preferencesDictionary isKindOfClass:[NSDictionary class]]) {
+        NSNumber *tokenLength = [preferencesDictionary objectForKey:@"tokenLength"];
         
-        return invalidPreferencesDictionaryError;
+        if (tokenLength) {
+            self.tokenLength = tokenLength.integerValue;
+        }
+        
     }
-    
-    self.tokenLength = tokenLength.integerValue;
     
     // no error
     return nil;
@@ -239,6 +228,33 @@
             
             return;
         }
+        
+        // save preferences dictionary
+        NSDictionary *preferencesDictionary = @{@"tokenLength": [NSNumber numberWithInteger:self.tokenLength]};
+        
+        BOOL savedPreferences = [preferencesDictionary writeToURL:self.preferencesURL
+                                                       atomically:YES];
+        
+        if (!savedPreferences) {
+            
+            NSString *errorDescription = NSLocalizedString(@"Could not save document Preferences",
+                                                           @"Could not save document Preferences");
+            
+            NSError *savePreferencesError = [NSError errorWithDomain:kSDSDomain
+                                                                code:100
+                                                            userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+            if (completionBlock) {
+                completionBlock(savePreferencesError);
+            }
+            
+            return;
+        }
+        
+        if (completionBlock) {
+            completionBlock(nil);
+        }
+        
+        return;
         
     }];
 }
@@ -411,6 +427,13 @@
         Team *team = [NSEntityDescription insertNewObjectForEntityForName:@"Team"
                                                    inManagedObjectContext:_context];
         
+        // set ID...
+        NSUInteger teamID = self.lastTeamID + 1;
+        
+        team.id = [NSNumber numberWithInteger:teamID];
+        
+        _lastTeamID = teamID;
+        
         if (completionBlock) {
             completionBlock(team);
         }
@@ -424,6 +447,84 @@
     [_context performBlock:^{
        
         [_context deleteObject:team];
+        
+        if (completionBlock) {
+            completionBlock();
+        }
+        
+    }];
+}
+
+#pragma mark - Session
+
+-(void)sessionWithToken:(NSString *)token
+             completion:(void (^) (Session *session))completionBlock
+{
+    assert(token);
+    
+    NSFetchRequest *fetchRequest = [_model fetchRequestFromTemplateWithName:@"SessionWithToken"
+                                                      substitutionVariables:@{@"TOKEN": token}];
+    
+    [_context performBlock:^{
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        Session *session = result[0];
+        
+        if (completionBlock) {
+            completionBlock(session);
+        }
+        
+    }];
+}
+
+-(void)createSessionForUser:(User *)user
+                 completion:(void (^) (Session *session))completionBlock
+{
+    assert(user);
+    
+    [_context performBlock:^{
+       
+        Session *session = [NSEntityDescription insertNewObjectForEntityForName:@"Session"
+                                                         inManagedObjectContext:_context];
+        
+        // set token
+        session.token = [NSString randomStringWithLength:self.tokenLength];
+        
+        // set user
+        session.user = user;
+        
+        if (completionBlock) {
+            completionBlock(session);
+        }
+        
+    }];
+}
+
+-(void)removeSession:(Session *)session
+          completion:(void (^) (void))completionBlock
+{
+    [_context performBlock:^{
+        
+        [_context deleteObject:session];
         
         if (completionBlock) {
             completionBlock();

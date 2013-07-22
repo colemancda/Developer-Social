@@ -19,4 +19,13 @@
 @dynamic team;
 @dynamic user;
 
+-(void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    
+    // set date
+    self.date = [NSDate date];
+}
+
+
 @end

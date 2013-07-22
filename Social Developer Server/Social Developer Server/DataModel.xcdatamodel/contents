@@ -68,6 +68,7 @@
     <fetchRequest name="AllUsers" entity="User"/>
     <fetchRequest name="LinkWithID" entity="Link" predicateString="id == $ID"/>
     <fetchRequest name="PostWithID" entity="Post" predicateString="id == $ID"/>
+    <fetchRequest name="SessionWithToken" entity="Session" predicateString="token == $TOKEN"/>
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>

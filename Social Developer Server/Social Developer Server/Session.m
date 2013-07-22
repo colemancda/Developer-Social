@@ -8,7 +8,6 @@
 
 #import "Session.h"
 #import "User.h"
-#import "NSString+RandomString.h"
 
 @implementation Session
 
@@ -25,10 +24,6 @@
     
     // set date
     self.date = [NSDate date];
-    
-    // generate token
-    NSUInteger tokenLength = 
-    self.token = [NSString randomStringWithLength:tokenLength];
 }
 
 @end

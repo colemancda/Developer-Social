@@ -16,7 +16,6 @@
 		6E76D003179C785400EB9D74 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E76D001179C785400EB9D74 /* MainMenu.xib */; };
 		6E76D00A179C7C3200EB9D74 /* DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D009179C7C3200EB9D74 /* DataModel.xcdatamodel */; };
 		6E76D01F179C7C8700EB9D74 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D00E179C7C8700EB9D74 /* Image.m */; };
-		6E76D020179C7C8700EB9D74 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D010179C7C8700EB9D74 /* Link.m */; };
 		6E76D021179C7C8700EB9D74 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D013179C7C8700EB9D74 /* Post.m */; };
 		6E76D022179C7C8700EB9D74 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D015179C7C8700EB9D74 /* Session.m */; };
 		6E76D023179C7C8700EB9D74 /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D017179C7C8700EB9D74 /* SiteAccount.m */; };
@@ -25,6 +24,7 @@
 		6E76D026179C7C8700EB9D74 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D01D179C7C8700EB9D74 /* User.m */; };
 		6E76D02D179C7CE000EB9D74 /* SDSDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D02C179C7CE000EB9D74 /* SDSDataStore.m */; };
 		6EBC8075179D8E4C0026E4E3 /* NSString+RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBC8074179D8E4C0026E4E3 /* NSString+RandomString.m */; };
+		6EBC807A179DA3470026E4E3 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBC8079179DA3470026E4E3 /* Link.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,6 @@
 		6E76D009179C7C3200EB9D74 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6E76D00D179C7C8700EB9D74 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		6E76D00E179C7C8700EB9D74 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
-		6E76D00F179C7C8700EB9D74 /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
-		6E76D010179C7C8700EB9D74 /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
 		6E76D011179C7C8700EB9D74 /* NSObject+CompletionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CompletionBlock.h"; sourceTree = "<group>"; };
 		6E76D012179C7C8700EB9D74 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		6E76D013179C7C8700EB9D74 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
@@ -65,6 +63,8 @@
 		6EBC8073179D8E4C0026E4E3 /* NSString+RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomString.h"; sourceTree = "<group>"; };
 		6EBC8074179D8E4C0026E4E3 /* NSString+RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomString.m"; sourceTree = "<group>"; };
 		6EBC8077179D94480026E4E3 /* Social Developer Server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Social Developer Server.entitlements"; sourceTree = "<group>"; };
+		6EBC8078179DA3470026E4E3 /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
+		6EBC8079179DA3470026E4E3 /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,10 +173,10 @@
 		6E76D02A179C7CB300EB9D74 /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
+				6EBC8078179DA3470026E4E3 /* Link.h */,
+				6EBC8079179DA3470026E4E3 /* Link.m */,
 				6E76D00D179C7C8700EB9D74 /* Image.h */,
 				6E76D00E179C7C8700EB9D74 /* Image.m */,
-				6E76D00F179C7C8700EB9D74 /* Link.h */,
-				6E76D010179C7C8700EB9D74 /* Link.m */,
 				6E76D012179C7C8700EB9D74 /* Post.h */,
 				6E76D013179C7C8700EB9D74 /* Post.m */,
 				6E76D014179C7C8700EB9D74 /* Session.h */,
@@ -272,7 +272,6 @@
 				6E76CFFD179C785300EB9D74 /* SDSDocument.m in Sources */,
 				6E76D00A179C7C3200EB9D74 /* DataModel.xcdatamodel in Sources */,
 				6E76D01F179C7C8700EB9D74 /* Image.m in Sources */,
-				6E76D020179C7C8700EB9D74 /* Link.m in Sources */,
 				6E76D021179C7C8700EB9D74 /* Post.m in Sources */,
 				6E76D022179C7C8700EB9D74 /* Session.m in Sources */,
 				6E76D023179C7C8700EB9D74 /* SiteAccount.m in Sources */,
@@ -281,6 +280,7 @@
 				6E76D026179C7C8700EB9D74 /* User.m in Sources */,
 				6E76D02D179C7CE000EB9D74 /* SDSDataStore.m in Sources */,
 				6EBC8075179D8E4C0026E4E3 /* NSString+RandomString.m in Sources */,
+				6EBC807A179DA3470026E4E3 /* Link.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +385,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Social Developer Server/Social Developer Server.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Social Developer Server/Social Developer Server-Prefix.pch";
@@ -399,7 +398,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Social Developer Server/Social Developer Server.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Social Developer Server/Social Developer Server-Prefix.pch";
