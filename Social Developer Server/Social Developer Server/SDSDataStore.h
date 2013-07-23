@@ -39,30 +39,28 @@
 
 @property NSUInteger tokenLength;
 
+#pragma mark - Common Fetch
+
+-(void)countForEntity:(NSString *)entityName
+           completion:(void (^)(NSUInteger count))completionBlock;
+
+-(void)remove:(NSManagedObject *)managedObject
+   completion:(void (^) (void))completionBlock;
 
 #pragma mark - Users
 
 -(void)userWithUsername:(NSString *)username
              completion:(void (^) (User *user))completionBlock;
 
--(void)numberOfUsers:(void (^) (NSUInteger numberOfUsers))completionBlock;
-
--(void)createUser:(void (^) (User *user))completionBlock;
-
--(void)removeUser:(User *)user
-       completion:(void (^) (void))completionBlock;
+-(void)createUser:(NSString *)username
+       completion:(void (^) (User *user))completionBlock;
 
 #pragma mark - Teams
 
 -(void)teamWithID:(NSUInteger)teamID
        completion:(void (^) (Team *team))completionBlock;
 
--(void)numberOfTeams:(void (^) (NSUInteger numberOfTeams))completionBlock;
-
 -(void)createTeam:(void (^) (Team *team))completionBlock;
-
--(void)removeTeam:(Team *)team
-       completion:(void (^)(void))completionBlock;
 
 @property (readonly) NSUInteger lastTeamID;
 
@@ -74,13 +72,13 @@
 -(void)createSessionForUser:(User *)user
                  completion:(void (^) (Session *session))completionBlock;
 
--(void)removeSession:(Session *)session
-          completion:(void (^) (void))completionBlock;
+#pragma mark - Images
 
+-(void)imageWithID:(NSUInteger)imageID
+        completion:(void (^) (Image *image))completionBlock;
 
-#pragma mark - Posts
+-(void)createImage:(void (^) (Image *image))completionBlock;
 
-
-
+@property (readonly) NSUInteger lastImageID;
 
 @end

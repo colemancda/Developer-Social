@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E5B09DC179E4F9D00DA16A3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B09DB179E4F9D00DA16A3 /* User.m */; };
 		6E76CFEA179C785300EB9D74 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76CFE9179C785300EB9D74 /* Cocoa.framework */; };
 		6E76CFF4179C785300EB9D74 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E76CFF2179C785300EB9D74 /* InfoPlist.strings */; };
 		6E76CFF6179C785300EB9D74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76CFF5179C785300EB9D74 /* main.m */; };
@@ -21,13 +22,14 @@
 		6E76D023179C7C8700EB9D74 /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D017179C7C8700EB9D74 /* SiteAccount.m */; };
 		6E76D024179C7C8700EB9D74 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D019179C7C8700EB9D74 /* Skill.m */; };
 		6E76D025179C7C8700EB9D74 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D01B179C7C8700EB9D74 /* Team.m */; };
-		6E76D026179C7C8700EB9D74 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D01D179C7C8700EB9D74 /* User.m */; };
 		6E76D02D179C7CE000EB9D74 /* SDSDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D02C179C7CE000EB9D74 /* SDSDataStore.m */; };
 		6EBC8075179D8E4C0026E4E3 /* NSString+RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBC8074179D8E4C0026E4E3 /* NSString+RandomString.m */; };
 		6EBC807A179DA3470026E4E3 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBC8079179DA3470026E4E3 /* Link.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E5B09DA179E4F9D00DA16A3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6E5B09DB179E4F9D00DA16A3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6E76CFE6179C785300EB9D74 /* Social Developer Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Developer Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E76CFE9179C785300EB9D74 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E76CFEC179C785300EB9D74 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -56,8 +58,6 @@
 		6E76D019179C7C8700EB9D74 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		6E76D01A179C7C8700EB9D74 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		6E76D01B179C7C8700EB9D74 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
-		6E76D01C179C7C8700EB9D74 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6E76D01D179C7C8700EB9D74 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6E76D02B179C7CE000EB9D74 /* SDSDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSDataStore.h; sourceTree = "<group>"; };
 		6E76D02C179C7CE000EB9D74 /* SDSDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSDataStore.m; sourceTree = "<group>"; };
 		6EBC8073179D8E4C0026E4E3 /* NSString+RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomString.h"; sourceTree = "<group>"; };
@@ -173,6 +173,8 @@
 		6E76D02A179C7CB300EB9D74 /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
+				6E5B09DA179E4F9D00DA16A3 /* User.h */,
+				6E5B09DB179E4F9D00DA16A3 /* User.m */,
 				6EBC8078179DA3470026E4E3 /* Link.h */,
 				6EBC8079179DA3470026E4E3 /* Link.m */,
 				6E76D00D179C7C8700EB9D74 /* Image.h */,
@@ -187,8 +189,6 @@
 				6E76D019179C7C8700EB9D74 /* Skill.m */,
 				6E76D01A179C7C8700EB9D74 /* Team.h */,
 				6E76D01B179C7C8700EB9D74 /* Team.m */,
-				6E76D01C179C7C8700EB9D74 /* User.h */,
-				6E76D01D179C7C8700EB9D74 /* User.m */,
 			);
 			name = NSManagedObject;
 			sourceTree = "<group>";
@@ -277,10 +277,10 @@
 				6E76D023179C7C8700EB9D74 /* SiteAccount.m in Sources */,
 				6E76D024179C7C8700EB9D74 /* Skill.m in Sources */,
 				6E76D025179C7C8700EB9D74 /* Team.m in Sources */,
-				6E76D026179C7C8700EB9D74 /* User.m in Sources */,
 				6E76D02D179C7CE000EB9D74 /* SDSDataStore.m in Sources */,
 				6EBC8075179D8E4C0026E4E3 /* NSString+RandomString.m in Sources */,
 				6EBC807A179DA3470026E4E3 /* Link.m in Sources */,
+				6E5B09DC179E4F9D00DA16A3 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

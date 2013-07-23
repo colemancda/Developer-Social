@@ -118,13 +118,14 @@ completionHandler:(void (^)(NSError *))completionHandler
 -(void)refreshNumberOfUsers
 {
     // load statistics
-    [_dataStore numberOfUsers:^(NSUInteger numberOfUsers) {
-        
+    [_dataStore countForEntity:@"User" completion:^(NSUInteger count) {
+       
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            self.numberOfUsersTextField.integerValue = numberOfUsers;
+            self.numberOfUsersTextField.integerValue = count;
             
         }];
+        
     }];
     
 }

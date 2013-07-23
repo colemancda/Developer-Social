@@ -2,7 +2,7 @@
 //  User.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 7/21/13.
+//  Created by Alsey Coleman Miller on 7/23/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 #import "Session.h"
 #import "SiteAccount.h"
 #import "Team.h"
+#import "User.h"
 
 
 @implementation User
@@ -28,6 +29,7 @@
 @dynamic posts;
 @dynamic sessions;
 @dynamic teams;
+@dynamic friends;
 
 -(void)awakeFromInsert
 {

@@ -2,7 +2,7 @@
 //  User.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 7/21/13.
+//  Created by Alsey Coleman Miller on 7/23/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -10,14 +10,14 @@
 #import <CoreData/CoreData.h>
 
 typedef NS_ENUM(NSUInteger, UserPermissions) {
-  
+    
     DefaultPermissions = 0,
     Moderator = 98,
     Admin = 99
     
 };
 
-@class Image, Post, Session, SiteAccount, Team;
+@class Image, Post, Session, SiteAccount, Team, User;
 
 @interface User : NSManagedObject
 
@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 @property (nonatomic, retain) NSSet *posts;
 @property (nonatomic, retain) NSSet *sessions;
 @property (nonatomic, retain) NSSet *teams;
+@property (nonatomic, retain) NSSet *friends;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -56,5 +57,10 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 - (void)removeTeamsObject:(Team *)value;
 - (void)addTeams:(NSSet *)values;
 - (void)removeTeams:(NSSet *)values;
+
+- (void)addFriendsObject:(User *)value;
+- (void)removeFriendsObject:(User *)value;
+- (void)addFriends:(NSSet *)values;
+- (void)removeFriends:(NSSet *)values;
 
 @end

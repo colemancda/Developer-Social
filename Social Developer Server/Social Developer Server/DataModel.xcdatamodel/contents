@@ -58,14 +58,12 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SiteAccount" inverseName="user" inverseEntity="SiteAccount" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="user" inverseEntity="Image" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="user" inverseEntity="Post" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
     </entity>
-    <fetchRequest name="AllPosts" entity="Post"/>
-    <fetchRequest name="AllTeams" entity="Team"/>
-    <fetchRequest name="AllUsers" entity="User"/>
     <fetchRequest name="LinkWithID" entity="Link" predicateString="id == $ID"/>
     <fetchRequest name="PostWithID" entity="Post" predicateString="id == $ID"/>
     <fetchRequest name="SessionWithToken" entity="Session" predicateString="token == $TOKEN"/>
@@ -79,6 +77,6 @@
         <element name="SiteAccount" positionX="-1098" positionY="419" width="128" height="90"/>
         <element name="Skill" positionX="-99" positionY="513" width="128" height="103"/>
         <element name="Team" positionX="-900" positionY="-189" width="128" height="118"/>
-        <element name="User" positionX="-1098" positionY="29" width="128" height="223"/>
+        <element name="User" positionX="-1098" positionY="29" width="128" height="240"/>
     </elements>
 </model>

@@ -259,6 +259,49 @@
     }];
 }
 
+#pragma mark - Common Fetch
+
+-(void)countForEntity:(NSString *)entityName
+           completion:(void (^)(NSUInteger count))completionBlock
+{
+    [_context performBlock:^{
+        
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+        fetchRequest.resultType = NSCountResultType;
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        NSNumber *count = result[0];
+        
+        if (completionBlock) {
+            completionBlock(count.integerValue);
+        }
+        
+    }];
+}
+
+-(void)remove:(NSManagedObject *)managedObject
+   completion:(void (^)(void))completionBlock
+{
+    [_context performBlock:^{
+       
+        [_context deleteObject:managedObject];
+        
+        if (completionBlock) {
+            completionBlock();
+        }
+    }];
+}
+
 #pragma mark - User
 
 -(void)userWithUsername:(NSString *)username
@@ -296,33 +339,6 @@
         }
         
     }];
-}
-
--(void)numberOfUsers:(void (^)(NSUInteger))completionBlock
-{
-    [_context performBlock:^{
-       
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-        fetchRequest.resultType = NSCountResultType;
-        
-        NSError *fetchError;
-        NSArray *result = [_context executeFetchRequest:fetchRequest
-                                                  error:&fetchError];
-        
-        if (!result) {
-            
-            [NSException raise:@"Fetch Request Failed"
-                        format:@"%@", fetchError.localizedDescription];
-            return;
-        }
-        
-        NSNumber *numberOfUsers = result[0];
-        
-        if (completionBlock) {
-            completionBlock(numberOfUsers.integerValue);
-        }
-    }];
-    
 }
 
 -(void)createUser:(void (^)(User *))completionBlock
@@ -393,32 +409,6 @@
     }];
 }
 
--(void)numberOfTeams:(void (^)(NSUInteger))completionBlock
-{
-    [_context performBlock:^{
-       
-        NSFetchRequest *fetchRequest = [_model fetchRequestTemplateForName:@"AllTeams"];
-        fetchRequest.resultType = NSCountResultType;
-        
-        NSError *fetchError;
-        NSArray *result = [_context executeFetchRequest:fetchRequest
-                                                  error:&fetchError];
-        
-        if (!result) {
-            
-            [NSException raise:@"Fetch Request Failed"
-                        format:@"%@", fetchError.localizedDescription];
-            return;
-        }
-        
-        NSNumber *numberOfTeams = result[0];
-        
-        if (completionBlock) {
-            completionBlock(numberOfTeams.integerValue);
-        }
-        
-    }];
-}
 
 -(void)createTeam:(void (^)(Team *))completionBlock
 {
@@ -436,20 +426,6 @@
         
         if (completionBlock) {
             completionBlock(team);
-        }
-        
-    }];
-}
-
--(void)removeTeam:(Team *)team
-       completion:(void (^)(void))completionBlock
-{
-    [_context performBlock:^{
-       
-        [_context deleteObject:team];
-        
-        if (completionBlock) {
-            completionBlock();
         }
         
     }];
@@ -519,21 +495,10 @@
     }];
 }
 
--(void)removeSession:(Session *)session
-          completion:(void (^) (void))completionBlock
-{
-    [_context performBlock:^{
-        
-        [_context deleteObject:session];
-        
-        if (completionBlock) {
-            completionBlock();
-        }
-        
-    }];
-}
 
-#pragma mark - Post
+#pragma mark - Image
+
+
 
 
 
