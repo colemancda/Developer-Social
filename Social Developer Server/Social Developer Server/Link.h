@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+typedef NS_ENUM(NSUInteger, LinkType) {
+    
+    GenericLink = 0,
+    PostLink,
+    TweetLink,
+    StackOverflowQALink,
+    YouTubeLink,
+    
+    
+};
+
 @class Post;
 
 @interface Link : NSManagedObject

@@ -13,6 +13,7 @@
 #import "Post.h"
 #import "Link.h"
 #import "Session.h"
+#import "Image.h"
 #import "SDSDocument.h"
 #import "NSString+RandomString.h"
 
@@ -50,9 +51,8 @@
         }
         
         // create admin for empty store
-        [self createUser:^(User *user) {
-            
-            user.username = @"Admin";
+        [self createUser:@"Admin" completion:^(User *user) {
+
             user.password = @"admin";
             user.permissions = [NSNumber numberWithInteger:Admin];
             
@@ -341,29 +341,20 @@
     }];
 }
 
--(void)createUser:(void (^)(User *))completionBlock
+-(void)createUser:(NSString *)username
+       completion:(void (^)(User *))completionBlock
 {
+    assert(username);
+    
     [_context performBlock:^{
        
         User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                    inManagedObjectContext:_context];
         
+        user.username = username;
+        
         if (completionBlock) {
             completionBlock(user);
-        }
-        
-    }];
-}
-
--(void)removeUser:(User *)user
-       completion:(void (^)(void))completionBlock
-{
-    [_context performBlockAndWait:^{
-        
-        [_context deleteObject:user];
-        
-        if (completionBlock) {
-            completionBlock();
         }
         
     }];
@@ -498,9 +489,185 @@
 
 #pragma mark - Image
 
+-(void)imageWithID:(NSUInteger)imageID
+        completion:(void (^)(Image *))completionBlock
+{
+    NSFetchRequest *fetchRequest = [_model fetchRequestFromTemplateWithName:@"ImageWithID"
+                                                      substitutionVariables:@{@"ID": [NSNumber numberWithInteger:imageID]}];
+    
+    [_context performBlock:^{
+       
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        Image *image = result[0];
+        
+        if (completionBlock) {
+            completionBlock(image);
+        }
+    }];
+}
 
+-(void)createImage:(void (^)(Image *))completionBlock
+{
+    [_context performBlock:^{
+        
+        Image *image = [NSEntityDescription insertNewObjectForEntityForName:@"Image"
+                                                     inManagedObjectContext:_context];
+        
+        // set ID
+        NSUInteger imageID = self.lastImageID + 1;
+        
+        image.id = [NSNumber numberWithInteger:imageID];
+        
+        _lastImageID = imageID;
+        
+        if (completionBlock) {
+            completionBlock(image);
+        }
+    }];
+}
 
+#pragma mark - Link
 
+-(void)linkWithID:(NSUInteger)linkID
+       completion:(void (^)(Link *))completionBlock
+{
+    NSFetchRequest *fetchRequest = [_model fetchRequestFromTemplateWithName:@"LinkWithID"
+                                                      substitutionVariables:@{@"ID": [NSNumber numberWithInteger:linkID]}];
+    
+    [_context performBlock:^{
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        Link *link = result[0];
+        
+        if (completionBlock) {
+            completionBlock(link);
+        }
+        
+    }];
+}
+
+-(void)createLink:(NSString *)urlString
+             type:(LinkType)linkType
+       completion:(void (^)(Link *))completionBlock
+{
+    [_context performBlock:^{
+       
+        Link *link = [NSEntityDescription insertNewObjectForEntityForName:@"Entity"
+                                                   inManagedObjectContext:_context];
+        
+        // set ID
+        NSUInteger linkID = self.lastLinkID + 1;
+        
+        link.id = [NSNumber numberWithInteger:linkID];
+        
+        _lastLinkID = linkID;
+        
+        // set linkType
+        link.type = [NSNumber numberWithInteger:linkType];
+        
+        if (completionBlock) {
+            completionBlock(link);
+        }
+    }];
+}
+
+#pragma mark - Post
+
+-(void)postWithID:(NSInteger)postID
+       completion:(void (^)(Post *))completionBlock
+{
+    NSDictionary *requestVariables = @{@"ID": [NSNumber numberWithInteger:postID]};
+    NSFetchRequest *fetchRequest = [_model fetchRequestFromTemplateWithName:@"PostWithID"
+                                                      substitutionVariables:requestVariables];
+    
+    [_context performBlock:^{
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        Post *post = result[0];
+        
+        if (completionBlock) {
+            completionBlock(post);
+        }
+        
+    }];
+}
+
+-(void)createPost:(void (^)(Post *))completionBlock
+{
+    [_context performBlock:^{
+       
+        Post *post = [NSEntityDescription insertNewObjectForEntityForName:@"Post"
+                                                   inManagedObjectContext:_context];
+        
+        NSUInteger postID = self.lastPostID + 1;
+        
+        post.id = [NSNumber numberWithInteger:postID];
+        
+        _lastPostID = postID;
+        
+        if (completionBlock) {
+            completionBlock(post);
+        }
+        
+    }];
+}
 
 
 @end

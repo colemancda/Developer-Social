@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+CompletionBlock.h"
-@class User, Token, Skill, Image, Team, Link, Session;
+#import "Link.h"
+@class User, Token, Skill, Image, Team, Link, Session, Post;
 
 @interface SDSDataStore : NSObject
 {
@@ -55,6 +56,14 @@
 -(void)createUser:(NSString *)username
        completion:(void (^) (User *user))completionBlock;
 
+#pragma mark - Session
+
+-(void)sessionWithToken:(NSString *)token
+             completion:(void (^) (Session *session))completionBlock;
+
+-(void)createSessionForUser:(User *)user
+                 completion:(void (^) (Session *session))completionBlock;
+
 #pragma mark - Teams
 
 -(void)teamWithID:(NSUInteger)teamID
@@ -64,14 +73,6 @@
 
 @property (readonly) NSUInteger lastTeamID;
 
-#pragma mark - Session
-
--(void)sessionWithToken:(NSString *)token
-             completion:(void (^) (Session *session))completionBlock;
-
--(void)createSessionForUser:(User *)user
-                 completion:(void (^) (Session *session))completionBlock;
-
 #pragma mark - Images
 
 -(void)imageWithID:(NSUInteger)imageID
@@ -80,5 +81,25 @@
 -(void)createImage:(void (^) (Image *image))completionBlock;
 
 @property (readonly) NSUInteger lastImageID;
+
+#pragma mark - Post
+
+-(void)postWithID:(NSInteger)postID
+       completion:(void (^) (Post *post))completionBlock;
+
+-(void)createPost:(void (^) (Post *post))completionBlock;
+
+@property (readonly) NSUInteger lastPostID;
+
+#pragma mark - Link
+
+-(void)linkWithID:(NSUInteger)linkID
+       completion:(void (^)(Link *link))completionBlock;
+
+-(void)createLink:(NSString *)urlString
+             type:(LinkType)linkType
+       completion:(void (^)(Link *))completionBlock;
+
+@property (readonly) NSUInteger lastLinkID;
 
 @end
