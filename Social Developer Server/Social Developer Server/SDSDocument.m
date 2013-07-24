@@ -8,6 +8,7 @@
 
 #import "SDSDocument.h"
 #import "SDSDataStore.h"
+#import "User.h"
 
 NSString *const kSDSDomain = @"com.ColemanCDA.Social-Developer-Server";
 
@@ -42,6 +43,7 @@ NSString *const kSDSDomain = @"com.ColemanCDA.Social-Developer-Server";
     
     // UI
     [self refreshNumberOfUsers];
+    [self refreshLastUser];
     
 }
 
@@ -117,7 +119,7 @@ completionHandler:(void (^)(NSError *))completionHandler
 
 -(void)refreshNumberOfUsers
 {
-    // load statistics
+    // load number of users
     [_dataStore countForEntity:@"User" completion:^(NSUInteger count) {
        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -128,6 +130,32 @@ completionHandler:(void (^)(NSError *))completionHandler
         
     }];
     
+}
+
+-(void)refreshLastUser
+{
+    // last last user's username
+    [_dataStore lastUser:^(User *user) {
+        
+        if (!user) {
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+               
+                self.lastUserTextField.stringValue = NSLocalizedString(@"No users",
+                                                                       @"No users");
+                
+            }];
+        }
+        else {
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+               
+                self.lastUserTextField.stringValue = user.username;
+                
+            }];
+        }
+        
+    }];
 }
 
 

@@ -19,9 +19,13 @@ extern NSString *const kSDSDomain;
 
 @property (strong) IBOutlet NSTextField *numberOfUsersTextField;
 
+@property (strong) IBOutlet NSTextField *lastUserTextField;
+
+
 #pragma mark - UI Fetch Values
 
 -(void)refreshNumberOfUsers;
 
+-(void)refreshLastUser;
 
 @end

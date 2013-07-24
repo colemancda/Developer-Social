@@ -36,9 +36,15 @@
 
 @property (readonly) NSURL *preferencesURL;
 
+@property (readonly) NSURL *savedValuesURL;
+
 #pragma mark - Saved Preferences
 
 @property NSUInteger tokenLength;
+
+@property NSUInteger saveInterval;
+
+@property NSUInteger refreshUIInterval;
 
 #pragma mark - Common Fetch
 
@@ -55,6 +61,8 @@
 
 -(void)createUser:(NSString *)username
        completion:(void (^) (User *user))completionBlock;
+
+-(void)lastUser:(void (^) (User *user))completionBlock;
 
 #pragma mark - Session
 

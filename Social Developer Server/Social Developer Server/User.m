@@ -25,11 +25,12 @@
 @dynamic username;
 @dynamic website;
 @dynamic accounts;
+@dynamic followers;
+@dynamic following;
 @dynamic image;
 @dynamic posts;
 @dynamic sessions;
 @dynamic teams;
-@dynamic friends;
 
 -(void)awakeFromInsert
 {

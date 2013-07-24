@@ -29,11 +29,12 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSString * website;
 @property (nonatomic, retain) NSSet *accounts;
+@property (nonatomic, retain) NSSet *followers;
+@property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) Image *image;
 @property (nonatomic, retain) NSSet *posts;
 @property (nonatomic, retain) NSSet *sessions;
 @property (nonatomic, retain) NSSet *teams;
-@property (nonatomic, retain) NSSet *friends;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -42,6 +43,16 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 - (void)removeAccountsObject:(SiteAccount *)value;
 - (void)addAccounts:(NSSet *)values;
 - (void)removeAccounts:(NSSet *)values;
+
+- (void)addFollowersObject:(User *)value;
+- (void)removeFollowersObject:(User *)value;
+- (void)addFollowers:(NSSet *)values;
+- (void)removeFollowers:(NSSet *)values;
+
+- (void)addFollowingObject:(User *)value;
+- (void)removeFollowingObject:(User *)value;
+- (void)addFollowing:(NSSet *)values;
+- (void)removeFollowing:(NSSet *)values;
 
 - (void)addPostsObject:(Post *)value;
 - (void)removePostsObject:(Post *)value;
@@ -57,10 +68,5 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 - (void)removeTeamsObject:(Team *)value;
 - (void)addTeams:(NSSet *)values;
 - (void)removeTeams:(NSSet *)values;
-
-- (void)addFriendsObject:(User *)value;
-- (void)removeFriendsObject:(User *)value;
-- (void)addFriends:(NSSet *)values;
-- (void)removeFriends:(NSSet *)values;
 
 @end

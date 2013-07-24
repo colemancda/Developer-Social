@@ -26,6 +26,8 @@
         
         // default document preferences
         self.tokenLength = 10;
+        self.refreshUIInterval = 15;
+        self.saveInterval = 60 * 2;
         
         // load Core Data Model
         _model = [NSManagedObjectModel mergedModelFromBundles:nil];
@@ -82,10 +84,20 @@
     return [self.packageURL URLByAppendingPathComponent:@"preferences.plist"];
 }
 
+-(NSURL *)savedValuesURL
+{
+    NSAssert(self.packageURL,
+             @"Must have the package URL before you can get the url for the SavedValues file");
+    
+    return [self.packageURL URLByAppendingPathComponent:@"savedValues.plist"];
+}
+
 #pragma mark - Store Actions
 
 -(NSError *)open
 {
+    NSAssert(self.packageURL, @"Can't open SDSDataStore without a valid URL");
+    
     // get the store coordinator
     NSPersistentStoreCoordinator *psc = _context.persistentStoreCoordinator;
 
@@ -128,7 +140,7 @@
     // open preferences file...
     NSDictionary *preferencesDictionary = [NSDictionary dictionaryWithContentsOfURL:self.preferencesURL];
     
-    // import preferences if file exists
+    // import preferences if file exists (it's optional to have it)
     if (preferencesDictionary ||
         [preferencesDictionary isKindOfClass:[NSDictionary class]]) {
         
@@ -138,7 +150,55 @@
             self.tokenLength = tokenLength.integerValue;
         }
         
+        NSNumber *saveInterval = [preferencesDictionary objectForKey:@"saveInterval"];
+        if (saveInterval) {
+            self.saveInterval = saveInterval.integerValue;
+        }
+        
+        NSNumber *refreshUIInterval = [preferencesDictionary objectForKey:@"refreshUIInterval"];
+        if (refreshUIInterval) {
+            self.refreshUIInterval = refreshUIInterval.integerValue;
+        }
+        
     }
+    
+    // open savedValues
+    NSDictionary *savedValuesDictionary = [NSDictionary dictionaryWithContentsOfURL:self.savedValuesURL];
+    
+    NSString *invalidSavedValuesErrorDescription = NSLocalizedString(@"Invalid SavedValues file",
+                                                                     @"Invalid SavedValues file");
+    
+    NSError *invalidSavedValuesError = [NSError errorWithDomain:kSDSDomain
+                                                           code:100
+                                                       userInfo:@{NSLocalizedDescriptionKey: invalidSavedValuesErrorDescription}];
+    
+    // error if file doesnt exist (it's obligatory to have it)
+    if (!savedValuesDictionary ||
+        ![savedValuesDictionary isKindOfClass:[NSDictionary class]]) {
+        
+        return invalidSavedValuesError;
+    }
+    
+    // get values
+    NSNumber *lastTeamID = [savedValuesDictionary objectForKey:@"lastTeamID"];
+    NSNumber *lastImageID = [savedValuesDictionary objectForKey:@"lastImageID"];
+    NSNumber *lastPostID = [savedValuesDictionary objectForKey:@"lastPostID"];
+    NSNumber *lastLinkID = [savedValuesDictionary objectForKey:@"lastLinkID"];
+    
+    if (!lastPostID ||
+        !lastLinkID ||
+        !lastImageID ||
+        !lastTeamID)
+    {
+        return invalidSavedValuesError;
+        
+    }
+    
+    // load saved values
+    _lastTeamID = lastTeamID.integerValue;
+    _lastPostID = lastPostID.integerValue;
+    _lastImageID = lastImageID.integerValue;
+    _lastLinkID = lastLinkID.integerValue;
     
     // no error
     return nil;
@@ -146,6 +206,8 @@
 
 -(void)save:(completionBlock)completionBlock
 {
+    NSAssert(self.packageURL, @"Can't save SDSDataStore to file without a valid URL");
+    
     // get the store coordinator
     NSPersistentStoreCoordinator *psc = _context.persistentStoreCoordinator;
     
@@ -230,7 +292,12 @@
         }
         
         // save preferences dictionary
-        NSDictionary *preferencesDictionary = @{@"tokenLength": [NSNumber numberWithInteger:self.tokenLength]};
+        NSDictionary *preferencesDictionary = @{@"tokenLength":
+                                                    [NSNumber numberWithInteger:self.tokenLength],
+                                                @"saveInterval" :
+                                                    [NSNumber numberWithInteger:self.saveInterval],
+                                                @"refreshUIInterval" :
+                                                    [NSNumber numberWithInteger:self.refreshUIInterval]};
         
         BOOL savedPreferences = [preferencesDictionary writeToURL:self.preferencesURL
                                                        atomically:YES];
@@ -248,6 +315,31 @@
             }
             
             return;
+        }
+        
+        // save SavedValues dictionary
+        NSDictionary *savedValues = @{@"lastTeamID": [NSNumber numberWithInteger:self.lastTeamID],
+                                      @"lastImageID" : [NSNumber numberWithInteger:self.lastImageID],
+                                      @"lastPostID" : [NSNumber numberWithInteger:self.lastPostID],
+                                      @"lastLinkID" : [NSNumber numberWithInteger:self.lastLinkID]};
+        
+        BOOL wroteSavedValuesToDisk = [savedValues writeToURL:self.savedValuesURL
+                                                   atomically:YES];
+        
+        if (!wroteSavedValuesToDisk) {
+            
+            NSString *errorDescription = NSLocalizedString(@"Could not save document values",
+                                                           @"Could not save document values");
+            
+            NSError *writeSavedValuesError = [NSError errorWithDomain:kSDSDomain
+                                                                code:100
+                                                            userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+            if (completionBlock) {
+                completionBlock(writeSavedValuesError);
+            }
+            
+            return;
+            
         }
         
         if (completionBlock) {
@@ -355,6 +447,45 @@
         
         if (completionBlock) {
             completionBlock(user);
+        }
+        
+    }];
+}
+
+-(void)lastUser:(void (^)(User *))completionBlock
+{
+    // create fetch request
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"date"
+                                                           ascending:YES];
+    fetchRequest.sortDescriptors = @[sort];
+    
+    [_context performBlock:^{
+       
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        User *lastUser = result.lastObject;
+        
+        if (completionBlock) {
+            completionBlock(lastUser);
         }
         
     }];
