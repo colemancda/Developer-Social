@@ -134,13 +134,13 @@ completionHandler:(void (^)(NSError *))completionHandler
 
 -(void)refreshLastUser
 {
-    // last last user's username
-    [_dataStore lastUser:^(User *user) {
-        
-        if (!user) {
+    // last user's username
+    [_dataStore lastCreatedEntity:@"User" sortedBy:@"date" completion:^(NSManagedObject *lastObject) {
+       
+        if (!lastObject) {
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-               
+                
                 self.lastUserTextField.stringValue = NSLocalizedString(@"No users",
                                                                        @"No users");
                 
@@ -149,8 +149,10 @@ completionHandler:(void (^)(NSError *))completionHandler
         else {
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-               
-                self.lastUserTextField.stringValue = user.username;
+                
+                User *lastUser = (User *)lastObject;
+                
+                self.lastUserTextField.stringValue = lastUser.username;
                 
             }];
         }

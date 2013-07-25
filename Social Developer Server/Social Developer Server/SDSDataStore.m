@@ -52,6 +52,11 @@
                         format:@"%@", inMemoryStoreCreateError];
         }
         
+        // create images memory dictionary
+        _memoryImages = [[NSMutableDictionary alloc] init];
+        _memoryImagesOperationQueue = [[NSOperationQueue alloc] init];
+        _memoryImagesOperationQueue.maxConcurrentOperationCount = 1; // serialized so we dont corrupt the dicitonary
+        
         // create admin for empty store
         [self createUser:@"Admin" completion:^(User *user) {
 
@@ -394,6 +399,48 @@
     }];
 }
 
+-(void)lastCreatedEntity:(NSString *)entityName
+                sortedBy:(NSString *)propertyToSortBy
+              completion:(void (^)(NSManagedObject *))completionBlock
+{
+    // create fetch request
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:propertyToSortBy
+                                                           ascending:YES];
+    fetchRequest.sortDescriptors = @[sort];
+    
+    [_context performBlock:^{
+        
+        NSError *fetchError;
+        NSArray *result = [_context executeFetchRequest:fetchRequest
+                                                  error:&fetchError];
+        
+        if (!result) {
+            
+            [NSException raise:@"Fetch Request Failed"
+                        format:@"%@", fetchError.localizedDescription];
+            return;
+        }
+        
+        if (!result.count) {
+            
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            
+            return;
+        }
+        
+        NSManagedObject *lastObject = result.lastObject;
+        
+        if (completionBlock) {
+            completionBlock(lastObject);
+        }
+        
+    }];
+    
+}
+
 #pragma mark - User
 
 -(void)userWithUsername:(NSString *)username
@@ -447,45 +494,6 @@
         
         if (completionBlock) {
             completionBlock(user);
-        }
-        
-    }];
-}
-
--(void)lastUser:(void (^)(User *))completionBlock
-{
-    // create fetch request
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"date"
-                                                           ascending:YES];
-    fetchRequest.sortDescriptors = @[sort];
-    
-    [_context performBlock:^{
-       
-        NSError *fetchError;
-        NSArray *result = [_context executeFetchRequest:fetchRequest
-                                                  error:&fetchError];
-        
-        if (!result) {
-            
-            [NSException raise:@"Fetch Request Failed"
-                        format:@"%@", fetchError.localizedDescription];
-            return;
-        }
-        
-        if (!result.count) {
-            
-            if (completionBlock) {
-                completionBlock(nil);
-            }
-            
-            return;
-        }
-        
-        User *lastUser = result.lastObject;
-        
-        if (completionBlock) {
-            completionBlock(lastUser);
         }
         
     }];
@@ -656,7 +664,9 @@
     }];
 }
 
--(void)createImage:(void (^)(Image *))completionBlock
+-(void)createImage:(NSData *)imageData
+          filename:(NSString *)filename
+        completion:(void (^)(Image *))completionBlock
 {
     [_context performBlock:^{
         
@@ -670,10 +680,42 @@
         
         _lastImageID = imageID;
         
-        if (completionBlock) {
-            completionBlock(image);
-        }
+        // set filename
+        image.filename = filename;
+        
+        [_memoryImagesOperationQueue addOperationWithBlock:^{
+            
+            // save to memory
+            NSString *imageIDString = [NSString stringWithFormat:@"%@", image.id];
+            [_memoryImages setObject:imageData
+                              forKey:imageIDString];
+            
+            if (completionBlock) {
+                completionBlock(image);
+            }
+        }];
     }];
+}
+
+-(NSData *)imageDataForImage:(Image *)image
+{
+    assert(image);
+    
+    // check if image is in memory or has been saved...
+    
+    NSString *imageIDString = [NSString stringWithFormat:@"%@", image.id];
+    
+    // if we have it in our temp store
+    NSData *imageData = [_memoryImages objectForKey:imageIDString];
+    if (imageData) {
+        
+        return imageData;
+    }
+    
+    // get data from disk
+    NSURL *imageDataURL = [self urlForImage:image];
+    imageData = [NSData dataWithContentsOfURL:imageDataURL];
+    return imageData;
 }
 
 #pragma mark - Link

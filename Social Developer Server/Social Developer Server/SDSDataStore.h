@@ -18,6 +18,9 @@
     
     NSPersistentStore *_memoryStore;
     NSPersistentStore *_sqliteStore;
+    
+    NSMutableDictionary *_memoryImages;
+    NSOperationQueue *_memoryImagesOperationQueue;
 }
 
 #pragma mark - Store Actions
@@ -30,13 +33,15 @@
 
 @property NSURL *packageURL;
 
-#pragma mark
+#pragma mark - Generated URLs
 
 @property (readonly) NSURL *sqliteURL;
 
 @property (readonly) NSURL *preferencesURL;
 
 @property (readonly) NSURL *savedValuesURL;
+
+-(NSURL *)urlForImage:(Image *)image;
 
 #pragma mark - Saved Preferences
 
@@ -47,6 +52,10 @@
 @property NSUInteger refreshUIInterval;
 
 #pragma mark - Common Fetch
+
+-(void)lastCreatedEntity:(NSString *)entityName
+                sortedBy:(NSString *)propertyToSortBy
+              completion:(void (^)(NSManagedObject *lastObject))completionBlock;
 
 -(void)countForEntity:(NSString *)entityName
            completion:(void (^)(NSUInteger count))completionBlock;
@@ -61,8 +70,6 @@
 
 -(void)createUser:(NSString *)username
        completion:(void (^) (User *user))completionBlock;
-
--(void)lastUser:(void (^) (User *user))completionBlock;
 
 #pragma mark - Session
 
@@ -86,9 +93,13 @@
 -(void)imageWithID:(NSUInteger)imageID
         completion:(void (^) (Image *image))completionBlock;
 
--(void)createImage:(void (^) (Image *image))completionBlock;
+-(void)createImage:(NSData *)imageData
+          filename:(NSString *)filename
+        completion:(void (^) (Image *image))completionBlock;
 
 @property (readonly) NSUInteger lastImageID;
+
+-(NSData *)imageDataForImage:(Image *)image;
 
 #pragma mark - Post
 
