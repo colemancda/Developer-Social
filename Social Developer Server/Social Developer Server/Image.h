@@ -2,7 +2,7 @@
 //  Image.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 7/21/13.
+//  Created by Alsey Coleman Miller on 8/4/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 
 @interface Image : NSManagedObject
 
+@property (nonatomic, retain) NSData * data;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * filename;
 @property (nonatomic, retain) NSNumber * id;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
@@ -72,7 +73,7 @@
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
-        <element name="Image" positionX="-1100" positionY="-180" width="128" height="120"/>
+        <element name="Image" positionX="-1100" positionY="-180" width="128" height="135"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="120"/>
         <element name="Post" positionX="-522" positionY="2" width="128" height="148"/>
         <element name="Session" positionX="-488" positionY="455" width="128" height="135"/>

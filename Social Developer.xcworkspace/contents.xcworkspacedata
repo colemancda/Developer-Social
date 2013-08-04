@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Social Developer Server/Social Developer Server.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:SocialDev/SocialDev.xcodeproj">
    </FileRef>
 </Workspace>

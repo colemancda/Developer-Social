@@ -4,29 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>sdsdata</string>
-			</array>
-			<key>CFBundleTypeMIMETypes</key>
-			<array/>
-			<key>CFBundleTypeName</key>
-			<string>Social Developer Server Data</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.ColemanCDA.socialdeveloperserver-data</string>
-			</array>
-			<key>LSTypeIsPackage</key>
-			<true/>
-			<key>NSDocumentClass</key>
-			<string>SDSDocument</string>
-		</dict>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -55,29 +32,5 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.apple.package</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Social Developer Server Data</string>
-			<key>UTTypeIdentifier</key>
-			<string>com.ColemanCDA.socialdeveloperserver-data</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>sdsdata</string>
-				</array>
-				<key>public.mime-type</key>
-				<array/>
-			</dict>
-		</dict>
-	</array>
-	<key>kSDSSaveInterval</key>
-	<integer>60</integer>
 </dict>
 </plist>
