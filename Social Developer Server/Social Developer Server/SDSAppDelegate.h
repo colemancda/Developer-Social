@@ -7,9 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class CDASQLiteDataStore, SDSServer;
 
 @interface SDSAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+
+@property (readonly) CDASQLiteDataStore *sqliteDataStore;
+
+@property (readonly) SDSServer *server;
 
 @end

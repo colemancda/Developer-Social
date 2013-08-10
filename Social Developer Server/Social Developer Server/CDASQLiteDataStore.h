@@ -44,6 +44,6 @@
 
 -(void)executeSingleResultFetchRequestTemplateWithName:(NSString *)templateName
                                  substitutionVariables:(NSDictionary *)variables
-                                            completion:(void (^) (NSManagedObject *createdEntity))completionBlock;
+                                            completion:(void (^) (NSManagedObject *fetchedObject))completionBlock;
 
 @end

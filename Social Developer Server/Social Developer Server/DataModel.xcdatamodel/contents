@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="APIApp" representedClassName="APIApp" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="usersPermissions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="app" inverseEntity="APIAppUserPermissions" syncable="YES"/>
+    </entity>
+    <entity name="APIAppUserPermissions" representedClassName="APIAppUserPermissions" syncable="YES">
+        <attribute name="canEditUserInfo" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="canPost" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="canViewUserInfo" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <relationship name="app" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIApp" inverseName="usersPermissions" inverseEntity="APIApp" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="appPermissions" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="Image" representedClassName="Image" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -59,6 +71,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SiteAccount" inverseName="user" inverseEntity="SiteAccount" syncable="YES"/>
+        <relationship name="appPermissions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="user" inverseEntity="APIAppUserPermissions" syncable="YES"/>
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="following" inverseEntity="User" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="user" inverseEntity="Image" syncable="YES"/>
@@ -80,6 +93,8 @@
         <element name="SiteAccount" positionX="-1098" positionY="419" width="128" height="90"/>
         <element name="Skill" positionX="-99" positionY="513" width="128" height="103"/>
         <element name="Team" positionX="-900" positionY="-189" width="128" height="118"/>
-        <element name="User" positionX="-1098" positionY="29" width="128" height="255"/>
+        <element name="User" positionX="-1098" positionY="29" width="128" height="270"/>
+        <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="APIApp" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>
