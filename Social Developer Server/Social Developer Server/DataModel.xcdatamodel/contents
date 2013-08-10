@@ -61,7 +61,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="team" inverseEntity="Image" syncable="YES"/>
         <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="teams" inverseEntity="User" syncable="YES"/>
-        <relationship name="postPermissions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -76,7 +75,6 @@
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="following" inverseEntity="User" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="user" inverseEntity="Image" syncable="YES"/>
-        <relationship name="postPermissions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="user" inverseEntity="Post" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
@@ -88,15 +86,15 @@
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
+        <element name="APIApp" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Image" positionX="-1100" positionY="-180" width="128" height="135"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="120"/>
         <element name="Post" positionX="-522" positionY="2" width="128" height="148"/>
         <element name="Session" positionX="-488" positionY="455" width="128" height="135"/>
         <element name="SiteAccount" positionX="-1098" positionY="419" width="128" height="90"/>
         <element name="Skill" positionX="-99" positionY="513" width="128" height="103"/>
-        <element name="Team" positionX="-900" positionY="-189" width="128" height="135"/>
-        <element name="User" positionX="-1098" positionY="29" width="128" height="285"/>
-        <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="APIApp" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Team" positionX="-900" positionY="-189" width="128" height="120"/>
+        <element name="User" positionX="-1098" positionY="29" width="128" height="270"/>
     </elements>
 </model>
