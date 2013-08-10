@@ -125,11 +125,20 @@
             
             // get user making the request
             [dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
+                
+                // get public properties
+                NSMutableDictionary *userJsonObject = [[NSMutableDictionary alloc] init];
+                
+                [userJsonObject setValue:user.date forKey:@"date"];
+                
+                
+                
                
                 // no user is authenticated
                 if (!authenticatingUser) {
                     
-                    // respond only what we are allowed to
+                    
+                    
                     
                 }
                 

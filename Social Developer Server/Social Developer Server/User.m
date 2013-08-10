@@ -39,8 +39,9 @@
     // set date
     self.date = [NSDate date];
     
-    // permissions level
+    // default permissions level
     self.permissions = [NSNumber numberWithInteger:DefaultPermissions];
+    
 }
 
 @end
