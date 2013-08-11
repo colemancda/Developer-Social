@@ -17,6 +17,7 @@
 		6E72C71517AEAF6B0045D486 /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70B17AEAF6B0045D486 /* SiteAccount.m */; };
 		6E72C71617AEAF6B0045D486 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70D17AEAF6B0045D486 /* Skill.m */; };
 		6E72C71717AEAF6B0045D486 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70F17AEAF6B0045D486 /* Team.m */; };
+		6E79DCBF17B734B90088FA2B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79DCBE17B734B90088FA2B /* Security.framework */; };
 		6E8E60D917B7326C00A49BE2 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E608917B7326C00A49BE2 /* DDData.m */; };
 		6E8E60DA17B7326C00A49BE2 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E608B17B7326C00A49BE2 /* DDNumber.m */; };
 		6E8E60DB17B7326C00A49BE2 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E608D17B7326C00A49BE2 /* DDRange.m */; };
@@ -84,6 +85,7 @@
 		6E72C70E17AEAF6B0045D486 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		6E72C70F17AEAF6B0045D486 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		6E72C71917AEB0810045D486 /* Social Developer Server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Social Developer Server.entitlements"; sourceTree = "<group>"; };
+		6E79DCBE17B734B90088FA2B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6E8E608817B7326C00A49BE2 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
 		6E8E608917B7326C00A49BE2 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
 		6E8E608A17B7326C00A49BE2 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E79DCBF17B734B90088FA2B /* Security.framework in Frameworks */,
 				6EB84B2817ADE0F50033C32C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +397,7 @@
 		6EB84B2617ADE0F50033C32C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E79DCBE17B734B90088FA2B /* Security.framework */,
 				6EB84B2717ADE0F50033C32C /* Cocoa.framework */,
 				6EB84B2917ADE0F50033C32C /* Other Frameworks */,
 			);
