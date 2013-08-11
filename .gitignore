@@ -12,3 +12,7 @@ Social Developer Server/Social Developer Server.xcodeproj/project.xcworkspace/xc
 *.xcuserstate
 
 *.xcuserstate
+
+Social Developer Server/.DS_Store
+
+*.xcuserstate
