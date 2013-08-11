@@ -166,6 +166,15 @@
                 // teams
                 if (user.teams.count) {
                     
+                    // get team IDs
+                    [userJsonObject setValue:user.teamIDs
+                                      forKey:@"teams"];
+                }
+                
+                // other site accounts
+                if (user.accounts.count) {
+                    
+                    // get account
                     
                     
                 }

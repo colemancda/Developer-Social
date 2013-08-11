@@ -8,6 +8,7 @@
 
 #import "User+Custom.h"
 #import "Skill.h"
+#import "Team.h"
 
 @implementation User (Custom)
 
@@ -43,7 +44,14 @@
 {
     // get the IDs of the teams the user is a member of...
     
+    NSMutableArray *teamIDs = [[NSMutableArray alloc] init];
     
+    for (Team *team in self.teams) {
+        
+        [teamIDs addObject:team.id];
+    }
+    
+    return teamIDs;
 }
 
 @end

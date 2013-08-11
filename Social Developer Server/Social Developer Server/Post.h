@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * text;
-@property (nonatomic, retain) NSSet *child;
+@property (nonatomic, retain) NSSet *children;
 @property (nonatomic, retain) NSSet *images;
 @property (nonatomic, retain) NSSet *links;
 @property (nonatomic, retain) Post *parent;
@@ -25,10 +25,10 @@
 
 @interface Post (CoreDataGeneratedAccessors)
 
-- (void)addChildObject:(Post *)value;
-- (void)removeChildObject:(Post *)value;
-- (void)addChild:(NSSet *)values;
-- (void)removeChild:(NSSet *)values;
+- (void)addChildrenObject:(Post *)value;
+- (void)removeChildrenObject:(Post *)value;
+- (void)addChildren:(NSSet *)values;
+- (void)removeChildren:(NSSet *)values;
 
 - (void)addImagesObject:(Image *)value;
 - (void)removeImagesObject:(Image *)value;

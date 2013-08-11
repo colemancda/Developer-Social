@@ -32,10 +32,10 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="child" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="parent" inverseEntity="Post" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="parent" inverseEntity="Post" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="post" inverseEntity="Image" syncable="YES"/>
         <relationship name="links" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Link" inverseName="post" inverseEntity="Link" syncable="YES"/>
-        <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="child" inverseEntity="Post" syncable="YES"/>
+        <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="children" inverseEntity="Post" syncable="YES"/>
         <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
@@ -94,11 +94,11 @@
         <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Image" positionX="-1100" positionY="-180" width="128" height="150"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="120"/>
-        <element name="Post" positionX="-522" positionY="2" width="128" height="165"/>
+        <element name="Post" positionX="-522" positionY="2" width="128" height="163"/>
         <element name="Session" positionX="-488" positionY="455" width="128" height="135"/>
-        <element name="SiteAccount" positionX="-1098" positionY="419" width="128" height="90"/>
+        <element name="SiteAccount" positionX="-1334" positionY="216" width="128" height="90"/>
         <element name="Skill" positionX="-99" positionY="513" width="128" height="120"/>
-        <element name="Team" positionX="-900" positionY="-189" width="128" height="120"/>
+        <element name="Team" positionX="-776" positionY="-126" width="128" height="120"/>
         <element name="User" positionX="-1098" positionY="29" width="128" height="285"/>
     </elements>
 </model>

@@ -18,7 +18,7 @@
 @dynamic date;
 @dynamic id;
 @dynamic text;
-@dynamic child;
+@dynamic children;
 @dynamic images;
 @dynamic links;
 @dynamic parent;
