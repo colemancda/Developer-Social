@@ -1,6 +1,3 @@
 [submodule "External/RoutingHTTPServer"]
 	path = External/RoutingHTTPServer
 	url = https://github.com/mattstevens/RoutingHTTPServer.git
-[submodule "RoutingHTTPServer"]
-	path = RoutingHTTPServer
-	url = https://github.com/mattstevens/RoutingHTTPServer.git
