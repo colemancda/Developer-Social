@@ -27,12 +27,6 @@
 		6EB8C89E17AF0E390051293C /* SDSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8C89D17AF0E390051293C /* SDSServer.m */; };
 		6EBFD39A17B6B73B009D208D /* APIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD39917B6B73B009D208D /* APIApp.m */; };
 		6EBFD39D17B6B73B009D208D /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */; };
-		6EC504F517B71666002C5FA9 /* HTTPResponseProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504DC17B71666002C5FA9 /* HTTPResponseProxy.m */; };
-		6EC504F617B71666002C5FA9 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504DE17B71666002C5FA9 /* Route.m */; };
-		6EC504F717B71666002C5FA9 /* RouteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E017B71666002C5FA9 /* RouteRequest.m */; };
-		6EC504F817B71666002C5FA9 /* RouteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E217B71666002C5FA9 /* RouteResponse.m */; };
-		6EC504F917B71666002C5FA9 /* RoutingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E417B71666002C5FA9 /* RoutingConnection.m */; };
-		6EC504FA17B71666002C5FA9 /* RoutingHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E617B71666002C5FA9 /* RoutingHTTPServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,18 +72,6 @@
 		6EBFD39917B6B73B009D208D /* APIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApp.m; sourceTree = "<group>"; };
 		6EBFD39B17B6B73B009D208D /* APIAppUserPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAppUserPermissions.h; sourceTree = "<group>"; };
 		6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAppUserPermissions.m; sourceTree = "<group>"; };
-		6EC504DB17B71666002C5FA9 /* HTTPResponseProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponseProxy.h; sourceTree = "<group>"; };
-		6EC504DC17B71666002C5FA9 /* HTTPResponseProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPResponseProxy.m; sourceTree = "<group>"; };
-		6EC504DD17B71666002C5FA9 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
-		6EC504DE17B71666002C5FA9 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
-		6EC504DF17B71666002C5FA9 /* RouteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteRequest.h; sourceTree = "<group>"; };
-		6EC504E017B71666002C5FA9 /* RouteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteRequest.m; sourceTree = "<group>"; };
-		6EC504E117B71666002C5FA9 /* RouteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteResponse.h; sourceTree = "<group>"; };
-		6EC504E217B71666002C5FA9 /* RouteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteResponse.m; sourceTree = "<group>"; };
-		6EC504E317B71666002C5FA9 /* RoutingConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutingConnection.h; sourceTree = "<group>"; };
-		6EC504E417B71666002C5FA9 /* RoutingConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingConnection.m; sourceTree = "<group>"; };
-		6EC504E517B71666002C5FA9 /* RoutingHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutingHTTPServer.h; sourceTree = "<group>"; };
-		6EC504E617B71666002C5FA9 /* RoutingHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingHTTPServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +195,6 @@
 		6EB84B2E17ADE0F50033C32C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6EC504BB17B71666002C5FA9 /* External */,
 				6E72C71917AEB0810045D486 /* Social Developer Server.entitlements */,
 				6EB84B2F17ADE0F50033C32C /* Social Developer Server-Info.plist */,
 				6EB84B3017ADE0F50033C32C /* InfoPlist.strings */,
@@ -231,58 +212,6 @@
 				6EB8C89D17AF0E390051293C /* SDSServer.m */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		6EC504BB17B71666002C5FA9 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504BC17B71666002C5FA9 /* RoutingHTTPServer */,
-			);
-			name = External;
-			path = ../../External;
-			sourceTree = "<group>";
-		};
-		6EC504BC17B71666002C5FA9 /* RoutingHTTPServer */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504D517B71666002C5FA9 /* External */,
-				6EC504DA17B71666002C5FA9 /* Source */,
-			);
-			path = RoutingHTTPServer;
-			sourceTree = "<group>";
-		};
-		6EC504D517B71666002C5FA9 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504D617B71666002C5FA9 /* CocoaHTTPServer */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		6EC504D617B71666002C5FA9 /* CocoaHTTPServer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CocoaHTTPServer;
-			sourceTree = "<group>";
-		};
-		6EC504DA17B71666002C5FA9 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504DB17B71666002C5FA9 /* HTTPResponseProxy.h */,
-				6EC504DC17B71666002C5FA9 /* HTTPResponseProxy.m */,
-				6EC504DD17B71666002C5FA9 /* Route.h */,
-				6EC504DE17B71666002C5FA9 /* Route.m */,
-				6EC504DF17B71666002C5FA9 /* RouteRequest.h */,
-				6EC504E017B71666002C5FA9 /* RouteRequest.m */,
-				6EC504E117B71666002C5FA9 /* RouteResponse.h */,
-				6EC504E217B71666002C5FA9 /* RouteResponse.m */,
-				6EC504E317B71666002C5FA9 /* RoutingConnection.h */,
-				6EC504E417B71666002C5FA9 /* RoutingConnection.m */,
-				6EC504E517B71666002C5FA9 /* RoutingHTTPServer.h */,
-				6EC504E617B71666002C5FA9 /* RoutingHTTPServer.m */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +250,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 6EB84B1B17ADE0F50033C32C;
 			productRefGroup = 6EB84B2517ADE0F50033C32C /* Products */;
@@ -366,12 +296,6 @@
 				6EB8C89E17AF0E390051293C /* SDSServer.m in Sources */,
 				6EBFD39A17B6B73B009D208D /* APIApp.m in Sources */,
 				6EBFD39D17B6B73B009D208D /* APIAppUserPermissions.m in Sources */,
-				6EC504F517B71666002C5FA9 /* HTTPResponseProxy.m in Sources */,
-				6EC504F617B71666002C5FA9 /* Route.m in Sources */,
-				6EC504F717B71666002C5FA9 /* RouteRequest.m in Sources */,
-				6EC504F817B71666002C5FA9 /* RouteResponse.m in Sources */,
-				6EC504F917B71666002C5FA9 /* RoutingConnection.m in Sources */,
-				6EC504FA17B71666002C5FA9 /* RoutingHTTPServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
