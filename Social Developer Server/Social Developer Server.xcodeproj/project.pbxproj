@@ -7,16 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E5E208A17AEB30B00B0D5C7 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E208917AEB30B00B0D5C7 /* Image.m */; };
 		6E5E208D17AEC56500B0D5C7 /* CDASQLiteDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E208C17AEC56500B0D5C7 /* CDASQLiteDataStore.m */; };
 		6E72C6FC17AEAA320045D486 /* NSString+RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C6FB17AEAA320045D486 /* NSString+RandomString.m */; };
-		6E72C71017AEAF6B0045D486 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70117AEAF6B0045D486 /* User.m */; };
-		6E72C71117AEAF6B0045D486 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70317AEAF6B0045D486 /* Link.m */; };
-		6E72C71317AEAF6B0045D486 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70717AEAF6B0045D486 /* Post.m */; };
-		6E72C71417AEAF6B0045D486 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70917AEAF6B0045D486 /* Session.m */; };
-		6E72C71517AEAF6B0045D486 /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70B17AEAF6B0045D486 /* SiteAccount.m */; };
-		6E72C71617AEAF6B0045D486 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70D17AEAF6B0045D486 /* Skill.m */; };
-		6E72C71717AEAF6B0045D486 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C70F17AEAF6B0045D486 /* Team.m */; };
 		6E79DCBF17B734B90088FA2B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79DCBE17B734B90088FA2B /* Security.framework */; };
 		6E8E60D917B7326C00A49BE2 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E608917B7326C00A49BE2 /* DDData.m */; };
 		6E8E60DA17B7326C00A49BE2 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E608B17B7326C00A49BE2 /* DDNumber.m */; };
@@ -50,6 +42,17 @@
 		6E8E60FA17B7326C00A49BE2 /* RouteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D417B7326C00A49BE2 /* RouteResponse.m */; };
 		6E8E60FB17B7326C00A49BE2 /* RoutingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D617B7326C00A49BE2 /* RoutingConnection.m */; };
 		6E8E60FC17B7326C00A49BE2 /* RoutingHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D817B7326C00A49BE2 /* RoutingHTTPServer.m */; };
+		6E9E571617B7E7D7008D67DC /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571517B7E7D7008D67DC /* Skill.m */; };
+		6E9E571917B7E7D7008D67DC /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571817B7E7D7008D67DC /* Link.m */; };
+		6E9E571C17B7E7D7008D67DC /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571B17B7E7D7008D67DC /* Image.m */; };
+		6E9E571F17B7E7D8008D67DC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571E17B7E7D8008D67DC /* User.m */; };
+		6E9E572217B7E7D8008D67DC /* APIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572117B7E7D8008D67DC /* APIApp.m */; };
+		6E9E572517B7E7D8008D67DC /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572417B7E7D8008D67DC /* Team.m */; };
+		6E9E572817B7E7D8008D67DC /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572717B7E7D8008D67DC /* APIAppUserPermissions.m */; };
+		6E9E572B17B7E7D8008D67DC /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572A17B7E7D8008D67DC /* Post.m */; };
+		6E9E572E17B7E7D8008D67DC /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572D17B7E7D8008D67DC /* Session.m */; };
+		6E9E573117B7E7D9008D67DC /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E573017B7E7D9008D67DC /* SiteAccount.m */; };
+		6E9E573517B7E892008D67DC /* User+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E573417B7E892008D67DC /* User+Custom.m */; };
 		6EB84B2817ADE0F50033C32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB84B2717ADE0F50033C32C /* Cocoa.framework */; };
 		6EB84B3217ADE0F50033C32C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EB84B3017ADE0F50033C32C /* InfoPlist.strings */; };
 		6EB84B3417ADE0F50033C32C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB84B3317ADE0F50033C32C /* main.m */; };
@@ -58,32 +61,14 @@
 		6EB84B3E17ADE0F60033C32C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB84B3C17ADE0F60033C32C /* MainMenu.xib */; };
 		6EB84B4717ADE6130033C32C /* DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6EB84B4417ADE6130033C32C /* DataModel.xcdatamodel */; };
 		6EB8C89E17AF0E390051293C /* SDSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8C89D17AF0E390051293C /* SDSServer.m */; };
-		6EBFD39A17B6B73B009D208D /* APIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD39917B6B73B009D208D /* APIApp.m */; };
-		6EBFD39D17B6B73B009D208D /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6E5E208817AEB30B00B0D5C7 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		6E5E208917AEB30B00B0D5C7 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		6E5E208B17AEC56500B0D5C7 /* CDASQLiteDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASQLiteDataStore.h; sourceTree = "<group>"; };
 		6E5E208C17AEC56500B0D5C7 /* CDASQLiteDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASQLiteDataStore.m; sourceTree = "<group>"; };
 		6E72C6F917AEAA320045D486 /* NSObject+CompletionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CompletionBlock.h"; sourceTree = "<group>"; };
 		6E72C6FA17AEAA320045D486 /* NSString+RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomString.h"; sourceTree = "<group>"; };
 		6E72C6FB17AEAA320045D486 /* NSString+RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomString.m"; sourceTree = "<group>"; };
-		6E72C70017AEAF6B0045D486 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6E72C70117AEAF6B0045D486 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		6E72C70217AEAF6B0045D486 /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
-		6E72C70317AEAF6B0045D486 /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
-		6E72C70617AEAF6B0045D486 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		6E72C70717AEAF6B0045D486 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		6E72C70817AEAF6B0045D486 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		6E72C70917AEAF6B0045D486 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
-		6E72C70A17AEAF6B0045D486 /* SiteAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccount.h; sourceTree = "<group>"; };
-		6E72C70B17AEAF6B0045D486 /* SiteAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteAccount.m; sourceTree = "<group>"; };
-		6E72C70C17AEAF6B0045D486 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
-		6E72C70D17AEAF6B0045D486 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
-		6E72C70E17AEAF6B0045D486 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
-		6E72C70F17AEAF6B0045D486 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		6E72C71917AEB0810045D486 /* Social Developer Server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Social Developer Server.entitlements"; sourceTree = "<group>"; };
 		6E79DCBE17B734B90088FA2B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6E8E608817B7326C00A49BE2 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
@@ -151,6 +136,29 @@
 		6E8E60D617B7326C00A49BE2 /* RoutingConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingConnection.m; sourceTree = "<group>"; };
 		6E8E60D717B7326C00A49BE2 /* RoutingHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutingHTTPServer.h; sourceTree = "<group>"; };
 		6E8E60D817B7326C00A49BE2 /* RoutingHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingHTTPServer.m; sourceTree = "<group>"; };
+		6E9E571417B7E7D7008D67DC /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		6E9E571517B7E7D7008D67DC /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		6E9E571717B7E7D7008D67DC /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
+		6E9E571817B7E7D7008D67DC /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
+		6E9E571A17B7E7D7008D67DC /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		6E9E571B17B7E7D7008D67DC /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		6E9E571D17B7E7D8008D67DC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6E9E571E17B7E7D8008D67DC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		6E9E572017B7E7D8008D67DC /* APIApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIApp.h; sourceTree = "<group>"; };
+		6E9E572117B7E7D8008D67DC /* APIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApp.m; sourceTree = "<group>"; };
+		6E9E572317B7E7D8008D67DC /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		6E9E572417B7E7D8008D67DC /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		6E9E572617B7E7D8008D67DC /* APIAppUserPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAppUserPermissions.h; sourceTree = "<group>"; };
+		6E9E572717B7E7D8008D67DC /* APIAppUserPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAppUserPermissions.m; sourceTree = "<group>"; };
+		6E9E572917B7E7D8008D67DC /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		6E9E572A17B7E7D8008D67DC /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		6E9E572C17B7E7D8008D67DC /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		6E9E572D17B7E7D8008D67DC /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		6E9E572F17B7E7D8008D67DC /* SiteAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccount.h; sourceTree = "<group>"; };
+		6E9E573017B7E7D9008D67DC /* SiteAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteAccount.m; sourceTree = "<group>"; };
+		6E9E573317B7E892008D67DC /* User+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Custom.h"; sourceTree = "<group>"; };
+		6E9E573417B7E892008D67DC /* User+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Custom.m"; sourceTree = "<group>"; };
+		6E9E573617B7E8FF008D67DC /* SDSDataModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSDataModels.h; sourceTree = "<group>"; };
 		6EB84B2417ADE0F50033C32C /* Social Developer Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Developer Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB84B2717ADE0F50033C32C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6EB84B2A17ADE0F50033C32C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -167,10 +175,6 @@
 		6EB84B4417ADE6130033C32C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6EB8C89C17AF0E390051293C /* SDSServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSServer.h; sourceTree = "<group>"; };
 		6EB8C89D17AF0E390051293C /* SDSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSServer.m; sourceTree = "<group>"; };
-		6EBFD39817B6B73B009D208D /* APIApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIApp.h; sourceTree = "<group>"; };
-		6EBFD39917B6B73B009D208D /* APIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApp.m; sourceTree = "<group>"; };
-		6EBFD39B17B6B73B009D208D /* APIAppUserPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAppUserPermissions.h; sourceTree = "<group>"; };
-		6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAppUserPermissions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,26 +221,9 @@
 		6E72C71817AEAF700045D486 /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
-				6EBFD39B17B6B73B009D208D /* APIAppUserPermissions.h */,
-				6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */,
-				6EBFD39817B6B73B009D208D /* APIApp.h */,
-				6EBFD39917B6B73B009D208D /* APIApp.m */,
-				6E5E208817AEB30B00B0D5C7 /* Image.h */,
-				6E5E208917AEB30B00B0D5C7 /* Image.m */,
-				6E72C70017AEAF6B0045D486 /* User.h */,
-				6E72C70117AEAF6B0045D486 /* User.m */,
-				6E72C70217AEAF6B0045D486 /* Link.h */,
-				6E72C70317AEAF6B0045D486 /* Link.m */,
-				6E72C70617AEAF6B0045D486 /* Post.h */,
-				6E72C70717AEAF6B0045D486 /* Post.m */,
-				6E72C70817AEAF6B0045D486 /* Session.h */,
-				6E72C70917AEAF6B0045D486 /* Session.m */,
-				6E72C70A17AEAF6B0045D486 /* SiteAccount.h */,
-				6E72C70B17AEAF6B0045D486 /* SiteAccount.m */,
-				6E72C70C17AEAF6B0045D486 /* Skill.h */,
-				6E72C70D17AEAF6B0045D486 /* Skill.m */,
-				6E72C70E17AEAF6B0045D486 /* Team.h */,
-				6E72C70F17AEAF6B0045D486 /* Team.m */,
+				6E9E573617B7E8FF008D67DC /* SDSDataModels.h */,
+				6E9E571317B7E75B008D67DC /* Custom */,
+				6E9E571217B7E74B008D67DC /* Generated */,
 			);
 			name = NSManagedObject;
 			sourceTree = "<group>";
@@ -377,6 +364,42 @@
 			path = RoutingHTTPServer;
 			sourceTree = "<group>";
 		};
+		6E9E571217B7E74B008D67DC /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				6E9E572F17B7E7D8008D67DC /* SiteAccount.h */,
+				6E9E573017B7E7D9008D67DC /* SiteAccount.m */,
+				6E9E572C17B7E7D8008D67DC /* Session.h */,
+				6E9E572D17B7E7D8008D67DC /* Session.m */,
+				6E9E572917B7E7D8008D67DC /* Post.h */,
+				6E9E572A17B7E7D8008D67DC /* Post.m */,
+				6E9E572617B7E7D8008D67DC /* APIAppUserPermissions.h */,
+				6E9E572717B7E7D8008D67DC /* APIAppUserPermissions.m */,
+				6E9E572317B7E7D8008D67DC /* Team.h */,
+				6E9E572417B7E7D8008D67DC /* Team.m */,
+				6E9E572017B7E7D8008D67DC /* APIApp.h */,
+				6E9E572117B7E7D8008D67DC /* APIApp.m */,
+				6E9E571D17B7E7D8008D67DC /* User.h */,
+				6E9E571E17B7E7D8008D67DC /* User.m */,
+				6E9E571A17B7E7D7008D67DC /* Image.h */,
+				6E9E571B17B7E7D7008D67DC /* Image.m */,
+				6E9E571717B7E7D7008D67DC /* Link.h */,
+				6E9E571817B7E7D7008D67DC /* Link.m */,
+				6E9E571417B7E7D7008D67DC /* Skill.h */,
+				6E9E571517B7E7D7008D67DC /* Skill.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		6E9E571317B7E75B008D67DC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				6E9E573317B7E892008D67DC /* User+Custom.h */,
+				6E9E573417B7E892008D67DC /* User+Custom.m */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
 		6EB84B1B17ADE0F50033C32C = {
 			isa = PBXGroup;
 			children = (
@@ -421,8 +444,8 @@
 				6EB84B3A17ADE0F50033C32C /* SDSAppDelegate.m */,
 				6EB84B3C17ADE0F60033C32C /* MainMenu.xib */,
 				6EB84B4417ADE6130033C32C /* DataModel.xcdatamodel */,
-				6E72C6FD17AEAA3A0045D486 /* Model */,
 				6EB8C89717AF0D350051293C /* Controllers */,
+				6E72C6FD17AEAA3A0045D486 /* Model */,
 				6E72C6FF17AEAA500045D486 /* Stores */,
 				6EB84B2E17ADE0F50033C32C /* Supporting Files */,
 			);
@@ -522,18 +545,8 @@
 				6EB84B3B17ADE0F50033C32C /* SDSAppDelegate.m in Sources */,
 				6EB84B4717ADE6130033C32C /* DataModel.xcdatamodel in Sources */,
 				6E72C6FC17AEAA320045D486 /* NSString+RandomString.m in Sources */,
-				6E72C71017AEAF6B0045D486 /* User.m in Sources */,
-				6E72C71117AEAF6B0045D486 /* Link.m in Sources */,
-				6E72C71317AEAF6B0045D486 /* Post.m in Sources */,
-				6E72C71417AEAF6B0045D486 /* Session.m in Sources */,
-				6E72C71517AEAF6B0045D486 /* SiteAccount.m in Sources */,
-				6E72C71617AEAF6B0045D486 /* Skill.m in Sources */,
-				6E72C71717AEAF6B0045D486 /* Team.m in Sources */,
-				6E5E208A17AEB30B00B0D5C7 /* Image.m in Sources */,
 				6E5E208D17AEC56500B0D5C7 /* CDASQLiteDataStore.m in Sources */,
 				6EB8C89E17AF0E390051293C /* SDSServer.m in Sources */,
-				6EBFD39A17B6B73B009D208D /* APIApp.m in Sources */,
-				6EBFD39D17B6B73B009D208D /* APIAppUserPermissions.m in Sources */,
 				6E8E60D917B7326C00A49BE2 /* DDData.m in Sources */,
 				6E8E60DA17B7326C00A49BE2 /* DDNumber.m in Sources */,
 				6E8E60DB17B7326C00A49BE2 /* DDRange.m in Sources */,
@@ -565,6 +578,17 @@
 				6E8E60FA17B7326C00A49BE2 /* RouteResponse.m in Sources */,
 				6E8E60FB17B7326C00A49BE2 /* RoutingConnection.m in Sources */,
 				6E8E60FC17B7326C00A49BE2 /* RoutingHTTPServer.m in Sources */,
+				6E9E571617B7E7D7008D67DC /* Skill.m in Sources */,
+				6E9E571917B7E7D7008D67DC /* Link.m in Sources */,
+				6E9E571C17B7E7D7008D67DC /* Image.m in Sources */,
+				6E9E571F17B7E7D8008D67DC /* User.m in Sources */,
+				6E9E572217B7E7D8008D67DC /* APIApp.m in Sources */,
+				6E9E572517B7E7D8008D67DC /* Team.m in Sources */,
+				6E9E572817B7E7D8008D67DC /* APIAppUserPermissions.m in Sources */,
+				6E9E572B17B7E7D8008D67DC /* Post.m in Sources */,
+				6E9E572E17B7E7D8008D67DC /* Session.m in Sources */,
+				6E9E573117B7E7D9008D67DC /* SiteAccount.m in Sources */,
+				6E9E573517B7E892008D67DC /* User+Custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

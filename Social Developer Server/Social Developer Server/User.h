@@ -2,22 +2,14 @@
 //  User.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 7/23/13.
+//  Created by Alsey Coleman Miller on 8/11/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-typedef NS_ENUM(NSUInteger, UserPermissions) {
-    
-    DefaultPermissions = 0,
-    Moderator = 98,
-    Admin = 99
-    
-};
-
-@class Image, Post, Session, SiteAccount, Team, User;
+@class APIAppUserPermissions, Image, Post, Session, SiteAccount, Skill, Team, User;
 
 @interface User : NSManagedObject
 
@@ -29,11 +21,13 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSString * website;
 @property (nonatomic, retain) NSSet *accounts;
+@property (nonatomic, retain) NSSet *appPermissions;
 @property (nonatomic, retain) NSSet *followers;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) Image *image;
 @property (nonatomic, retain) NSSet *posts;
 @property (nonatomic, retain) NSSet *sessions;
+@property (nonatomic, retain) NSSet *skills;
 @property (nonatomic, retain) NSSet *teams;
 @end
 
@@ -43,6 +37,11 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 - (void)removeAccountsObject:(SiteAccount *)value;
 - (void)addAccounts:(NSSet *)values;
 - (void)removeAccounts:(NSSet *)values;
+
+- (void)addAppPermissionsObject:(APIAppUserPermissions *)value;
+- (void)removeAppPermissionsObject:(APIAppUserPermissions *)value;
+- (void)addAppPermissions:(NSSet *)values;
+- (void)removeAppPermissions:(NSSet *)values;
 
 - (void)addFollowersObject:(User *)value;
 - (void)removeFollowersObject:(User *)value;
@@ -63,6 +62,11 @@ typedef NS_ENUM(NSUInteger, UserPermissions) {
 - (void)removeSessionsObject:(Session *)value;
 - (void)addSessions:(NSSet *)values;
 - (void)removeSessions:(NSSet *)values;
+
+- (void)addSkillsObject:(Skill *)value;
+- (void)removeSkillsObject:(Skill *)value;
+- (void)addSkills:(NSSet *)values;
+- (void)removeSkills:(NSSet *)values;
 
 - (void)addTeamsObject:(Team *)value;
 - (void)removeTeamsObject:(Team *)value;

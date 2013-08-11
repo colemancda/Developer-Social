@@ -12,9 +12,7 @@
 #import "SDSAppDelegate.h"
 #import "CDASQLiteDataStore.h"
 
-#import "User.h"
-#import "Session.h"
-#import "Link.h"
+#import "SDSDataModels.h"
 
 @implementation CDASQLiteDataStore (UserAuthentication)
 
@@ -72,7 +70,9 @@
 }
 
 -(NSError *)startWithPort:(NSUInteger)port
-{    
+{
+    NSAssert(self.dataStore, @"You must set the dataStore property in order for this controller to work");
+    
     _server = [[RoutingHTTPServer alloc] init];
     _server.port = port;
     
@@ -102,16 +102,12 @@
 
 -(void)setupRoutes
 {
-    SDSAppDelegate *appDelegate = [NSApp delegate];
-    
-    CDASQLiteDataStore *dataStore = appDelegate.sqliteDataStore;
-    
     // Get user info
     [_server get:@"/user/:username" withBlock:^(RouteRequest *request, RouteResponse *response) {
         
         NSString *username = request.params[@"username"];
         
-        [dataStore executeSingleResultFetchRequestTemplateWithName:@"UserWithUsername" substitutionVariables:@{@"USERNAME": username} completion:^(NSManagedObject *fetchedObject) {
+        [self.dataStore executeSingleResultFetchRequestTemplateWithName:@"UserWithUsername" substitutionVariables:@{@"USERNAME": username} completion:^(NSManagedObject *fetchedObject) {
            
             if (!fetchedObject) {
                 
@@ -124,19 +120,58 @@
             User *user = (User *)fetchedObject;
             
             // get user making the request
-            [dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
+            [self.dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
                 
                 // get public properties
                 NSMutableDictionary *userJsonObject = [[NSMutableDictionary alloc] init];
                 
-                [userJsonObject setValue:user.date forKey:@"date"];
+                // date joined
+                [userJsonObject setValue:user.date
+                                  forKey:@"date"];
                 
+                // website
+                if (user.website) {
+                    [userJsonObject setValue:user.website
+                                      forKey:@"website"];
+                }
                 
+                // location
+                if (user.location) {
+                    [userJsonObject setValue:user.location
+                                      forKey:@"location"];
+                }
                 
+                // about
+                if (user.about) {
+                    [userJsonObject setValue:user.about
+                                      forKey:@"about"];
+                }
+                
+                // image
+                if (user.image) {
+                    
+                    // attach ID
+                    [userJsonObject setValue:user.image.id
+                                      forKey:@"image"];
+                }
+                
+                // skills
+                if (user.skills.count) {
+                    
+                    // get the name for each skill
+                    [userJsonObject setValue:user.skillsNames
+                                      forKey:@"skills"];
+                }
+                
+                // teams
+                if (user.teams.count) {
+                    
+                    
+                    
+                }
                
                 // no user is authenticated
                 if (!authenticatingUser) {
-                    
                     
                     
                     

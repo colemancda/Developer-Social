@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class RoutingHTTPServer;
+@class RoutingHTTPServer, CDASQLiteDataStore;
 
 @interface SDSServer : NSObject
 {
     RoutingHTTPServer *_server;
 
 }
+
+@property CDASQLiteDataStore *dataStore;
 
 -(NSError *)startWithPort:(NSUInteger)port;
 

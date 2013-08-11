@@ -17,4 +17,6 @@
 
 @property (readonly) SDSServer *server;
 
+-(void)setupServer;
+
 @end

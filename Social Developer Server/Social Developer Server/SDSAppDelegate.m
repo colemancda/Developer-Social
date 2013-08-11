@@ -16,6 +16,12 @@
 {
     // Insert code here to initialize your application
     
+    [self setupServer];
+    
+}
+
+-(void)setupServer
+{
     // App Support Directory
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
                                                          NSUserDomainMask,
@@ -56,7 +62,7 @@
     
     _server = [[SDSServer alloc] init];
     
-    
+    _server.dataStore = _sqliteDataStore;
 }
 
 @end
