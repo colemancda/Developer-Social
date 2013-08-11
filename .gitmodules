@@ -1,3 +1,3 @@
-[submodule "External/CocoaHTTPServer"]
-	path = External/CocoaHTTPServer
-	url = https://github.com/robbiehanson/CocoaHTTPServer.git
+[submodule "External/RoutingHTTPServer"]
+	path = External/RoutingHTTPServer
+	url = https://github.com/mattstevens/RoutingHTTPServer.git
