@@ -71,7 +71,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SiteAccount" inverseName="user" inverseEntity="SiteAccount" syncable="YES"/>
-        <relationship name="appPermissions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="user" inverseEntity="APIAppUserPermissions" syncable="YES"/>
+        <relationship name="appPermissions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="user" inverseEntity="APIAppUserPermissions" syncable="YES"/>
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="following" inverseEntity="User" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="user" inverseEntity="Image" syncable="YES"/>
