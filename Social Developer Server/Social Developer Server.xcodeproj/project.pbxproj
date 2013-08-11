@@ -27,20 +27,6 @@
 		6EB8C89E17AF0E390051293C /* SDSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8C89D17AF0E390051293C /* SDSServer.m */; };
 		6EBFD39A17B6B73B009D208D /* APIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD39917B6B73B009D208D /* APIApp.m */; };
 		6EBFD39D17B6B73B009D208D /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */; };
-		6EC504E717B71666002C5FA9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504BD17B71666002C5FA9 /* .gitignore */; };
-		6EC504E817B71666002C5FA9 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504BE17B71666002C5FA9 /* .gitmodules */; };
-		6EC504E917B71666002C5FA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504C217B71666002C5FA9 /* AppDelegate.m */; };
-		6EC504EA17B71666002C5FA9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504C317B71666002C5FA9 /* Credits.rtf */; };
-		6EC504EB17B71666002C5FA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504C517B71666002C5FA9 /* InfoPlist.strings */; };
-		6EC504EC17B71666002C5FA9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504C717B71666002C5FA9 /* MainMenu.xib */; };
-		6EC504ED17B71666002C5FA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504C917B71666002C5FA9 /* main.m */; };
-		6EC504EE17B71666002C5FA9 /* RoutingHTTPServer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504CA17B71666002C5FA9 /* RoutingHTTPServer-Info.plist */; };
-		6EC504EF17B71666002C5FA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504D017B71666002C5FA9 /* InfoPlist.strings */; };
-		6EC504F017B71666002C5FA9 /* RoutingHTTPServerTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504D217B71666002C5FA9 /* RoutingHTTPServerTests-Info.plist */; };
-		6EC504F117B71666002C5FA9 /* RoutingHTTPServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504D417B71666002C5FA9 /* RoutingHTTPServerTests.m */; };
-		6EC504F217B71666002C5FA9 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504D717B71666002C5FA9 /* LICENSE.txt */; };
-		6EC504F317B71666002C5FA9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504D817B71666002C5FA9 /* README.md */; };
-		6EC504F417B71666002C5FA9 /* RoutingHTTPServer.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6EC504D917B71666002C5FA9 /* RoutingHTTPServer.podspec */; };
 		6EC504F517B71666002C5FA9 /* HTTPResponseProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504DC17B71666002C5FA9 /* HTTPResponseProxy.m */; };
 		6EC504F617B71666002C5FA9 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504DE17B71666002C5FA9 /* Route.m */; };
 		6EC504F717B71666002C5FA9 /* RouteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E017B71666002C5FA9 /* RouteRequest.m */; };
@@ -48,23 +34,6 @@
 		6EC504F917B71666002C5FA9 /* RoutingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E417B71666002C5FA9 /* RoutingConnection.m */; };
 		6EC504FA17B71666002C5FA9 /* RoutingHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC504E617B71666002C5FA9 /* RoutingHTTPServer.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6EC504FD17B71666002C5FA9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EC504CC17B71666002C5FA9 /* RoutingHTTPServer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C99CEC85147959C200F648A5;
-			remoteInfo = RoutingHTTPServer;
-		};
-		6EC504FF17B71666002C5FA9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EC504CC17B71666002C5FA9 /* RoutingHTTPServer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C99CECA6147959C300F648A5;
-			remoteInfo = RoutingHTTPServerTests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6E5E208817AEB30B00B0D5C7 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -109,24 +78,6 @@
 		6EBFD39917B6B73B009D208D /* APIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApp.m; sourceTree = "<group>"; };
 		6EBFD39B17B6B73B009D208D /* APIAppUserPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAppUserPermissions.h; sourceTree = "<group>"; };
 		6EBFD39C17B6B73B009D208D /* APIAppUserPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAppUserPermissions.m; sourceTree = "<group>"; };
-		6EC504BD17B71666002C5FA9 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6EC504BE17B71666002C5FA9 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		6EC504C117B71666002C5FA9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6EC504C217B71666002C5FA9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6EC504C417B71666002C5FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		6EC504C617B71666002C5FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6EC504C817B71666002C5FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		6EC504C917B71666002C5FA9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6EC504CA17B71666002C5FA9 /* RoutingHTTPServer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RoutingHTTPServer-Info.plist"; sourceTree = "<group>"; };
-		6EC504CB17B71666002C5FA9 /* RoutingHTTPServer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RoutingHTTPServer-Prefix.pch"; sourceTree = "<group>"; };
-		6EC504CC17B71666002C5FA9 /* RoutingHTTPServer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = RoutingHTTPServer.xcodeproj; sourceTree = "<group>"; };
-		6EC504D117B71666002C5FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6EC504D217B71666002C5FA9 /* RoutingHTTPServerTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RoutingHTTPServerTests-Info.plist"; sourceTree = "<group>"; };
-		6EC504D317B71666002C5FA9 /* RoutingHTTPServerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutingHTTPServerTests.h; sourceTree = "<group>"; };
-		6EC504D417B71666002C5FA9 /* RoutingHTTPServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingHTTPServerTests.m; sourceTree = "<group>"; };
-		6EC504D717B71666002C5FA9 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		6EC504D817B71666002C5FA9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		6EC504D917B71666002C5FA9 /* RoutingHTTPServer.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RoutingHTTPServer.podspec; sourceTree = "<group>"; };
 		6EC504DB17B71666002C5FA9 /* HTTPResponseProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponseProxy.h; sourceTree = "<group>"; };
 		6EC504DC17B71666002C5FA9 /* HTTPResponseProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPResponseProxy.m; sourceTree = "<group>"; };
 		6EC504DD17B71666002C5FA9 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
@@ -294,61 +245,10 @@
 		6EC504BC17B71666002C5FA9 /* RoutingHTTPServer */ = {
 			isa = PBXGroup;
 			children = (
-				6EC504BD17B71666002C5FA9 /* .gitignore */,
-				6EC504BE17B71666002C5FA9 /* .gitmodules */,
-				6EC504BF17B71666002C5FA9 /* Example */,
 				6EC504D517B71666002C5FA9 /* External */,
-				6EC504D717B71666002C5FA9 /* LICENSE.txt */,
-				6EC504D817B71666002C5FA9 /* README.md */,
-				6EC504D917B71666002C5FA9 /* RoutingHTTPServer.podspec */,
 				6EC504DA17B71666002C5FA9 /* Source */,
 			);
 			path = RoutingHTTPServer;
-			sourceTree = "<group>";
-		};
-		6EC504BF17B71666002C5FA9 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504C017B71666002C5FA9 /* RoutingHTTPServer */,
-				6EC504CC17B71666002C5FA9 /* RoutingHTTPServer.xcodeproj */,
-				6EC504CF17B71666002C5FA9 /* RoutingHTTPServerTests */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		6EC504C017B71666002C5FA9 /* RoutingHTTPServer */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504C117B71666002C5FA9 /* AppDelegate.h */,
-				6EC504C217B71666002C5FA9 /* AppDelegate.m */,
-				6EC504C317B71666002C5FA9 /* Credits.rtf */,
-				6EC504C517B71666002C5FA9 /* InfoPlist.strings */,
-				6EC504C717B71666002C5FA9 /* MainMenu.xib */,
-				6EC504C917B71666002C5FA9 /* main.m */,
-				6EC504CA17B71666002C5FA9 /* RoutingHTTPServer-Info.plist */,
-				6EC504CB17B71666002C5FA9 /* RoutingHTTPServer-Prefix.pch */,
-			);
-			path = RoutingHTTPServer;
-			sourceTree = "<group>";
-		};
-		6EC504CD17B71666002C5FA9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504FE17B71666002C5FA9 /* RoutingHTTPServer.app */,
-				6EC5050017B71666002C5FA9 /* RoutingHTTPServerTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6EC504CF17B71666002C5FA9 /* RoutingHTTPServerTests */ = {
-			isa = PBXGroup;
-			children = (
-				6EC504D017B71666002C5FA9 /* InfoPlist.strings */,
-				6EC504D217B71666002C5FA9 /* RoutingHTTPServerTests-Info.plist */,
-				6EC504D317B71666002C5FA9 /* RoutingHTTPServerTests.h */,
-				6EC504D417B71666002C5FA9 /* RoutingHTTPServerTests.m */,
-			);
-			path = RoutingHTTPServerTests;
 			sourceTree = "<group>";
 		};
 		6EC504D517B71666002C5FA9 /* External */ = {
@@ -425,35 +325,12 @@
 			mainGroup = 6EB84B1B17ADE0F50033C32C;
 			productRefGroup = 6EB84B2517ADE0F50033C32C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6EC504CD17B71666002C5FA9 /* Products */;
-					ProjectRef = 6EC504CC17B71666002C5FA9 /* RoutingHTTPServer.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6EB84B2317ADE0F50033C32C /* Social Developer Server */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6EC504FE17B71666002C5FA9 /* RoutingHTTPServer.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = RoutingHTTPServer.app;
-			remoteRef = 6EC504FD17B71666002C5FA9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6EC5050017B71666002C5FA9 /* RoutingHTTPServerTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RoutingHTTPServerTests.octest;
-			remoteRef = 6EC504FF17B71666002C5FA9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6EB84B2217ADE0F50033C32C /* Resources */ = {
@@ -463,17 +340,6 @@
 				6EB84B3217ADE0F50033C32C /* InfoPlist.strings in Resources */,
 				6EB84B3817ADE0F50033C32C /* Credits.rtf in Resources */,
 				6EB84B3E17ADE0F60033C32C /* MainMenu.xib in Resources */,
-				6EC504E717B71666002C5FA9 /* .gitignore in Resources */,
-				6EC504E817B71666002C5FA9 /* .gitmodules in Resources */,
-				6EC504EA17B71666002C5FA9 /* Credits.rtf in Resources */,
-				6EC504EB17B71666002C5FA9 /* InfoPlist.strings in Resources */,
-				6EC504EC17B71666002C5FA9 /* MainMenu.xib in Resources */,
-				6EC504EE17B71666002C5FA9 /* RoutingHTTPServer-Info.plist in Resources */,
-				6EC504EF17B71666002C5FA9 /* InfoPlist.strings in Resources */,
-				6EC504F017B71666002C5FA9 /* RoutingHTTPServerTests-Info.plist in Resources */,
-				6EC504F217B71666002C5FA9 /* LICENSE.txt in Resources */,
-				6EC504F317B71666002C5FA9 /* README.md in Resources */,
-				6EC504F417B71666002C5FA9 /* RoutingHTTPServer.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,9 +366,6 @@
 				6EB8C89E17AF0E390051293C /* SDSServer.m in Sources */,
 				6EBFD39A17B6B73B009D208D /* APIApp.m in Sources */,
 				6EBFD39D17B6B73B009D208D /* APIAppUserPermissions.m in Sources */,
-				6EC504E917B71666002C5FA9 /* AppDelegate.m in Sources */,
-				6EC504ED17B71666002C5FA9 /* main.m in Sources */,
-				6EC504F117B71666002C5FA9 /* RoutingHTTPServerTests.m in Sources */,
 				6EC504F517B71666002C5FA9 /* HTTPResponseProxy.m in Sources */,
 				6EC504F617B71666002C5FA9 /* Route.m in Sources */,
 				6EC504F717B71666002C5FA9 /* RouteRequest.m in Sources */,
@@ -537,38 +400,6 @@
 				6EB84B3D17ADE0F60033C32C /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		6EC504C317B71666002C5FA9 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6EC504C417B71666002C5FA9 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		6EC504C517B71666002C5FA9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6EC504C617B71666002C5FA9 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6EC504C717B71666002C5FA9 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6EC504C817B71666002C5FA9 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		6EC504D017B71666002C5FA9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6EC504D117B71666002C5FA9 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
