@@ -9,7 +9,7 @@
 #ifndef Social_Developer_Server_SDSDataModels_h
 #define Social_Developer_Server_SDSDataModels_h
 
-// NSManagedObject subclasses
+// Generated NSManagedObject subclasses
 #import "User.h"
 #import "Session.h"
 #import "Link.h"
@@ -21,8 +21,13 @@
 #import "Post.h"
 #import "SiteAccount.h"
 
-// custom functionality
-#import "User+Custom.h"
+// Categories
+#import "User+JSONRepresentation.h"
+#import "SiteAccount+Custom.h"
+
+// Constants
+#import "UserConstants.h"
+
 
 
 #endif

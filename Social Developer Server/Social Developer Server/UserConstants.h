@@ -1,25 +1,20 @@
 //
-//  User+Custom.h
+//  UserConstants.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 8/11/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "User.h"
+#ifndef Social_Developer_Server_UserConstants_h
+#define Social_Developer_Server_UserConstants_h
 
 typedef NS_ENUM(NSUInteger, UserPermissions) {
     
     DefaultPermissions = 0,
-    Moderator = 98,
-    Admin = 99
+    Admin = 1
+    Moderator = 2,
     
 };
 
-@interface User (Custom)
-
--(NSArray *)skillsNames;
-
--(NSArray *)teamIDs;
-
-@end
+#endif

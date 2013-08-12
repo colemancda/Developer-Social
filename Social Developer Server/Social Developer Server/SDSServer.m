@@ -121,63 +121,6 @@
             
             // get user making the request
             [self.dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
-                
-                // get public properties
-                NSMutableDictionary *userJsonObject = [[NSMutableDictionary alloc] init];
-                
-                // date joined
-                [userJsonObject setValue:user.date
-                                  forKey:@"date"];
-                
-                // website
-                if (user.website) {
-                    [userJsonObject setValue:user.website
-                                      forKey:@"website"];
-                }
-                
-                // location
-                if (user.location) {
-                    [userJsonObject setValue:user.location
-                                      forKey:@"location"];
-                }
-                
-                // about
-                if (user.about) {
-                    [userJsonObject setValue:user.about
-                                      forKey:@"about"];
-                }
-                
-                // image
-                if (user.image) {
-                    
-                    // attach ID
-                    [userJsonObject setValue:user.image.id
-                                      forKey:@"image"];
-                }
-                
-                // skills
-                if (user.skills.count) {
-                    
-                    // get the name for each skill
-                    [userJsonObject setValue:user.skillsNames
-                                      forKey:@"skills"];
-                }
-                
-                // teams
-                if (user.teams.count) {
-                    
-                    // get team IDs
-                    [userJsonObject setValue:user.teamIDs
-                                      forKey:@"teams"];
-                }
-                
-                // other site accounts
-                if (user.accounts.count) {
-                    
-                    // get account
-                    
-                    
-                }
                
                 // no user is authenticated
                 if (!authenticatingUser) {

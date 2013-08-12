@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0F2F6E17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0F2F6D17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m */; };
 		6E5E208D17AEC56500B0D5C7 /* CDASQLiteDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E208C17AEC56500B0D5C7 /* CDASQLiteDataStore.m */; };
 		6E72C6FC17AEAA320045D486 /* NSString+RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E72C6FB17AEAA320045D486 /* NSString+RandomString.m */; };
 		6E79DCBF17B734B90088FA2B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79DCBE17B734B90088FA2B /* Security.framework */; };
@@ -42,6 +43,8 @@
 		6E8E60FA17B7326C00A49BE2 /* RouteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D417B7326C00A49BE2 /* RouteResponse.m */; };
 		6E8E60FB17B7326C00A49BE2 /* RoutingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D617B7326C00A49BE2 /* RoutingConnection.m */; };
 		6E8E60FC17B7326C00A49BE2 /* RoutingHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D817B7326C00A49BE2 /* RoutingHTTPServer.m */; };
+		6E8F3A6617B881560027B53E /* SiteAccount+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F3A6517B881560027B53E /* SiteAccount+Custom.m */; };
+		6E8F3A6D17B88C200027B53E /* User+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */; };
 		6E9E571617B7E7D7008D67DC /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571517B7E7D7008D67DC /* Skill.m */; };
 		6E9E571917B7E7D7008D67DC /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571817B7E7D7008D67DC /* Link.m */; };
 		6E9E571C17B7E7D7008D67DC /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E571B17B7E7D7008D67DC /* Image.m */; };
@@ -51,7 +54,6 @@
 		6E9E572817B7E7D8008D67DC /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572717B7E7D8008D67DC /* APIAppUserPermissions.m */; };
 		6E9E572E17B7E7D8008D67DC /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E572D17B7E7D8008D67DC /* Session.m */; };
 		6E9E573117B7E7D9008D67DC /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E573017B7E7D9008D67DC /* SiteAccount.m */; };
-		6E9E573517B7E892008D67DC /* User+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E573417B7E892008D67DC /* User+Custom.m */; };
 		6E9E573917B7EEE7008D67DC /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E573817B7EEE7008D67DC /* Post.m */; };
 		6EB84B2817ADE0F50033C32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB84B2717ADE0F50033C32C /* Cocoa.framework */; };
 		6EB84B3217ADE0F50033C32C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EB84B3017ADE0F50033C32C /* InfoPlist.strings */; };
@@ -64,6 +66,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E0F2F6C17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+RelationshipJSONRepresentation.h"; sourceTree = "<group>"; };
+		6E0F2F6D17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+RelationshipJSONRepresentation.m"; sourceTree = "<group>"; };
 		6E5E208B17AEC56500B0D5C7 /* CDASQLiteDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASQLiteDataStore.h; sourceTree = "<group>"; };
 		6E5E208C17AEC56500B0D5C7 /* CDASQLiteDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASQLiteDataStore.m; sourceTree = "<group>"; };
 		6E72C6F917AEAA320045D486 /* NSObject+CompletionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CompletionBlock.h"; sourceTree = "<group>"; };
@@ -136,6 +140,12 @@
 		6E8E60D617B7326C00A49BE2 /* RoutingConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingConnection.m; sourceTree = "<group>"; };
 		6E8E60D717B7326C00A49BE2 /* RoutingHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutingHTTPServer.h; sourceTree = "<group>"; };
 		6E8E60D817B7326C00A49BE2 /* RoutingHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutingHTTPServer.m; sourceTree = "<group>"; };
+		6E8F3A6417B881560027B53E /* SiteAccount+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SiteAccount+Custom.h"; sourceTree = "<group>"; };
+		6E8F3A6517B881560027B53E /* SiteAccount+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SiteAccount+Custom.m"; sourceTree = "<group>"; };
+		6E8F3A6A17B889920027B53E /* RESTfulJSONRepresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RESTfulJSONRepresentation.h; sourceTree = "<group>"; };
+		6E8F3A6B17B88C200027B53E /* User+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+JSONRepresentation.h"; sourceTree = "<group>"; };
+		6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+JSONRepresentation.m"; sourceTree = "<group>"; };
+		6E8F3A6E17B88CA40027B53E /* UserConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConstants.h; sourceTree = "<group>"; };
 		6E9E571417B7E7D7008D67DC /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
 		6E9E571517B7E7D7008D67DC /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		6E9E571717B7E7D7008D67DC /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
@@ -154,8 +164,6 @@
 		6E9E572D17B7E7D8008D67DC /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		6E9E572F17B7E7D8008D67DC /* SiteAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccount.h; sourceTree = "<group>"; };
 		6E9E573017B7E7D9008D67DC /* SiteAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteAccount.m; sourceTree = "<group>"; };
-		6E9E573317B7E892008D67DC /* User+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Custom.h"; sourceTree = "<group>"; };
-		6E9E573417B7E892008D67DC /* User+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Custom.m"; sourceTree = "<group>"; };
 		6E9E573617B7E8FF008D67DC /* SDSDataModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSDataModels.h; sourceTree = "<group>"; };
 		6E9E573717B7EEE7008D67DC /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		6E9E573817B7EEE7008D67DC /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 		6E72C6FD17AEAA3A0045D486 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E8F3A6917B888330027B53E /* Protocol */,
 				6E72C6FE17AEAA410045D486 /* Categories */,
 				6E72C71817AEAF700045D486 /* NSManagedObject */,
 			);
@@ -222,7 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				6E9E573617B7E8FF008D67DC /* SDSDataModels.h */,
-				6E9E571317B7E75B008D67DC /* Custom */,
+				6E8F3A6F17B88CBD0027B53E /* Constants */,
+				6E9E571317B7E75B008D67DC /* Categories */,
 				6E9E571217B7E74B008D67DC /* Generated */,
 			);
 			name = NSManagedObject;
@@ -364,6 +374,22 @@
 			path = RoutingHTTPServer;
 			sourceTree = "<group>";
 		};
+		6E8F3A6917B888330027B53E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6E8F3A6A17B889920027B53E /* RESTfulJSONRepresentation.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		6E8F3A6F17B88CBD0027B53E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6E8F3A6E17B88CA40027B53E /* UserConstants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		6E9E571217B7E74B008D67DC /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,13 +417,17 @@
 			name = Generated;
 			sourceTree = "<group>";
 		};
-		6E9E571317B7E75B008D67DC /* Custom */ = {
+		6E9E571317B7E75B008D67DC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				6E9E573317B7E892008D67DC /* User+Custom.h */,
-				6E9E573417B7E892008D67DC /* User+Custom.m */,
+				6E0F2F6C17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.h */,
+				6E0F2F6D17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m */,
+				6E8F3A6B17B88C200027B53E /* User+JSONRepresentation.h */,
+				6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */,
+				6E8F3A6417B881560027B53E /* SiteAccount+Custom.h */,
+				6E8F3A6517B881560027B53E /* SiteAccount+Custom.m */,
 			);
-			name = Custom;
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		6EB84B1B17ADE0F50033C32C = {
@@ -587,8 +617,10 @@
 				6E9E572817B7E7D8008D67DC /* APIAppUserPermissions.m in Sources */,
 				6E9E572E17B7E7D8008D67DC /* Session.m in Sources */,
 				6E9E573117B7E7D9008D67DC /* SiteAccount.m in Sources */,
-				6E9E573517B7E892008D67DC /* User+Custom.m in Sources */,
 				6E9E573917B7EEE7008D67DC /* Post.m in Sources */,
+				6E8F3A6617B881560027B53E /* SiteAccount+Custom.m in Sources */,
+				6E8F3A6D17B88C200027B53E /* User+JSONRepresentation.m in Sources */,
+				6E0F2F6E17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
