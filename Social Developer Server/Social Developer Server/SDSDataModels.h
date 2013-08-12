@@ -23,11 +23,12 @@
 
 // Categories
 #import "User+JSONRepresentation.h"
-#import "SiteAccount+Custom.h"
+#import "SiteAccount+JSONRepresentation.h"
+#import "Post+UserVisiblity.h"
 
 // Constants
 #import "UserConstants.h"
-
+#import "SiteAccountConstants.h"
 
 
 #endif

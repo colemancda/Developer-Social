@@ -12,7 +12,7 @@
 typedef NS_ENUM(NSUInteger, UserPermissions) {
     
     DefaultPermissions = 0,
-    Admin = 1
+    Admin = 1,
     Moderator = 2,
     
 };

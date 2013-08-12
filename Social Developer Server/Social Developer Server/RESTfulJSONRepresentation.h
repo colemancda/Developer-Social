@@ -10,10 +10,6 @@
 
 @protocol RESTfulJSONRepresentation <NSObject>
 
-// Properties that are public, can be seen by anyone accessing the RESTful object with GET and no authorization
-@property (readonly) NSDictionary *publicInfo;
-
-// Properties that INCLUDE the public + private, can be seen only by yourself if you own the RESTful object or an Admin
-@property (readonly) NSDictionary *allInfo;
+-(NSDictionary *)JSONRepresentationForUser:(User *)user;
 
 @end

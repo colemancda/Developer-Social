@@ -11,6 +11,7 @@
 #import "RoutingHTTPServer.h"
 #import "SDSAppDelegate.h"
 #import "CDASQLiteDataStore.h"
+#import "NSDate+CDAStringRepresentation.h"
 
 #import "SDSDataModels.h"
 
@@ -121,14 +122,17 @@
             
             // get user making the request
             [self.dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
+                
+                // get public JSON representation
+                NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
+                
+                                
                
                 // no user is authenticated
                 if (!authenticatingUser) {
                     
                     
-                    
                 }
-                
                 
                 
             }];

@@ -1,12 +1,13 @@
 //
-//  SiteAccount+Custom.h
+//  SiteAccountConstants.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/11/13.
+//  Created by Alsey Coleman Miller on 8/12/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "SiteAccount.h"
+#ifndef Social_Developer_Server_SiteAccountConstants_h
+#define Social_Developer_Server_SiteAccountConstants_h
 
 typedef NS_ENUM(NSInteger, SiteAccountType){
     
@@ -19,8 +20,4 @@ typedef NS_ENUM(NSInteger, SiteAccountType){
     
 };
 
-@interface SiteAccount (Custom)
-
-@property (readonly) NSDictionary *publicInfo;
-
-@end
+#endif
