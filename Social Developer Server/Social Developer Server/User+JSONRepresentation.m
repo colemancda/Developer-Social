@@ -10,9 +10,9 @@
 #import "SDSDataModels.h"
 #import "NSManagedObject+RelationshipJSONRepresentation.h"
 #import "NSDate+CDAStringRepresentation.h"
-#import "APIApp+APIAppUserPermissionsForUser.h"
 #import "Skill+JSONRepresentation.h"
 #import "SiteAccount+JSONRepresentation.h"
+#import "User+Visibility.h"
 
 @implementation User (JSONRepresentation)
 
@@ -21,27 +21,14 @@
 -(NSDictionary *)JSONRepresentationForUser:(User *)user
                                     apiApp:(APIApp *)apiApp
 {
-    AssertUserForRESTfulJSONRepresentation
-    AssertAPIAppForRESTfulJSONRepresentation
+    AssertUserForSDSJSON
+    AssertAPIAppForSDSJSON
     
-    // third party app making request
-    if (!apiApp.isNotThirdParty) {
+    if (![self isVisibleToUser:user
+                        apiApp:apiApp]) {
         
-        // check if 3rd party API App making the request has permission
-        APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:self];
-        
-        // 3rd party APIApp hasnt been given permission
-        if (!apiAppPermission) {
-            return nil;
-        }
-        
-        // User has not authorized this API App to view his own profile
-        if (apiAppPermission && !apiAppPermission.canViewUserInfo) {
-            return nil;
-        }
+        return nil;
     }
-    
-    // 1st party API apps, or 3rd party with proper permissions, can view this user's info
     
     NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
         
@@ -109,6 +96,7 @@
         
         for (SiteAccount *siteAccount in self.accounts) {
             
+            // 'SiteAccount' ignores who is making the request
             [accountsInfo addObject:[siteAccount JSONRepresentationForUser:user
                                                                     apiApp:apiApp]];
         }

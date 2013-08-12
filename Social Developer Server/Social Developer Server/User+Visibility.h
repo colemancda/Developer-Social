@@ -7,9 +7,8 @@
 //
 
 #import "User.h"
+#import "SDSVisibility.h"
 
-@interface User (Visibility)
-
--(BOOL)isVisibleForUser:(User *)user apiApp:()
+@interface User (Visibility) <SDSVisibility>
 
 @end

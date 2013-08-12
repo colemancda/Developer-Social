@@ -58,6 +58,7 @@
 		6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */; };
 		6E9F055217B93D3A002B078F /* Post+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055117B93D3A002B078F /* Post+JSONRepresentation.m */; };
 		6E9F055517B93FD8002B078F /* User+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055417B93FD8002B078F /* User+Visibility.m */; };
+		6E9F055A17B943D5002B078F /* Post+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055917B943D4002B078F /* Post+Visibility.m */; };
 		6EB84B2817ADE0F50033C32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB84B2717ADE0F50033C32C /* Cocoa.framework */; };
 		6EB84B3217ADE0F50033C32C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EB84B3017ADE0F50033C32C /* InfoPlist.strings */; };
 		6EB84B3417ADE0F50033C32C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB84B3317ADE0F50033C32C /* main.m */; };
@@ -179,6 +180,8 @@
 		6E9F055417B93FD8002B078F /* User+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Visibility.m"; sourceTree = "<group>"; };
 		6E9F055617B9403C002B078F /* SDSVisibility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSVisibility.h; sourceTree = "<group>"; };
 		6E9F055717B94097002B078F /* SDSJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSJSON.h; sourceTree = "<group>"; };
+		6E9F055817B943D4002B078F /* Post+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Visibility.h"; sourceTree = "<group>"; };
+		6E9F055917B943D4002B078F /* Post+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Visibility.m"; sourceTree = "<group>"; };
 		6EB84B2417ADE0F50033C32C /* Social Developer Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Developer Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB84B2717ADE0F50033C32C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6EB84B2A17ADE0F50033C32C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -451,6 +454,8 @@
 				6EC2180717B89F2C00BFA30F /* SiteAccount+JSONRepresentation.m */,
 				6E9F055017B93D39002B078F /* Post+JSONRepresentation.h */,
 				6E9F055117B93D3A002B078F /* Post+JSONRepresentation.m */,
+				6E9F055817B943D4002B078F /* Post+Visibility.h */,
+				6E9F055917B943D4002B078F /* Post+Visibility.m */,
 				6E9F052317B92B99002B078F /* Skill+JSONRepresentation.h */,
 				6E9F052417B92B99002B078F /* Skill+JSONRepresentation.m */,
 				6E9F054417B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.h */,
@@ -655,6 +660,7 @@
 				6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */,
 				6E9F055217B93D3A002B078F /* Post+JSONRepresentation.m in Sources */,
 				6E9F055517B93FD8002B078F /* User+Visibility.m in Sources */,
+				6E9F055A17B943D5002B078F /* Post+Visibility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

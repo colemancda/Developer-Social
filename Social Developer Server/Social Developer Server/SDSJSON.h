@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 @class User, APIApp;
 
-#define AssertUserForRESTfulJSONRepresentation NSAssert(user, @"Must provide User to generate JSON representation");
+#define AssertUserForSDSJSON NSAssert(user, @"Must provide User to generate JSON representation");
 
-#define AssertAPIAppForRESTfulJSONRepresentation NSAssert(apiApp, @"Must provide API App to generate JSON representation");
+#define AssertAPIAppForSDSJSON NSAssert(apiApp, @"Must provide API App to generate JSON representation");
 
 @protocol SDSJSON <NSObject>
 

@@ -8,6 +8,7 @@
 
 #import "Post+JSONRepresentation.h"
 #import "SDSDataModels.h"
+#import "APIApp+APIAppUserPermissionsForUser.h"
 
 @implementation Post (JSONRepresentation)
 
@@ -16,8 +17,8 @@
 -(NSDictionary *)JSONRepresentationForUser:(User *)user
                                     apiApp:(APIApp *)apiApp
 {
-    AssertUserForRESTfulJSONRepresentation
-    AssertAPIAppForRESTfulJSONRepresentation
+    AssertUserForSDSJSON
+    AssertAPIAppForSDSJSON
     
     // check for 3rd party API App
     if (!apiApp.isNotThirdParty) {
