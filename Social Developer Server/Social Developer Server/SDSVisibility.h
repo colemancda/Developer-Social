@@ -12,6 +12,6 @@
 @protocol SDSVisibility <NSObject>
 
 -(BOOL)isVisibleToUser:(User *)user
-                apiApp:(APIApp *)apiApp
+                apiApp:(APIApp *)apiApp;
 
 @end

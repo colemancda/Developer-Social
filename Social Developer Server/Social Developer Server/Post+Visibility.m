@@ -18,7 +18,7 @@
     // 1st party requests
     if (apiApp.isNotThirdParty) {
         
-        
+        // as long as the user can view this, then 
         
     }
     

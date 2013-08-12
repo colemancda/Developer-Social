@@ -21,9 +21,6 @@
 -(NSDictionary *)JSONRepresentationForUser:(User *)user
                                     apiApp:(APIApp *)apiApp
 {
-    AssertUserForSDSJSON
-    AssertAPIAppForSDSJSON
-    
     if (![self isVisibleToUser:user
                         apiApp:apiApp]) {
         

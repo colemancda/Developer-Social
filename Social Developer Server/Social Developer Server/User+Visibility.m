@@ -15,25 +15,45 @@
 -(BOOL)isVisibleToUser:(User *)user
                 apiApp:(APIApp *)apiApp
 {
-    // third party app making request
-    if (!apiApp.isNotThirdParty) {
+    // we ignore which user is requesting, we only care which API App is
+    
+    // an API App must make this request
+    if (apiApp) {
         
-        // check if 3rd party API App making the request has permission
-        APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:self];
-        
-        // 3rd party API App hasnt been given any permissions
-        if (!apiAppPermission) {
-            return NO;
+        // third party app
+        if (!apiApp.isNotThirdParty) {
+            
+            // check if 3rd party API App making the request has permission to view profile
+            APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:self];
+            
+            // API App is linked to User's account
+            if (apiAppPermission) {
+                
+                if (apiAppPermission.canViewUserInfo) {
+                    
+                    // ignore which user is requesting this user
+                    return YES;
+                }
+            }
+            
+            // User is not associated with API App
+            else {
+                
+                return NO;
+            }
+            
         }
         
-        // User has not authorized this API App to view his own profile
-        if (apiAppPermission && !apiAppPermission.canViewUserInfo) {
-            return NO;
+        // first party app
+        else {
+            
+            return YES;
+            
         }
     }
     
-    // 1st party API apps, or 3rd party with proper permissions, can view this user's info
-    return YES;
+    // no API App made the request
+    return NO;
 }
 
 @end
