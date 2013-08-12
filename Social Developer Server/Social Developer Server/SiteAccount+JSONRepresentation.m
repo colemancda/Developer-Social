@@ -7,32 +7,32 @@
 //
 
 #import "SiteAccount+JSONRepresentation.h"
+#import "SDSDataModels.h"
 
 @implementation SiteAccount (JSONRepresentation) 
 
 #pragma mark - RESTful JSON Repressentation Protocol
 
--(NSDictionary *)publicInfo
+-(NSDictionary *)JSONRepresentationForUser:(User *)user
+                                    apiApp:(APIApp *)apiApp
 {
-    NSMutableDictionary *publicInfo = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
     
-    [publicInfo setValue:self.username
+    [jsonObject setValue:self.username
                   forKey:@"username"];
     
-    [publicInfo setValue:self.type
+    [jsonObject setValue:self.type
                   forKey:@"type"];
     
-    return publicInfo;
-}
-
--(NSDictionary *)allInfo
-{
-    NSMutableDictionary *allInfo = [[NSMutableDictionary alloc] initWithDictionary:self.publicInfo];
+    // these properties are visible if the siteAccount is requested by the user that owns it or an Admin
+    if (user == self.user ||
+        user.permissions.integerValue == Admin) {
+        
+        
+        
+    }
     
-    // add sensitive info
-    
-    
-    return allInfo;
+    return jsonObject;
 }
 
 @end

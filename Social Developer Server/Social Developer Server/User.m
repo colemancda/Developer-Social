@@ -2,7 +2,7 @@
 //  User.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/11/13.
+//  Created by Alsey Coleman Miller on 8/12/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -26,6 +26,7 @@
 @dynamic permissions;
 @dynamic username;
 @dynamic website;
+@dynamic email;
 @dynamic accounts;
 @dynamic appPermissions;
 @dynamic followers;

@@ -2,7 +2,7 @@
 //  APIApp.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/11/13.
+//  Created by Alsey Coleman Miller on 8/12/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * isNotThirdParty;
 @property (nonatomic, retain) NSSet *usersPermissions;
 @end
 

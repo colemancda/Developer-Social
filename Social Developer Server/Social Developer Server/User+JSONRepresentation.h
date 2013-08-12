@@ -7,11 +7,9 @@
 //
 
 #import "User.h"
-#import "RESTfulJSONRepresentation.h"
+#import "SDSJSON.h"
 
-@interface User (JSONRepresentation) <RESTfulJSONRepresentation>
-
-@property (readonly) NSArray *skillsNames;
+@interface User (JSONRepresentation) <SDSJSON>
 
 @property (readonly) NSArray *teamIDs;
 

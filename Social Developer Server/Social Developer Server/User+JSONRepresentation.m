@@ -10,17 +10,41 @@
 #import "SDSDataModels.h"
 #import "NSManagedObject+RelationshipJSONRepresentation.h"
 #import "NSDate+CDAStringRepresentation.h"
+#import "APIApp+APIAppUserPermissionsForUser.h"
+#import "Skill+JSONRepresentation.h"
+#import "SiteAccount+JSONRepresentation.h"
 
 @implementation User (JSONRepresentation)
 
-#pragma mark - RESTful JSON Repressentation Protocol
+#pragma mark - RESTful JSON Representation Protocol
 
 -(NSDictionary *)JSONRepresentationForUser:(User *)user
+                                    apiApp:(APIApp *)apiApp
 {
+    AssertUserForRESTfulJSONRepresentation
+    AssertAPIAppForRESTfulJSONRepresentation
+    
+    // third party app making request
+    if (!apiApp.isNotThirdParty) {
+        
+        // check if 3rd party API App making the request has permission
+        APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:self];
+        
+        // 3rd party APIApp hasnt been given permission
+        if (!apiAppPermission) {
+            return nil;
+        }
+        
+        // User has not authorized this API App to view his own profile
+        if (apiAppPermission && !apiAppPermission.canViewUserInfo) {
+            return nil;
+        }
+    }
+    
+    // 1st party API apps, or 3rd party with proper permissions, can view this user's info
+    
     NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
-    
-    // public info
-    
+        
     // date joined
     [jsonObject setValue:self.date.stringValue
                   forKey:@"date"];
@@ -54,8 +78,18 @@
     // skills
     if (self.skills.count) {
         
+        NSMutableArray *skillsInfo = [[NSMutableArray alloc] init];
+        
+        for (Skill *skill in self.skills) {
+            
+            // 'Skill' ignores who is making the request
+            [skillsInfo addObject:[skill JSONRepresentationForUser:user
+                                                            apiApp:apiApp]];
+            
+        }
+        
         // get the name for each skill
-        [jsonObject setValue:self.skillsNames
+        [jsonObject setValue:skillsInfo
                       forKey:@"skills"];
     }
     
@@ -75,7 +109,8 @@
         
         for (SiteAccount *siteAccount in self.accounts) {
             
-            [accountsInfo addObject:[siteAccount JSONRepresentationForUser:user]];
+            [accountsInfo addObject:[siteAccount JSONRepresentationForUser:user
+                                                                    apiApp:apiApp]];
         }
         
         [jsonObject setValue:accountsInfo
@@ -103,58 +138,39 @@
         
         for (Post *post in self.posts) {
             
+            // only add posts that are visible for the user requesting this representation
             if ([post isVisibleToUser:user]) {
                 
-                [posts addObject:[post.id]];
+                [posts addObject:post.id];
             }
         }
         
+        // add to jsonObject if at least 1 post is visible
         if (posts.count) {
             [jsonObject setValue:posts
                           forKey:@"posts"];
         }
     }
     
-}
-
--(NSDictionary *)allInfo
-{
-    NSMutableDictionary *allInfo = [[NSMutableDictionary alloc] initWithDictionary:self.publicInfo];
-    
-    // complete info for site accounts
-    if (self.accounts.count) {
+    // Private properties
+    if (user == self ||
+        user.permissions.integerValue == Admin) {
         
-        // get public account info
-        NSMutableArray *accountsInfo = [[NSMutableArray alloc] init];
+        // password
+        [jsonObject setValue:self.password
+                      forKey:@"password"];
         
-        for (SiteAccount *siteAccount in self.accounts) {
-            
-            [accountsInfo addObject:siteAccount.allInfo];
-        }
+        // permissions level
+        [jsonObject setValue:self.permissions
+                      forKey:@"permissions"];
         
-        [allInfo setValue:accountsInfo
-                      forKey:@"accounts"];
     }
     
-    // password
-    [allInfo setValue:self.password
-               forKey:@"password"];
     
-    // permissions level
-    [allInfo setValue:self.permissions
-               forKey:@"permissions"];
-    
-    //
-    
+    return jsonObject;
 }
 
 #pragma mark
-
--(NSArray *)skillsNames
-{
-    return [self JSONRepresentationForRelationship:@"skills"
-                          usingDestinationProperty:@"name"];
-}
 
 -(NSArray *)teamIDs
 {

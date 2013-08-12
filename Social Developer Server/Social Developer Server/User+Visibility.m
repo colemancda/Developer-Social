@@ -1,14 +1,13 @@
 //
-//  SiteAccount+JSONRepresentation.h
+//  User+Visibility.m
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 8/12/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "SiteAccount.h"
-#import "SDSJSON.h"
+#import "User+Visibility.h"
 
-@interface SiteAccount (JSONRepresentation) <SDSJSON>
+@implementation User (Visibility)
 
 @end

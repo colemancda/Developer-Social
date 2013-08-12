@@ -1,5 +1,5 @@
 //
-//  Post+UserVisiblity.h
+//  Post+JSONRepresentation.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 8/12/13.
@@ -7,9 +7,8 @@
 //
 
 #import "Post.h"
+#import "RESTfulJSONRepresentation.h"
 
-@interface Post (UserVisiblity)
-
--(BOOL)isVisibleToUser:(User *)user;
+@interface Post (JSONRepresentation) <RESTfulJSONRepresentation>
 
 @end
