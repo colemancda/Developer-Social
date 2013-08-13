@@ -52,8 +52,6 @@
 		6E8E60FC17B7326C00A49BE2 /* RoutingHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D817B7326C00A49BE2 /* RoutingHTTPServer.m */; };
 		6E9F052517B92B99002B078F /* Skill+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F052417B92B99002B078F /* Skill+JSONRepresentation.m */; };
 		6E9F052817B93072002B078F /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F052717B93072002B078F /* Session.m */; };
-		6E9F052B17B93072002B078F /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F052A17B93072002B078F /* SiteAccount.m */; };
-		6E9F053717B93073002B078F /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F053617B93073002B078F /* Skill.m */; };
 		6E9F053A17B93073002B078F /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F053917B93073002B078F /* Link.m */; };
 		6E9F054617B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054517B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m */; };
 		6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */; };
@@ -70,6 +68,9 @@
 		6EBACA2417BA8A15008B9D48 /* User+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBACA2317BA8A15008B9D48 /* User+API.m */; };
 		6EC2180417B89AFD00BFA30F /* NSDate+CDAStringRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2180317B89AFD00BFA30F /* NSDate+CDAStringRepresentation.m */; };
 		6EC2180817B89F2D00BFA30F /* SiteAccount+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2180717B89F2C00BFA30F /* SiteAccount+JSONRepresentation.m */; };
+		6ECD30E517BAAE660071EF33 /* Skill+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD30E417BAAE660071EF33 /* Skill+API.m */; };
+		6ECD30E817BAB0800071EF33 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD30E717BAB0800071EF33 /* Skill.m */; };
+		6ECD30EB17BAB2CF0071EF33 /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD30EA17BAB2CF0071EF33 /* SiteAccount.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,10 +169,6 @@
 		6E9F052417B92B99002B078F /* Skill+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Skill+JSONRepresentation.m"; sourceTree = "<group>"; };
 		6E9F052617B93072002B078F /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		6E9F052717B93072002B078F /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
-		6E9F052917B93072002B078F /* SiteAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccount.h; sourceTree = "<group>"; };
-		6E9F052A17B93072002B078F /* SiteAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteAccount.m; sourceTree = "<group>"; };
-		6E9F053517B93073002B078F /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
-		6E9F053617B93073002B078F /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		6E9F053817B93073002B078F /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
 		6E9F053917B93073002B078F /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
 		6E9F054417B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIApp+APIAppUserPermissionsForUser.h"; sourceTree = "<group>"; };
@@ -206,6 +203,12 @@
 		6EC2180517B89EA700BFA30F /* SiteAccountConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccountConstants.h; sourceTree = "<group>"; };
 		6EC2180617B89F2C00BFA30F /* SiteAccount+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SiteAccount+JSONRepresentation.h"; sourceTree = "<group>"; };
 		6EC2180717B89F2C00BFA30F /* SiteAccount+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SiteAccount+JSONRepresentation.m"; sourceTree = "<group>"; };
+		6ECD30E317BAAE660071EF33 /* Skill+API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Skill+API.h"; sourceTree = "<group>"; };
+		6ECD30E417BAAE660071EF33 /* Skill+API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Skill+API.m"; sourceTree = "<group>"; };
+		6ECD30E617BAB0800071EF33 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		6ECD30E717BAB0800071EF33 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		6ECD30E917BAB2CF0071EF33 /* SiteAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccount.h; sourceTree = "<group>"; };
+		6ECD30EA17BAB2CF0071EF33 /* SiteAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteAccount.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +431,10 @@
 		6E9E571217B7E74B008D67DC /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				6ECD30E917BAB2CF0071EF33 /* SiteAccount.h */,
+				6ECD30EA17BAB2CF0071EF33 /* SiteAccount.m */,
+				6ECD30E617BAB0800071EF33 /* Skill.h */,
+				6ECD30E717BAB0800071EF33 /* Skill.m */,
 				6E25562717B9E917008EF933 /* APIApp.h */,
 				6E25562817B9E917008EF933 /* APIApp.m */,
 				6E4E262A17B9E04C00784291 /* Image.h */,
@@ -442,10 +449,6 @@
 				6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */,
 				6E9F053817B93073002B078F /* Link.h */,
 				6E9F053917B93073002B078F /* Link.m */,
-				6E9F053517B93073002B078F /* Skill.h */,
-				6E9F053617B93073002B078F /* Skill.m */,
-				6E9F052917B93072002B078F /* SiteAccount.h */,
-				6E9F052A17B93072002B078F /* SiteAccount.m */,
 				6E9F052617B93072002B078F /* Session.h */,
 				6E9F052717B93072002B078F /* Session.m */,
 			);
@@ -556,6 +559,8 @@
 			children = (
 				6EBACA2217BA8A15008B9D48 /* User+API.h */,
 				6EBACA2317BA8A15008B9D48 /* User+API.m */,
+				6ECD30E317BAAE660071EF33 /* Skill+API.h */,
+				6ECD30E417BAAE660071EF33 /* Skill+API.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -668,8 +673,6 @@
 				6EC2180817B89F2D00BFA30F /* SiteAccount+JSONRepresentation.m in Sources */,
 				6E9F052517B92B99002B078F /* Skill+JSONRepresentation.m in Sources */,
 				6E9F052817B93072002B078F /* Session.m in Sources */,
-				6E9F052B17B93072002B078F /* SiteAccount.m in Sources */,
-				6E9F053717B93073002B078F /* Skill.m in Sources */,
 				6E9F053A17B93073002B078F /* Link.m in Sources */,
 				6E9F054617B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m in Sources */,
 				6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */,
@@ -683,6 +686,9 @@
 				6E25562917B9E917008EF933 /* APIApp.m in Sources */,
 				6EBACA1F17BA86F4008B9D48 /* Post+StatusCode.m in Sources */,
 				6EBACA2417BA8A15008B9D48 /* User+API.m in Sources */,
+				6ECD30E517BAAE660071EF33 /* Skill+API.m in Sources */,
+				6ECD30E817BAB0800071EF33 /* Skill.m in Sources */,
+				6ECD30EB17BAB2CF0071EF33 /* SiteAccount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  SiteAccount.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/12/13.
+//  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -15,6 +15,8 @@
 
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * credentials;
 @property (nonatomic, retain) User *user;
 
 @end

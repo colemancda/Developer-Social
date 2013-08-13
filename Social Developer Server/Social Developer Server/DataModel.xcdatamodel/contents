@@ -53,13 +53,16 @@
         <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sessions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="SiteAccount" representedClassName="SiteAccount" syncable="YES">
-        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="credentials" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="accounts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="skills" inverseEntity="User" syncable="YES"/>
@@ -98,6 +101,8 @@
     <fetchRequest name="LinkWithID" entity="Link" predicateString="id == $ID"/>
     <fetchRequest name="PostWithID" entity="Post" predicateString="id == $ID"/>
     <fetchRequest name="SessionWithToken" entity="Session" predicateString="token == $TOKEN"/>
+    <fetchRequest name="SiteAccountWithID" entity="SiteAccount" predicateString="id == $ID"/>
+    <fetchRequest name="SkillWithID" entity="Skill" predicateString="id == $ID"/>
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
@@ -107,8 +112,8 @@
         <element name="Link" positionX="-225" positionY="-270" width="128" height="120"/>
         <element name="Post" positionX="-542" positionY="-276" width="128" height="195"/>
         <element name="Session" positionX="-1467" positionY="540" width="128" height="135"/>
-        <element name="SiteAccount" positionX="-1458" positionY="234" width="128" height="90"/>
-        <element name="Skill" positionX="-1467" positionY="360" width="128" height="120"/>
+        <element name="SiteAccount" positionX="-1458" positionY="234" width="128" height="120"/>
+        <element name="Skill" positionX="-1467" positionY="360" width="128" height="135"/>
         <element name="Team" positionX="-1026" positionY="273" width="128" height="150"/>
         <element name="User" positionX="-1278" positionY="-144" width="128" height="315"/>
     </elements>

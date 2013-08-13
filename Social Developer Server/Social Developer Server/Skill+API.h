@@ -1,5 +1,5 @@
 //
-//  Skill.m
+//  Skill+API.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 8/13/13.
@@ -7,16 +7,8 @@
 //
 
 #import "Skill.h"
-#import "User.h"
+#import "SDSRESTfulAPI.h"
 
-
-@implementation Skill
-
-@dynamic about;
-@dynamic date;
-@dynamic name;
-@dynamic type;
-@dynamic id;
-@dynamic user;
+@interface Skill (API) <SDSRESTfulAPI>
 
 @end

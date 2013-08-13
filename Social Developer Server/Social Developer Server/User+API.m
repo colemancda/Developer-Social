@@ -10,6 +10,7 @@
 #import "SDSDataModels.h"
 #import "APIApp+APIAppUserPermissionsForUser.h"
 #import "NSDate+CDAStringRepresentation.h"
+#import "NSManagedObject+RelationshipJSONRepresentation.h"
 
 @implementation User (API)
 
@@ -115,21 +116,15 @@
     // skills
     if (self.skills.count) {
         
-        NSMutableArray *skills = [[NSMutableArray alloc] init];
+        NSArray *skillIDs = [self JSONRepresentationForRelationship:@"skills"
+                                            usingDestinationProperty:@"id"
+                                                             forUser:user
+                                                              apiApp:apiApp];
         
-        for (Skill *skill in self.skills) {
+        if (skillIDs.count) {
             
-            NSDictionary *jsonObject = @{@"name": skill.name,
-                                         @"date": skill.date.stringValue,
-                                         @"about": skill.about,
-                                         @"type": skill.type};
-            
-        }
-        
-        if (skills.count) {
-            
-            [jsonObject setObject:skills
-                           forKey:@"skills"]
+            [jsonObject setObject:skillIDs
+                           forKey:@"skills"];
             
         }
     }
@@ -137,68 +132,73 @@
     // teams
     if (self.teams.count) {
         
-        NSArray *teamIDs = 
+        NSArray *teamIDs = [self JSONRepresentationForRelationship:@"teams"
+                                          usingDestinationProperty:@"id"
+                                                           forUser:user
+                                                            apiApp:apiApp];
         
-        // get team IDs
-        [jsonObject setValue:self.teamIDs
-                      forKey:@"teams"];
+        if (teamIDs.count) {
+            
+            [jsonObject setValue:teamIDs
+                          forKey:@"teams"];
+        }
     }
     
     // other site accounts
     if (self.accounts.count) {
         
-        // get public account info
-        NSMutableArray *accountsInfo = [[NSMutableArray alloc] init];
-        
-        for (SiteAccount *siteAccount in self.accounts) {
-            
-            // 'SiteAccount' ignores who is making the request
-            [accountsInfo addObject:[siteAccount JSONRepresentationForUser:user
-                                                                    apiApp:apiApp]];
+        NSArray *accountIDs = [self JSONRepresentationForRelationship:@"accounts"
+                                          usingDestinationProperty:@"id"
+                                                           forUser:user
+                                                            apiApp:apiApp];
+        if (accountIDs.count) {
+            [jsonObject setValue:accountIDs
+                          forKey:@"accounts"];
         }
-        
-        [jsonObject setValue:accountsInfo
-                      forKey:@"accounts"];
     }
     
     // followers
     if (self.followers.count) {
         
-        [jsonObject setValue:self.followersUsernames
-                      forKey:@"followers"];
+        NSArray *followersUsernames = [self JSONRepresentationForRelationship:@"followers"
+                                                     usingDestinationProperty:@"username"
+                                                                      forUser:user
+                                                                       apiApp:apiApp];
+        if (followersUsernames.count) {
+            [jsonObject setValue:followersUsernames
+                          forKey:@"followers"];
+        }
     }
     
     // following
     if (self.following.count) {
         
-        [jsonObject setValue:self.followingUsernames
-                      forKey:@"following"];
+        NSArray *followingUsernames = [self JSONRepresentationForRelationship:@"following"
+                                                     usingDestinationProperty:@"username"
+                                                                      forUser:user
+                                                                       apiApp:apiApp];
+        if (followingUsernames.count) {
+            [jsonObject setValue:followingUsernames
+                          forKey:@"following"];
+        }
     }
     
     // posts
     if (self.posts.count) {
         
-        NSMutableArray *posts = [[NSMutableArray alloc] init];
-        
-        for (Post *post in self.posts) {
-            
-            // only add Posts' IDs that are visible for the user and API App making the request
-            if ([post isVisibleToUser:user
-                               apiApp:apiApp]) {
-                
-                [posts addObject:post.id];
-            }
-        }
-        
-        // add to jsonObject if at least 1 post is visible
-        if (posts.count) {
-            [jsonObject setValue:posts
+        NSArray *postsIDs = [self JSONRepresentationForRelationship:@"posts"
+                                           usingDestinationProperty:@"id"
+                                                            forUser:user
+                                                             apiApp:apiApp];
+        if (postsIDs.count) {
+            [jsonObject setValue:postsIDs
                           forKey:@"posts"];
         }
     }
     
-    // Private properties
-    if (user == self) {
+    // Private properties (can only be seen by first party clients)
+    if (user == self &&
+        apiApp.isNotThirdParty) {
         
         // password
         [jsonObject setValue:self.password
