@@ -39,22 +39,27 @@
     // get token
     NSString *token = parsedAuthStringArray[1];
     
-    // find match in DB
+    // find token in DB
     
     [self.dataStore executeSingleResultFetchRequestTemplateWithName:@"SessionWithToken" substitutionVariables:@{@"TOKEN": token} completion:^(NSManagedObject *fetchedObject) {
         
         Session *session = (Session *)fetchedObject;
         
-        // find API App
-        if (parsedAuthStringArray.count == 3) {
-            
-            NSString *apiAppToken = parsedAuthStringArray[2];
-            
-            
+        if (parsedAuthStringArray.count != 3) {
+            completionBlock(session.user, nil);
             
         }
         
-        completionBlock(session.user, nil);
+        // find API App
+        else {
+            
+            NSString *apiAppSecret = parsedAuthStringArray[2];
+            
+            [self.dataStore executeSingleResultFetchRequestTemplateWithName:@"APIAppWithSecret" substitutionVariables:@{@"SECRET": apiAppSecret} completion:^(NSManagedObject *fetchedObject) {
+                
+                completionBlock(session.user, (APIApp *)fetchedObject);
+            }];
+        }
     }];
 }
 
@@ -123,10 +128,17 @@
             User *user = (User *)fetchedObject;
             
             // get user making the request
-            [self.dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
+            [self authenticationForRequest:request completion:^(User *authenticatingUser, APIApp *apiApp) {
                 
                 NSDictionary *jsonObject = [user JSONRepresentationForUser:authenticatingUser
-                                                                    apiApp:<#(APIApp *)#>];
+                                                                    apiApp:apiApp];
+                
+                // dont have permission to see this
+                if (!jsonObject) {
+                    
+                    
+                    
+                }
                 
                 
             }];

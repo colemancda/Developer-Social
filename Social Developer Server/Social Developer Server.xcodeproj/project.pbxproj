@@ -165,6 +165,7 @@
 		6E8F3A6B17B88C200027B53E /* User+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+JSONRepresentation.h"; sourceTree = "<group>"; };
 		6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+JSONRepresentation.m"; sourceTree = "<group>"; wrapsLines = 1; };
 		6E8F3A6E17B88CA40027B53E /* UserConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConstants.h; sourceTree = "<group>"; };
+		6E9106FF17BA7A180082AC03 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
 		6E9E573617B7E8FF008D67DC /* SDSDataModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSDataModels.h; sourceTree = "<group>"; };
 		6E9F052317B92B99002B078F /* Skill+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Skill+JSONRepresentation.h"; sourceTree = "<group>"; };
 		6E9F052417B92B99002B078F /* Skill+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Skill+JSONRepresentation.m"; sourceTree = "<group>"; };
@@ -203,7 +204,7 @@
 		6EB84B3D17ADE0F60033C32C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		6EB84B4417ADE6130033C32C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6EB8C89C17AF0E390051293C /* SDSServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSServer.h; sourceTree = "<group>"; };
-		6EB8C89D17AF0E390051293C /* SDSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSServer.m; sourceTree = "<group>"; };
+		6EB8C89D17AF0E390051293C /* SDSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSServer.m; sourceTree = "<group>"; wrapsLines = 1; };
 		6EC2180217B89AFD00BFA30F /* NSDate+CDAStringRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CDAStringRepresentation.h"; sourceTree = "<group>"; };
 		6EC2180317B89AFD00BFA30F /* NSDate+CDAStringRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CDAStringRepresentation.m"; sourceTree = "<group>"; };
 		6EC2180517B89EA700BFA30F /* SiteAccountConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteAccountConstants.h; sourceTree = "<group>"; };
@@ -227,6 +228,7 @@
 		6E72C6FD17AEAA3A0045D486 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E91070017BA7A1D0082AC03 /* Constants */,
 				6E8F3A6917B888330027B53E /* Protocols */,
 				6E72C6FE17AEAA410045D486 /* Categories */,
 				6E72C71817AEAF700045D486 /* NSManagedObject */,
@@ -416,6 +418,14 @@
 			children = (
 				6E8F3A6E17B88CA40027B53E /* UserConstants.h */,
 				6EC2180517B89EA700BFA30F /* SiteAccountConstants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		6E91070017BA7A1D0082AC03 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6E9106FF17BA7A180082AC03 /* HTTPStatusCodes.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
