@@ -2,7 +2,7 @@
 //  User.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/12/13.
+//  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -31,6 +31,7 @@
 @property (nonatomic, retain) NSSet *skills;
 @property (nonatomic, retain) NSSet *teams;
 @property (nonatomic, retain) NSSet *visiblePosts;
+@property (nonatomic, retain) NSSet *adminOfTeams;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -79,5 +80,10 @@
 - (void)removeVisiblePostsObject:(Post *)value;
 - (void)addVisiblePosts:(NSSet *)values;
 - (void)removeVisiblePosts:(NSSet *)values;
+
+- (void)addAdminOfTeamsObject:(Team *)value;
+- (void)removeAdminOfTeamsObject:(Team *)value;
+- (void)addAdminOfTeams:(NSSet *)values;
+- (void)removeAdminOfTeams:(NSSet *)values;
 
 @end

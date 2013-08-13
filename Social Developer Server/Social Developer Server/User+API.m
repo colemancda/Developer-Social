@@ -196,6 +196,21 @@
         }
     }
     
+    // admin of teams
+    if (self.adminOfTeams.count) {
+        
+        NSArray *adminOfTeams = [self JSONRepresentationForRelationship:@"adminOfTeams"
+                                               usingDestinationProperty:@"id"
+                                                                forUser:user
+                                                                 apiApp:apiApp];
+        
+        if (adminOfTeams.count) {
+            
+            [jsonObject setValue:adminOfTeams
+                          forKey:@"adminOfTeams"];
+        }
+    }
+    
     // Private properties (can only be seen by first party clients)
     if (user == self &&
         apiApp.isNotThirdParty) {

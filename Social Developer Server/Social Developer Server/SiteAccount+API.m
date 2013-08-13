@@ -1,22 +1,20 @@
 //
-//  Skill+API.m
+//  SiteAccount+API.m
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "Skill+API.h"
+#import "SiteAccount+API.h"
 #import "SDSDataModels.h"
-#import "NSDate+CDAStringRepresentation.h"
 
-@implementation Skill (API)
+@implementation SiteAccount (API)
 
 -(HTTPStatusCode)statusCodeForViewRequestFromUser:(User *)user
                                            apiApp:(APIApp *)apiApp
 {
-    // same permissions as User
-    
+    // same as user permissions
     return [self.user statusCodeForViewRequestFromUser:user
                                                 apiApp:apiApp];
 }
@@ -24,7 +22,6 @@
 -(HTTPStatusCode)statusCodeForModifyRequestFromUser:(User *)user
                                              apiApp:(APIApp *)apiApp
 {
-    // same as user
     return [self.user statusCodeForModifyRequestFromUser:user
                                                   apiApp:apiApp];
 }
@@ -34,19 +31,13 @@
 {
     NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
     
-    [jsonObject setValue:self.name
-                  forKey:@"name"];
+    [jsonObject addEntriesFromDictionary:@{@"username": self.username, @"type" : self.type}];
     
-    [jsonObject setValue:self.date.stringValue
-                  forKey:@"date"];
-    
-    [jsonObject setValue:self.type
-                  forKey:@"type"];
-    
-    if (self.about) {
+    if (user == self.user &&
+        apiApp.isNotThirdParty) {
         
-        [jsonObject setValue:self.about
-                      forKey:@"about"];
+        [jsonObject setValue:self.credentials
+                      forKey:@"credentials"];
     }
     
     return jsonObject;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="13A538g" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="APIApp" representedClassName="APIApp" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="isNotThirdParty" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -72,6 +72,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="open" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="admin" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="adminOfTeams" inverseEntity="User" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="team" inverseEntity="Image" syncable="YES"/>
         <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="teams" inverseEntity="User" syncable="YES"/>
         <relationship name="visiblePosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="visibleToTeams" inverseEntity="Post" syncable="YES"/>
@@ -86,6 +87,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SiteAccount" inverseName="user" inverseEntity="SiteAccount" syncable="YES"/>
+        <relationship name="adminOfTeams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="admin" inverseEntity="Team" syncable="YES"/>
         <relationship name="appPermissions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="user" inverseEntity="APIAppUserPermissions" syncable="YES"/>
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="following" inverseEntity="User" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
@@ -114,7 +116,7 @@
         <element name="Session" positionX="-1467" positionY="540" width="128" height="135"/>
         <element name="SiteAccount" positionX="-1458" positionY="234" width="128" height="120"/>
         <element name="Skill" positionX="-1467" positionY="360" width="128" height="135"/>
-        <element name="Team" positionX="-1026" positionY="273" width="128" height="150"/>
-        <element name="User" positionX="-1278" positionY="-144" width="128" height="315"/>
+        <element name="Team" positionX="-1026" positionY="273" width="128" height="165"/>
+        <element name="User" positionX="-1278" positionY="-144" width="128" height="330"/>
     </elements>
 </model>

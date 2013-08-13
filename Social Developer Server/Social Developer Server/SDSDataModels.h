@@ -23,6 +23,10 @@
 
 // Categories
 #import "User+API.h"
+#import "Skill+API.h"
+#import "SiteAccount+API.h"
+#import "Post+API.h"
+#import "Image+API.h"
 
 
 // Constants

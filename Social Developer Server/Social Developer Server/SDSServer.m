@@ -120,7 +120,7 @@
             // doesnt exist
             if (!fetchedObject) {
                 
-                response.statusCode = BadRequestStatusCode;
+                response.statusCode = NotFoundStatusCode;
                 
                 return;
             }
@@ -131,16 +131,25 @@
             // get user making the request
             [self authenticationForRequest:request completion:^(User *authenticatingUser, APIApp *apiApp) {
                 
+                HTTPStatusCode statusCode = [user statusCodeForViewRequestFromUser:user
+                                                                            apiApp:apiApp];
+                
+                // error
+                if (statusCode != OKStatusCode) {
+                    
+                    response.statusCode = statusCode;
+                    
+                    return;
+                }
+                
                 NSDictionary *jsonObject = [user JSONRepresentationForUser:authenticatingUser
                                                                     apiApp:apiApp];
                 
-                // dont have permission to see this
-                if (!jsonObject) {
-                    
-                    
-                    
-                }
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                                   options:0
+                                                                     error:nil];
                 
+                [response respondWithData:jsonData];
                 
             }];
         }];
