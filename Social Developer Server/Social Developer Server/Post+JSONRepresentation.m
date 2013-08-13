@@ -9,6 +9,9 @@
 #import "Post+JSONRepresentation.h"
 #import "SDSDataModels.h"
 #import "APIApp+APIAppUserPermissionsForUser.h"
+#import "Post+JSONRepresentation.h"
+#import "NSDate+CDAStringRepresentation.h"
+#import "NSManagedObject+RelationshipJSONRepresentation.h"
 
 @implementation Post (JSONRepresentation)
 
@@ -17,21 +20,75 @@
 -(NSDictionary *)JSONRepresentationForUser:(User *)user
                                     apiApp:(APIApp *)apiApp
 {
-    AssertUserForSDSJSON
-    AssertAPIAppForSDSJSON
+    if (![self isVisibleToUser:user
+                        apiApp:apiApp]) {
+        return nil;
+    }
     
-    // check for 3rd party API App
-    if (!apiApp.isNotThirdParty) {
+    NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
+    
+    // Post properties
+    
+    [jsonObject setValue:self.date.stringValue
+                  forKey:@"date"];
+    
+    [jsonObject setValue:self.text
+                  forKey:@"text"];
+    
+    // Post Relationships
+    
+    // creator
+    [jsonObject setValue:self.user.username
+                  forKey:@"user"];
+    
+    // parent post
+    if (self.parent) {
+        [jsonObject setValue:self.parent.id
+                      forKey:@"parent"];
+    }
+
+    // children posts
+    if (self.children.count) {
         
-        // check if 3rd party API App making the request has permission
-        APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:user];
-        
-        // User has not authorized this API App to view his own profile
-        if (!apiAppPermission.canViewUserInfo) {
-            return nil;
+        NSArray *childrenIDs = [self JSONRepresentationForRelationship:@"children"
+                                              usingDestinationProperty:@"id"
+                                                               forUser:user
+                                                                apiApp:apiApp];
+        if (childrenIDs.count) {
+            
+            [jsonObject setValue:childrenIDs
+                          forKey:@"children"];
         }
     }
     
+    // images
+    if (self.images.count) {
+        
+        NSArray *imagesIDs = [self JSONRepresentationForRelationship:@"images"
+                                            usingDestinationProperty:@"id"
+                                                             forUser:user
+                                                              apiApp:apiApp];
+        if (imagesIDs.count) {
+            [jsonObject setValue:imagesIDs
+                          forKey:@"images"];
+        }
+    }
+    
+    // links
+    if (self.links.count) {
+        
+        NSArray *linksIDs = [self JSONRepresentationForRelationship:@"links"
+                                           usingDestinationProperty:@"id"
+                                                            forUser:user
+                                                             apiApp:apiApp];
+        
+        if (linksIDs.count) {
+            [jsonObject setValue:linksIDs
+                          forKey:@"links"];
+        }
+    }
+    
+    return jsonObject;
 }
 
 @end

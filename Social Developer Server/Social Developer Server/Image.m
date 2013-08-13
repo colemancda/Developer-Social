@@ -18,6 +18,8 @@
 @dynamic date;
 @dynamic filename;
 @dynamic id;
+@dynamic name;
+@dynamic about;
 @dynamic post;
 @dynamic team;
 @dynamic user;

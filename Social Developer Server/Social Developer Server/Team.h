@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Image, User;
+@class Image, Post, User;
 
 @interface Team : NSManagedObject
 
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber * open;
 @property (nonatomic, retain) Image *image;
 @property (nonatomic, retain) NSSet *members;
+@property (nonatomic, retain) NSSet *visiblePosts;
 @end
 
 @interface Team (CoreDataGeneratedAccessors)
@@ -27,5 +28,10 @@
 - (void)removeMembersObject:(User *)value;
 - (void)addMembers:(NSSet *)values;
 - (void)removeMembers:(NSSet *)values;
+
+- (void)addVisiblePostsObject:(Post *)value;
+- (void)removeVisiblePostsObject:(Post *)value;
+- (void)addVisiblePosts:(NSSet *)values;
+- (void)removeVisiblePosts:(NSSet *)values;
 
 @end

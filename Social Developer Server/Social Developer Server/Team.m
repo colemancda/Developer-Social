@@ -8,6 +8,7 @@
 
 #import "Team.h"
 #import "Image.h"
+#import "Post.h"
 #import "User.h"
 
 
@@ -19,5 +20,6 @@
 @dynamic open;
 @dynamic image;
 @dynamic members;
+@dynamic visiblePosts;
 
 @end

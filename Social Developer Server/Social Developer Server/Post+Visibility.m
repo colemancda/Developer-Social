@@ -20,27 +20,44 @@
         return NO;
     }
     
-    // 1st party requests
-    if (apiApp.isNotThirdParty) {
-        
-        // as long as the user can view this, then 
-        
-    }
-    
-    // Only 3rd party apps with proper permissions can view this
-    else {
-        
-        
-        
-    }
-    
-    return NO;
+    return [self isVisibleToUser:user];
 }
 
 -(BOOL)isVisibleToUser:(User *)user
 {
+    // check for parent visibility
+    if (self.parent) {
+        return [self.parent isVisibleToUser:user];
+    }
     
+    // check if post has special permissions
+    if (!self.visibleToTeams.count &&
+        !self.visibleToUsers.count)
+    {
+        // post is public
+        return YES;
+    }
     
+    // check if user is allowed to see it
+    for (User *allowedUser in self.visibleToUsers) {
+        
+        if (allowedUser == user) {
+            return YES;
+        }
+    }
+    
+    // check if user belongs to team that is allowed to see post
+    for (Team *team in self.visibleToTeams) {
+        
+        for (User *member in team.members) {
+            
+            if (member == user) {
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
 }
 
 @end

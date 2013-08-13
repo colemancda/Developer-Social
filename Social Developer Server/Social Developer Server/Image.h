@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * filename;
 @property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) Post *post;
 @property (nonatomic, retain) Team *team;
 @property (nonatomic, retain) User *user;

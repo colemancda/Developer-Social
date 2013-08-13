@@ -10,6 +10,7 @@
 #import "Image.h"
 #import "Link.h"
 #import "Post.h"
+#import "Team.h"
 #import "User.h"
 
 
@@ -23,5 +24,7 @@
 @dynamic links;
 @dynamic parent;
 @dynamic user;
+@dynamic visibleToTeams;
+@dynamic visibleToUsers;
 
 @end

@@ -21,12 +21,12 @@
 
 @dynamic about;
 @dynamic date;
+@dynamic email;
 @dynamic location;
 @dynamic password;
 @dynamic permissions;
 @dynamic username;
 @dynamic website;
-@dynamic email;
 @dynamic accounts;
 @dynamic appPermissions;
 @dynamic followers;
@@ -36,5 +36,6 @@
 @dynamic sessions;
 @dynamic skills;
 @dynamic teams;
+@dynamic visiblePosts;
 
 @end

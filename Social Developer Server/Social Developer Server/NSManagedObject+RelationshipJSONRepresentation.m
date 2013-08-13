@@ -7,6 +7,7 @@
 //
 
 #import "NSManagedObject+RelationshipJSONRepresentation.h"
+#import "SDSVisibility.h"
 
 @implementation NSManagedObject (RelationshipJSONRepresentation)
 
@@ -23,6 +24,33 @@
         NSObject *property = [destinationObject valueForKey:propertyName];
         
         [jsonRepresentation addObject:property];
+    }
+    
+    return jsonRepresentation;
+}
+
+-(NSArray *)JSONRepresentationForRelationship:(NSString *)relationship
+                     usingDestinationProperty:(NSString *)propertyName
+                                      forUser:(User *)user
+                                       apiApp:(APIApp *)apiApp
+{
+    NSMutableArray *jsonRepresentation = [[NSMutableArray alloc] init];
+    
+    NSSet *relationshipSet = [self valueForKey:relationship];
+    
+    for (NSManagedObject *destinationObject in relationshipSet) {
+        
+        // must be a Foundation class that is JSON-compatible
+        NSObject *property = [destinationObject valueForKey:propertyName];
+        
+        // only add if the object is visible
+        id<SDSVisibility> visibleObject = (id<SDSVisibility>)destinationObject;
+        
+        if ([visibleObject isVisibleToUser:user
+                                    apiApp:apiApp]) {
+            
+            [jsonRepresentation addObject:property];
+        }
     }
     
     return jsonRepresentation;

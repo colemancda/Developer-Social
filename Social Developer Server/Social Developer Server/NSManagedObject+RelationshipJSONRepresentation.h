@@ -7,11 +7,17 @@
 //
 
 #import <CoreData/CoreData.h>
+@class User, APIApp;
 
 @interface NSManagedObject (RelationshipJSONRepresentation)
 
 // Destination's Property must be JSON compatible Foundation object
 -(NSArray *)JSONRepresentationForRelationship:(NSString *)relationship
                      usingDestinationProperty:(NSString *)propertyName;
+
+-(NSArray *)JSONRepresentationForRelationship:(NSString *)relationship
+                     usingDestinationProperty:(NSString *)propertyName
+                                      forUser:(User *)user
+                                       apiApp:(APIApp *)apiApp;
 
 @end

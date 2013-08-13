@@ -15,6 +15,13 @@
 
 #import "SDSDataModels.h"
 
+@implementation SDSServer (Authentication)
+
+-(void)authenticationForRequest:(RouteRequest *)request
+                     completion:(void (^)(User *user, api))completionBlock
+
+@end
+
 @implementation CDASQLiteDataStore (UserAuthentication)
 
 // get the User who is making the request
@@ -110,6 +117,7 @@
         
         [self.dataStore executeSingleResultFetchRequestTemplateWithName:@"UserWithUsername" substitutionVariables:@{@"USERNAME": username} completion:^(NSManagedObject *fetchedObject) {
            
+            // doesnt exist
             if (!fetchedObject) {
                 
                 response.statusCode = 404;
@@ -123,16 +131,8 @@
             // get user making the request
             [self.dataStore authenticatedUserForRequest:request completion:^(User *authenticatingUser) {
                 
-                // get public JSON representation
-                NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
-                
-                                
-               
-                // no user is authenticated
-                if (!authenticatingUser) {
-                    
-                    
-                }
+                NSDictionary *jsonObject = [user JSONRepresentationForUser:authenticatingUser
+                                                                    apiApp:<#(APIApp *)#>];
                 
                 
             }];

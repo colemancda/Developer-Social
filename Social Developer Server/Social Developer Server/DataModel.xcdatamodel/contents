@@ -14,10 +14,12 @@
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="appPermissions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="post" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="images" inverseEntity="Post" syncable="YES"/>
         <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="image" inverseEntity="Team" syncable="YES"/>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="image" inverseEntity="User" syncable="YES"/>
@@ -38,6 +40,8 @@
         <relationship name="links" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Link" inverseName="post" inverseEntity="Link" syncable="YES"/>
         <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="children" inverseEntity="Post" syncable="YES"/>
         <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
+        <relationship name="visibleToTeams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="visiblePosts" inverseEntity="Team" syncable="YES"/>
+        <relationship name="visibleToUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="visiblePosts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -66,6 +70,7 @@
         <attribute name="open" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="team" inverseEntity="Image" syncable="YES"/>
         <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="teams" inverseEntity="User" syncable="YES"/>
+        <relationship name="visiblePosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="visibleToTeams" inverseEntity="Post" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -85,6 +90,7 @@
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="user" inverseEntity="Skill" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
+        <relationship name="visiblePosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="visibleToUsers" inverseEntity="Post" syncable="YES"/>
     </entity>
     <fetchRequest name="ImageWithID" entity="Image" predicateString="id == $ID"/>
     <fetchRequest name="LinkWithID" entity="Link" predicateString="id == $ID"/>
@@ -95,13 +101,13 @@
     <elements>
         <element name="APIApp" positionX="160" positionY="192" width="128" height="105"/>
         <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Image" positionX="-1100" positionY="-180" width="128" height="150"/>
+        <element name="Image" positionX="-1100" positionY="-180" width="128" height="180"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="120"/>
-        <element name="Post" positionX="-522" positionY="2" width="128" height="163"/>
+        <element name="Post" positionX="-522" positionY="2" width="128" height="195"/>
         <element name="Session" positionX="-488" positionY="455" width="128" height="135"/>
         <element name="SiteAccount" positionX="-1334" positionY="216" width="128" height="90"/>
         <element name="Skill" positionX="-99" positionY="513" width="128" height="120"/>
-        <element name="Team" positionX="-776" positionY="-126" width="128" height="135"/>
-        <element name="User" positionX="-1098" positionY="29" width="128" height="300"/>
+        <element name="Team" positionX="-776" positionY="-126" width="128" height="150"/>
+        <element name="User" positionX="-1098" positionY="29" width="128" height="315"/>
     </elements>
 </model>

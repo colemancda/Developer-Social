@@ -15,12 +15,12 @@
 
 @property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSNumber * permissions;
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSString * website;
-@property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSSet *accounts;
 @property (nonatomic, retain) NSSet *appPermissions;
 @property (nonatomic, retain) NSSet *followers;
@@ -30,6 +30,7 @@
 @property (nonatomic, retain) NSSet *sessions;
 @property (nonatomic, retain) NSSet *skills;
 @property (nonatomic, retain) NSSet *teams;
+@property (nonatomic, retain) NSSet *visiblePosts;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -73,5 +74,10 @@
 - (void)removeTeamsObject:(Team *)value;
 - (void)addTeams:(NSSet *)values;
 - (void)removeTeams:(NSSet *)values;
+
+- (void)addVisiblePostsObject:(Post *)value;
+- (void)removeVisiblePostsObject:(Post *)value;
+- (void)addVisiblePosts:(NSSet *)values;
+- (void)removeVisiblePosts:(NSSet *)values;
 
 @end
