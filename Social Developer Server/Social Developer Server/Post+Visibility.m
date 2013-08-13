@@ -15,8 +15,9 @@
 -(BOOL)isVisibleToUser:(User *)user
                 apiApp:(APIApp *)apiApp
 {
-    if (apiApp) {
-        <#statements#>
+    // Must request through API App
+    if (!apiApp) {
+        return NO;
     }
     
     // 1st party requests
@@ -27,7 +28,11 @@
     }
     
     // Only 3rd party apps with proper permissions can view this
-    
+    else {
+        
+        
+        
+    }
     
     return NO;
 }
