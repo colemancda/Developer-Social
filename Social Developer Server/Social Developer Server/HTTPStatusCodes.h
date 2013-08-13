@@ -9,7 +9,18 @@
 #ifndef Social_Developer_Server_HTTPStatusCodes_h
 #define Social_Developer_Server_HTTPStatusCodes_h
 
-typedef NS_ENUM (nsinteger, HTTPStatusCodes) {
+typedef NS_ENUM (NSInteger, HTTPStatusCodes) {
+    
+    OKStatusCode = 200,
+    
+    BadRequestStatusCode = 400,
+    UnauthorizedStatusCode, // not logged in
+    PaymentRequiredStatusCode,
+    ForbiddenStatusCode, // item is invisible to user or api app
+    NotFoundStatusCode, // item doesnt exist
+    MethodNotAllowedStatusCode,
+    
+    InternalServerErrorStatusCode = 500
     
 };
 

@@ -51,6 +51,7 @@
 		6E8E60FB17B7326C00A49BE2 /* RoutingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D617B7326C00A49BE2 /* RoutingConnection.m */; };
 		6E8E60FC17B7326C00A49BE2 /* RoutingHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E60D817B7326C00A49BE2 /* RoutingHTTPServer.m */; };
 		6E8F3A6D17B88C200027B53E /* User+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */; };
+		6E91070417BA7D530082AC03 /* User+StatusCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E91070317BA7D530082AC03 /* User+StatusCode.m */; };
 		6E9F052517B92B99002B078F /* Skill+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F052417B92B99002B078F /* Skill+JSONRepresentation.m */; };
 		6E9F052817B93072002B078F /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F052717B93072002B078F /* Session.m */; };
 		6E9F052B17B93072002B078F /* SiteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F052A17B93072002B078F /* SiteAccount.m */; };
@@ -59,7 +60,6 @@
 		6E9F054617B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054517B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m */; };
 		6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */; };
 		6E9F055217B93D3A002B078F /* Post+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055117B93D3A002B078F /* Post+JSONRepresentation.m */; };
-		6E9F055517B93FD8002B078F /* User+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055417B93FD8002B078F /* User+Visibility.m */; };
 		6E9F055A17B943D5002B078F /* Post+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055917B943D4002B078F /* Post+Visibility.m */; };
 		6EB84B2817ADE0F50033C32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB84B2717ADE0F50033C32C /* Cocoa.framework */; };
 		6EB84B3217ADE0F50033C32C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EB84B3017ADE0F50033C32C /* InfoPlist.strings */; };
@@ -166,6 +166,9 @@
 		6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+JSONRepresentation.m"; sourceTree = "<group>"; wrapsLines = 1; };
 		6E8F3A6E17B88CA40027B53E /* UserConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConstants.h; sourceTree = "<group>"; };
 		6E9106FF17BA7A180082AC03 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
+		6E91070117BA7CC50082AC03 /* SDSStatusCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSStatusCode.h; sourceTree = "<group>"; };
+		6E91070217BA7D530082AC03 /* User+StatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+StatusCode.h"; sourceTree = "<group>"; };
+		6E91070317BA7D530082AC03 /* User+StatusCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+StatusCode.m"; sourceTree = "<group>"; };
 		6E9E573617B7E8FF008D67DC /* SDSDataModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSDataModels.h; sourceTree = "<group>"; };
 		6E9F052317B92B99002B078F /* Skill+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Skill+JSONRepresentation.h"; sourceTree = "<group>"; };
 		6E9F052417B92B99002B078F /* Skill+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Skill+JSONRepresentation.m"; sourceTree = "<group>"; };
@@ -183,9 +186,6 @@
 		6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAppUserPermissions.m; sourceTree = "<group>"; };
 		6E9F055017B93D39002B078F /* Post+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+JSONRepresentation.h"; sourceTree = "<group>"; };
 		6E9F055117B93D3A002B078F /* Post+JSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+JSONRepresentation.m"; sourceTree = "<group>"; };
-		6E9F055317B93FD8002B078F /* User+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Visibility.h"; sourceTree = "<group>"; };
-		6E9F055417B93FD8002B078F /* User+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Visibility.m"; sourceTree = "<group>"; };
-		6E9F055617B9403C002B078F /* SDSVisibility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSVisibility.h; sourceTree = "<group>"; };
 		6E9F055717B94097002B078F /* SDSJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDSJSON.h; sourceTree = "<group>"; };
 		6E9F055817B943D4002B078F /* Post+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Visibility.h"; sourceTree = "<group>"; };
 		6E9F055917B943D4002B078F /* Post+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Visibility.m"; sourceTree = "<group>"; };
@@ -407,7 +407,7 @@
 		6E8F3A6917B888330027B53E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				6E9F055617B9403C002B078F /* SDSVisibility.h */,
+				6E91070117BA7CC50082AC03 /* SDSStatusCode.h */,
 				6E9F055717B94097002B078F /* SDSJSON.h */,
 			);
 			name = Protocols;
@@ -466,8 +466,8 @@
 				6E9F054517B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m */,
 				6E8F3A6B17B88C200027B53E /* User+JSONRepresentation.h */,
 				6E8F3A6C17B88C200027B53E /* User+JSONRepresentation.m */,
-				6E9F055317B93FD8002B078F /* User+Visibility.h */,
-				6E9F055417B93FD8002B078F /* User+Visibility.m */,
+				6E91070217BA7D530082AC03 /* User+StatusCode.h */,
+				6E91070317BA7D530082AC03 /* User+StatusCode.m */,
 				6EC2180617B89F2C00BFA30F /* SiteAccount+JSONRepresentation.h */,
 				6EC2180717B89F2C00BFA30F /* SiteAccount+JSONRepresentation.m */,
 				6E9F052317B92B99002B078F /* Skill+JSONRepresentation.h */,
@@ -674,7 +674,6 @@
 				6E9F054617B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m in Sources */,
 				6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */,
 				6E9F055217B93D3A002B078F /* Post+JSONRepresentation.m in Sources */,
-				6E9F055517B93FD8002B078F /* User+Visibility.m in Sources */,
 				6E9F055A17B943D5002B078F /* Post+Visibility.m in Sources */,
 				6E4E261D17B9C63F00784291 /* Team.m in Sources */,
 				6E4E262017B9C64000784291 /* User.m in Sources */,
@@ -683,6 +682,7 @@
 				6E4E262917B9DF5B00784291 /* Image+JSONRepresentation.m in Sources */,
 				6E4E262C17B9E04C00784291 /* Image.m in Sources */,
 				6E25562917B9E917008EF933 /* APIApp.m in Sources */,
+				6E91070417BA7D530082AC03 /* User+StatusCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

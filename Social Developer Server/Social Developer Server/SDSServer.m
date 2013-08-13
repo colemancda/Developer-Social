@@ -12,6 +12,7 @@
 #import "SDSAppDelegate.h"
 #import "CDASQLiteDataStore.h"
 #import "NSDate+CDAStringRepresentation.h"
+#import "HTTPStatusCodes.h"
 
 #import "SDSDataModels.h"
 
@@ -119,7 +120,7 @@
             // doesnt exist
             if (!fetchedObject) {
                 
-                response.statusCode = 404;
+                response.statusCode = BadRequestStatusCode;
                 
                 return;
             }
