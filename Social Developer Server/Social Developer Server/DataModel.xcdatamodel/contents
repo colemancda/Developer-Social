@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="13A538g" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="APIApp" representedClassName="APIApp" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="isNotThirdParty" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -101,15 +101,15 @@
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
-        <element name="APIApp" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Image" positionX="-1100" positionY="-180" width="128" height="180"/>
-        <element name="Link" positionX="-108" positionY="207" width="128" height="120"/>
-        <element name="Post" positionX="-522" positionY="2" width="128" height="195"/>
-        <element name="Session" positionX="-488" positionY="455" width="128" height="135"/>
-        <element name="SiteAccount" positionX="-1334" positionY="216" width="128" height="90"/>
-        <element name="Skill" positionX="-99" positionY="513" width="128" height="120"/>
-        <element name="Team" positionX="-776" positionY="-126" width="128" height="150"/>
-        <element name="User" positionX="-1098" positionY="29" width="128" height="315"/>
+        <element name="APIApp" positionX="-1899" positionY="-207" width="128" height="120"/>
+        <element name="APIAppUserPermissions" positionX="-1539" positionY="-198" width="128" height="120"/>
+        <element name="Image" positionX="-972" positionY="-468" width="128" height="180"/>
+        <element name="Link" positionX="-225" positionY="-270" width="128" height="120"/>
+        <element name="Post" positionX="-542" positionY="-276" width="128" height="195"/>
+        <element name="Session" positionX="-1467" positionY="540" width="128" height="135"/>
+        <element name="SiteAccount" positionX="-1458" positionY="234" width="128" height="90"/>
+        <element name="Skill" positionX="-1467" positionY="360" width="128" height="120"/>
+        <element name="Team" positionX="-1026" positionY="273" width="128" height="150"/>
+        <element name="User" positionX="-1278" positionY="-144" width="128" height="315"/>
     </elements>
 </model>

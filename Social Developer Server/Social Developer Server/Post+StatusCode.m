@@ -1,33 +1,28 @@
 //
-//  Post+Visibility.m
+//  Post+StatusCode.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/12/13.
+//  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "Post+Visibility.h"
+#import "Post+StatusCode.h"
 #import "SDSDataModels.h"
-#import "APIApp+APIAppUserPermissionsForUser.h"
 
-@implementation Post (Visibility)
+@implementation Post (StatusCode)
 
--(BOOL)isVisibleToUser:(User *)user
-                apiApp:(APIApp *)apiApp
+-(HTTPStatusCode)statusCodeForRequestFromUser:(User *)user
+                                        apiApp:(APIApp *)apiApp
 {
-    // Must request through API App
-    if (!apiApp) {
-        return NO;
-    }
-    
-    return [self isVisibleToUser:user];
+    // dont need Api app to view post
+    return [self statusCodeForRequestFromUser:user];
 }
 
--(BOOL)isVisibleToUser:(User *)user
+-(HTTPStatusCode)statusCodeForRequestFromUser:(User *)user
 {
     // check for parent visibility
     if (self.parent) {
-        return [self.parent isVisibleToUser:user];
+        return [self.parent statusCodeForRequestFromUser:user];
     }
     
     // check if post has special permissions
@@ -35,14 +30,14 @@
         !self.visibleToUsers.count)
     {
         // post is public
-        return YES;
+        return OKStatusCode;
     }
     
     // check if user is allowed to see it
     for (User *allowedUser in self.visibleToUsers) {
         
         if (allowedUser == user) {
-            return YES;
+            return OKStatusCode;
         }
     }
     
@@ -52,12 +47,12 @@
         for (User *member in team.members) {
             
             if (member == user) {
-                return YES;
+                return OKStatusCode;
             }
         }
     }
     
-    return NO;
+    return ForbiddenStatusCode;
 }
 
 @end

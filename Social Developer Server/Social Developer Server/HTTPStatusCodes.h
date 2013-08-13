@@ -9,7 +9,7 @@
 #ifndef Social_Developer_Server_HTTPStatusCodes_h
 #define Social_Developer_Server_HTTPStatusCodes_h
 
-typedef NS_ENUM (NSInteger, HTTPStatusCodes) {
+typedef NS_ENUM (NSInteger, HTTPStatusCode) {
     
     OKStatusCode = 200,
     

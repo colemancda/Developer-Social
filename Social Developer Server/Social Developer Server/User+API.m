@@ -1,35 +1,87 @@
 //
-//  User+JSONRepresentation.m
+//  User+API.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/11/13.
+//  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "User+JSONRepresentation.h"
+#import "User+API.h"
 #import "SDSDataModels.h"
-#import "NSManagedObject+RelationshipJSONRepresentation.h"
+#import "APIApp+APIAppUserPermissionsForUser.h"
 #import "NSDate+CDAStringRepresentation.h"
-#import "Skill+JSONRepresentation.h"
-#import "SiteAccount+JSONRepresentation.h"
-#import "Post+Visibility.h"
+
+@implementation User (API)
+
+#pragma mark - API
+
+// Tells IF they can see
+-(HTTPStatusCode)statusCodeForViewRequestFromUser:(User *)user
+                                           apiApp:(APIApp *)apiApp
+{
+    if (!apiApp) {
+        return UnauthorizedStatusCode;
+    }
+    
+    // 3rd party access
+    if (!apiApp.isNotThirdParty) {
+        
+        // check if 3rd party API App making the request has permission to view profile
+        APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:self];
+        
+        // API App is linked to User's account
+        if (apiAppPermission) {
+            
+            if (apiAppPermission.canViewUserInfo) {
+                
+                return OKStatusCode;
+            }
+        }
+        
+        return ForbiddenStatusCode;
+    }
+    
+    // User profiles are public for 1st party API clients
+    return OKStatusCode;
+}
+
+-(HTTPStatusCode)statusCodeForModifyRequestFromUser:(User *)user
+                                             apiApp:(APIApp *)apiApp
+{
+    if (!apiApp) {
+        return UnauthorizedStatusCode;
+    }
+    
+    // 3rd party access
+    if (!apiApp.isNotThirdParty) {
+        
+        // check if 3rd party API App making the request has permission to edit profile
+        APIAppUserPermissions *apiAppPermission = [apiApp permissionsForUser:self];
+        
+        // API App is linked to User's account
+        if (apiAppPermission) {
+            
+            if (apiAppPermission.canEditUserInfo) {
+                
+                return OKStatusCode;
+            }
+        }
+        
+        return ForbiddenStatusCode;
+    }
+    
+    // User profiles are public for 1st party API clients
+    return OKStatusCode;
+    
+}
 
 
-@implementation User (JSONRepresentation)
-
-#pragma mark - RESTful JSON Representation Protocol
-
+// Tells WHAT they can see
 -(NSDictionary *)JSONRepresentationForUser:(User *)user
                                     apiApp:(APIApp *)apiApp
 {
-    if (![self isVisibleToUser:user
-                        apiApp:apiApp]) {
-        
-        return nil;
-    }
-    
     NSMutableDictionary *jsonObject = [[NSMutableDictionary alloc] init];
-        
+    
     // date joined
     [jsonObject setValue:self.date.stringValue
                   forKey:@"date"];
@@ -63,23 +115,29 @@
     // skills
     if (self.skills.count) {
         
-        NSMutableArray *skillsInfo = [[NSMutableArray alloc] init];
+        NSMutableArray *skills = [[NSMutableArray alloc] init];
         
         for (Skill *skill in self.skills) {
             
-            // 'Skill' ignores who is making the request
-            [skillsInfo addObject:[skill JSONRepresentationForUser:user
-                                                            apiApp:apiApp]];
+            NSDictionary *jsonObject = @{@"name": skill.name,
+                                         @"date": skill.date.stringValue,
+                                         @"about": skill.about,
+                                         @"type": skill.type};
             
         }
         
-        // get the name for each skill
-        [jsonObject setValue:skillsInfo
-                      forKey:@"skills"];
+        if (skills.count) {
+            
+            [jsonObject setObject:skills
+                           forKey:@"skills"]
+            
+        }
     }
     
     // teams
     if (self.teams.count) {
+        
+        NSArray *teamIDs = 
         
         // get team IDs
         [jsonObject setValue:self.teamIDs
@@ -155,24 +213,5 @@
     return jsonObject;
 }
 
-#pragma mark
-
--(NSArray *)teamIDs
-{
-    return [self JSONRepresentationForRelationship:@"teams"
-                          usingDestinationProperty:@"id"];
-}
-
--(NSArray *)followersUsernames
-{
-    return [self JSONRepresentationForRelationship:@"followers"
-                          usingDestinationProperty:@"username"];
-}
-
--(NSArray *)followingUsernames
-{
-    return [self JSONRepresentationForRelationship:@"following"
-                          usingDestinationProperty:@"username"];
-}
 
 @end
