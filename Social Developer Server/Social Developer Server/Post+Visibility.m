@@ -15,6 +15,10 @@
 -(BOOL)isVisibleToUser:(User *)user
                 apiApp:(APIApp *)apiApp
 {
+    if (apiApp) {
+        <#statements#>
+    }
+    
     // 1st party requests
     if (apiApp.isNotThirdParty) {
         

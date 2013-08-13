@@ -12,7 +12,7 @@
 #import "NSDate+CDAStringRepresentation.h"
 #import "Skill+JSONRepresentation.h"
 #import "SiteAccount+JSONRepresentation.h"
-#import "User+Visibility.h"
+
 
 @implementation User (JSONRepresentation)
 
@@ -123,7 +123,7 @@
         
         for (Post *post in self.posts) {
             
-            // only add posts that are visible for the user requesting this representation
+            // only add Posts' IDs that are visible for the user and API App making the request
             if ([post isVisibleToUser:user]) {
                 
                 [posts addObject:post.id];
@@ -138,8 +138,7 @@
     }
     
     // Private properties
-    if (user == self ||
-        user.permissions.integerValue == Admin) {
+    if (user == self) {
         
         // password
         [jsonObject setValue:self.password

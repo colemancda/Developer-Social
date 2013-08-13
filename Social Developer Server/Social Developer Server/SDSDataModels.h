@@ -23,7 +23,10 @@
 
 // Categories
 #import "User+JSONRepresentation.h"
-#import "SiteAccount+JSONRepresentation.h"
+#import "User+Visibility.h"
+#import "Post+JSONRepresentation.h"
+#import "Post+Visibility.h"
+
 
 // Constants
 #import "UserConstants.h"

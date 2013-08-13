@@ -29,11 +29,7 @@
             // API App is linked to User's account
             if (apiAppPermission) {
                 
-                if (apiAppPermission.canViewUserInfo) {
-                    
-                    // ignore which user is requesting this user
-                    return YES;
-                }
+                return apiAppPermission.canViewUserInfo.boolValue;
             }
             
             // User is not associated with API App
@@ -41,7 +37,6 @@
                 
                 return NO;
             }
-            
         }
         
         // first party app
