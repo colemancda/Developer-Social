@@ -18,15 +18,7 @@
 @implementation SDSServer (Authentication)
 
 -(void)authenticationForRequest:(RouteRequest *)request
-                     completion:(void (^)(User *user, api))completionBlock
-
-@end
-
-@implementation CDASQLiteDataStore (UserAuthentication)
-
-// get the User who is making the request
--(void)authenticatedUserForRequest:(RouteRequest *)request
-                        completion:(void (^)(User *user))completionBlock
+                     completion:(void (^)(User *user, APIApp *apiApp))completionBlock
 {
     // get the authentication from HTTP header
     
@@ -36,10 +28,11 @@
     
     // no token
     if (!parsedAuthStringArray ||
-        parsedAuthStringArray.count != 2 ||
-        ![parsedAuthStringArray[0] isEqualToString:@"SDSToken"]) {
+        (parsedAuthStringArray.count == 2 ||
+         parsedAuthStringArray.count == 3)||
+        ![parsedAuthStringArray[0] isEqualToString:@"SDS"]) {
         
-        completionBlock(nil);
+        completionBlock(nil, nil);
         return;
     }
     
@@ -48,19 +41,20 @@
     
     // find match in DB
     
-    [self executeSingleResultFetchRequestTemplateWithName:@"SessionWithToken" substitutionVariables:@{@"TOKEN": token} completion:^(NSManagedObject *fetchedObject) {
+    [self.dataStore executeSingleResultFetchRequestTemplateWithName:@"SessionWithToken" substitutionVariables:@{@"TOKEN": token} completion:^(NSManagedObject *fetchedObject) {
         
         Session *session = (Session *)fetchedObject;
         
-        // no session matched that token
-        if (!session) {
+        // find API App
+        if (parsedAuthStringArray.count == 3) {
             
-            completionBlock(nil);
-            return;
+            NSString *apiAppToken = parsedAuthStringArray[2];
+            
+            
+            
         }
         
-        completionBlock(session.user);
-        return;
+        completionBlock(session.user, nil);
     }];
 }
 

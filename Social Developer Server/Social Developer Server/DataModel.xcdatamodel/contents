@@ -4,6 +4,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="isNotThirdParty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secret" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="usersPermissions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="app" inverseEntity="APIAppUserPermissions" syncable="YES"/>
     </entity>
     <entity name="APIAppUserPermissions" representedClassName="APIAppUserPermissions" syncable="YES">
@@ -92,6 +93,7 @@
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
         <relationship name="visiblePosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="visibleToUsers" inverseEntity="Post" syncable="YES"/>
     </entity>
+    <fetchRequest name="APIAppWithSecret" entity="APIApp" predicateString="secret == $SECRET"/>
     <fetchRequest name="ImageWithID" entity="Image" predicateString="id == $ID"/>
     <fetchRequest name="LinkWithID" entity="Link" predicateString="id == $ID"/>
     <fetchRequest name="PostWithID" entity="Post" predicateString="id == $ID"/>
@@ -99,7 +101,7 @@
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
-        <element name="APIApp" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="APIApp" positionX="160" positionY="192" width="128" height="120"/>
         <element name="APIAppUserPermissions" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Image" positionX="-1100" positionY="-180" width="128" height="180"/>
         <element name="Link" positionX="-108" positionY="207" width="128" height="120"/>

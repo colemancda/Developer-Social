@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E0F2F6E17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0F2F6D17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m */; };
+		6E25562917B9E917008EF933 /* APIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E25562817B9E917008EF933 /* APIApp.m */; };
 		6E4E261D17B9C63F00784291 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E261C17B9C63F00784291 /* Team.m */; };
 		6E4E262017B9C64000784291 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E261F17B9C64000784291 /* User.m */; };
 		6E4E262317B9C64000784291 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E262217B9C64000784291 /* Post.m */; };
@@ -56,7 +57,6 @@
 		6E9F053717B93073002B078F /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F053617B93073002B078F /* Skill.m */; };
 		6E9F053A17B93073002B078F /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F053917B93073002B078F /* Link.m */; };
 		6E9F054617B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054517B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m */; };
-		6E9F054C17B937B7002B078F /* APIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054B17B937B7002B078F /* APIApp.m */; };
 		6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */; };
 		6E9F055217B93D3A002B078F /* Post+JSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055117B93D3A002B078F /* Post+JSONRepresentation.m */; };
 		6E9F055517B93FD8002B078F /* User+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F055417B93FD8002B078F /* User+Visibility.m */; };
@@ -76,6 +76,8 @@
 /* Begin PBXFileReference section */
 		6E0F2F6C17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+RelationshipJSONRepresentation.h"; sourceTree = "<group>"; };
 		6E0F2F6D17B8927C00D8535F /* NSManagedObject+RelationshipJSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+RelationshipJSONRepresentation.m"; sourceTree = "<group>"; };
+		6E25562717B9E917008EF933 /* APIApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIApp.h; sourceTree = "<group>"; };
+		6E25562817B9E917008EF933 /* APIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApp.m; sourceTree = "<group>"; };
 		6E4E261B17B9C63F00784291 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		6E4E261C17B9C63F00784291 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		6E4E261E17B9C64000784291 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -176,8 +178,6 @@
 		6E9F053917B93073002B078F /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
 		6E9F054417B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIApp+APIAppUserPermissionsForUser.h"; sourceTree = "<group>"; };
 		6E9F054517B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIApp+APIAppUserPermissionsForUser.m"; sourceTree = "<group>"; };
-		6E9F054A17B937B7002B078F /* APIApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIApp.h; sourceTree = "<group>"; };
-		6E9F054B17B937B7002B078F /* APIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApp.m; sourceTree = "<group>"; };
 		6E9F054D17B937B7002B078F /* APIAppUserPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAppUserPermissions.h; sourceTree = "<group>"; };
 		6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAppUserPermissions.m; sourceTree = "<group>"; };
 		6E9F055017B93D39002B078F /* Post+JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+JSONRepresentation.h"; sourceTree = "<group>"; };
@@ -423,6 +423,8 @@
 		6E9E571217B7E74B008D67DC /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				6E25562717B9E917008EF933 /* APIApp.h */,
+				6E25562817B9E917008EF933 /* APIApp.m */,
 				6E4E262A17B9E04C00784291 /* Image.h */,
 				6E4E262B17B9E04C00784291 /* Image.m */,
 				6E4E262117B9C64000784291 /* Post.h */,
@@ -433,8 +435,6 @@
 				6E4E261C17B9C63F00784291 /* Team.m */,
 				6E9F054D17B937B7002B078F /* APIAppUserPermissions.h */,
 				6E9F054E17B937B7002B078F /* APIAppUserPermissions.m */,
-				6E9F054A17B937B7002B078F /* APIApp.h */,
-				6E9F054B17B937B7002B078F /* APIApp.m */,
 				6E9F053817B93073002B078F /* Link.h */,
 				6E9F053917B93073002B078F /* Link.m */,
 				6E9F053517B93073002B078F /* Skill.h */,
@@ -662,7 +662,6 @@
 				6E9F053717B93073002B078F /* Skill.m in Sources */,
 				6E9F053A17B93073002B078F /* Link.m in Sources */,
 				6E9F054617B931EC002B078F /* APIApp+APIAppUserPermissionsForUser.m in Sources */,
-				6E9F054C17B937B7002B078F /* APIApp.m in Sources */,
 				6E9F054F17B937B7002B078F /* APIAppUserPermissions.m in Sources */,
 				6E9F055217B93D3A002B078F /* Post+JSONRepresentation.m in Sources */,
 				6E9F055517B93FD8002B078F /* User+Visibility.m in Sources */,
@@ -673,6 +672,7 @@
 				6E4E262617B9DBC700784291 /* Image+Visibility.m in Sources */,
 				6E4E262917B9DF5B00784291 /* Image+JSONRepresentation.m in Sources */,
 				6E4E262C17B9E04C00784291 /* Image.m in Sources */,
+				6E25562917B9E917008EF933 /* APIApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
