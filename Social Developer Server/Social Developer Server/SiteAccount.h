@@ -13,10 +13,10 @@
 
 @interface SiteAccount : NSManagedObject
 
+@property (nonatomic, retain) NSString * credentials;
+@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * credentials;
 @property (nonatomic, retain) User *user;
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import "Session.h"
+@class APIApp;
 
 @interface Session (Authentication)
 
--(void)newRequest;
+-(void)newRequestWithIP:(NSString *)ipAddress
+              userAgent:(NSString *)userAgent
+                 apiApp:(APIApp *)apiApp;
 
 @end

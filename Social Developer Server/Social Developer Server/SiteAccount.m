@@ -12,10 +12,10 @@
 
 @implementation SiteAccount
 
+@dynamic credentials;
+@dynamic id;
 @dynamic type;
 @dynamic username;
-@dynamic id;
-@dynamic credentials;
 @dynamic user;
 
 @end

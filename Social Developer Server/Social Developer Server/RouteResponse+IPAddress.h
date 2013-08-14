@@ -1,21 +1,15 @@
 //
-//  Link.m
+//  RouteResponse+IPAddress.h
 //  Social Developer Server
 //
 //  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
-#import "Link.h"
-#import "Post.h"
+#import "RouteResponse.h"
 
+@interface RouteResponse (IPAddress)
 
-@implementation Link
-
-@dynamic date;
-@dynamic id;
-@dynamic type;
-@dynamic url;
-@dynamic post;
+@property (readonly) NSString *ipAddress;
 
 @end

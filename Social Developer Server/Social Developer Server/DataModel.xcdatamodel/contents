@@ -5,13 +5,25 @@
         <attribute name="isNotThirdParty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secret" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="usersPermissions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="app" inverseEntity="APIAppUserPermissions" syncable="YES"/>
+        <relationship name="apiAppSessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIAppSession" inverseName="apiApp" inverseEntity="APIAppSession" syncable="YES"/>
+        <relationship name="usersPermissions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIAppUserPermissions" inverseName="apiApp" inverseEntity="APIAppUserPermissions" syncable="YES"/>
+    </entity>
+    <entity name="APIAppSession" representedClassName="APIAppSession" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastIP" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUserAgent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="useragent" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="apiApp" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIApp" inverseName="apiAppSessions" inverseEntity="APIApp" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="apiAppSession" inverseEntity="Session" syncable="YES"/>
     </entity>
     <entity name="APIAppUserPermissions" representedClassName="APIAppUserPermissions" syncable="YES">
         <attribute name="canEditUserInfo" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="canPost" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <attribute name="canViewUserInfo" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="app" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIApp" inverseName="usersPermissions" inverseEntity="APIApp" syncable="YES"/>
+        <relationship name="apiApp" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIApp" inverseName="usersPermissions" inverseEntity="APIApp" syncable="YES"/>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="appPermissions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES">
@@ -47,9 +59,12 @@
     <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="ip" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lastUse" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastIP" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUserAgent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="useragent" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="apiAppSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="APIAppSession" inverseName="sessions" inverseEntity="APIAppSession" syncable="YES"/>
         <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sessions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="SiteAccount" representedClassName="SiteAccount" syncable="YES">
@@ -98,6 +113,7 @@
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
         <relationship name="visiblePosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="visibleToUsers" inverseEntity="Post" syncable="YES"/>
     </entity>
+    <fetchRequest name="APIAppSessionWithToken" entity="APIAppSession" predicateString="token == $TOKEN"/>
     <fetchRequest name="APIAppWithSecret" entity="APIApp" predicateString="secret == $SECRET"/>
     <fetchRequest name="ImageWithID" entity="Image" predicateString="id == $ID"/>
     <fetchRequest name="LinkWithID" entity="Link" predicateString="id == $ID"/>
@@ -108,15 +124,16 @@
     <fetchRequest name="TeamWithID" entity="Team" predicateString="id == $ID"/>
     <fetchRequest name="UserWithUsername" entity="User" predicateString="username ==[c] $USERNAME"/>
     <elements>
-        <element name="APIApp" positionX="-1899" positionY="-207" width="128" height="120"/>
+        <element name="APIApp" positionX="-1899" positionY="-207" width="128" height="135"/>
         <element name="APIAppUserPermissions" positionX="-1539" positionY="-198" width="128" height="120"/>
         <element name="Image" positionX="-972" positionY="-468" width="128" height="180"/>
         <element name="Link" positionX="-225" positionY="-270" width="128" height="120"/>
         <element name="Post" positionX="-542" positionY="-276" width="128" height="195"/>
-        <element name="Session" positionX="-1467" positionY="540" width="128" height="135"/>
+        <element name="Session" positionX="-1467" positionY="540" width="128" height="180"/>
         <element name="SiteAccount" positionX="-1458" positionY="234" width="128" height="120"/>
         <element name="Skill" positionX="-1467" positionY="360" width="128" height="135"/>
         <element name="Team" positionX="-1026" positionY="273" width="128" height="165"/>
         <element name="User" positionX="-1278" positionY="-144" width="128" height="330"/>
+        <element name="APIAppSession" positionX="160" positionY="192" width="128" height="180"/>
     </elements>
 </model>

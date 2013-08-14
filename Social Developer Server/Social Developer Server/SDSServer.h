@@ -17,8 +17,10 @@
 
 @property CDASQLiteDataStore *dataStore;
 
+@property BOOL prettyPrintJSON;
+
 -(NSError *)startWithPort:(NSUInteger)port;
 
--(void)setupRoutes;
+-(void)stop;
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class APIAppUserPermissions;
+@class APIAppSession, APIAppUserPermissions;
 
 @interface APIApp : NSManagedObject
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * secret;
 @property (nonatomic, retain) NSSet *usersPermissions;
+@property (nonatomic, retain) NSSet *apiAppSessions;
 @end
 
 @interface APIApp (CoreDataGeneratedAccessors)
@@ -26,5 +27,10 @@
 - (void)removeUsersPermissionsObject:(APIAppUserPermissions *)value;
 - (void)addUsersPermissions:(NSSet *)values;
 - (void)removeUsersPermissions:(NSSet *)values;
+
+- (void)addApiAppSessionsObject:(APIAppSession *)value;
+- (void)removeApiAppSessionsObject:(APIAppSession *)value;
+- (void)addApiAppSessions:(NSSet *)values;
+- (void)removeApiAppSessions:(NSSet *)values;
 
 @end

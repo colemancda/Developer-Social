@@ -2,7 +2,7 @@
 //  Image.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/12/13.
+//  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @implementation Image
 
+@dynamic about;
 @dynamic data;
 @dynamic date;
 @dynamic filename;
 @dynamic id;
 @dynamic name;
-@dynamic about;
 @dynamic post;
 @dynamic team;
 @dynamic user;

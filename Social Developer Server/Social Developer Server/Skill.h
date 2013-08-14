@@ -15,9 +15,9 @@
 
 @property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * type;
-@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) User *user;
 
 @end

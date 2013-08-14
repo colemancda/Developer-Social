@@ -10,10 +10,22 @@
 
 @implementation Session (Authentication)
 
--(void)newRequest
+-(void)newRequestWithIP:(NSString *)ipAddress
+              userAgent:(NSString *)userAgent
+                 apiApp:(APIApp *)apiApp
 {
+    // update last used date
+    self.lastUse = [NSDate date];
     
+    if (apiApp) {
+        self.apiApp = apiApp;
+    }
     
+    if (userAgent) {
+        self.useragent = userAgent;
+    }
+    
+    self.ip = ipAddress;
 }
 
 @end

@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSString * website;
 @property (nonatomic, retain) NSSet *accounts;
+@property (nonatomic, retain) NSSet *adminOfTeams;
 @property (nonatomic, retain) NSSet *appPermissions;
 @property (nonatomic, retain) NSSet *followers;
 @property (nonatomic, retain) NSSet *following;
@@ -31,7 +32,6 @@
 @property (nonatomic, retain) NSSet *skills;
 @property (nonatomic, retain) NSSet *teams;
 @property (nonatomic, retain) NSSet *visiblePosts;
-@property (nonatomic, retain) NSSet *adminOfTeams;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -40,6 +40,11 @@
 - (void)removeAccountsObject:(SiteAccount *)value;
 - (void)addAccounts:(NSSet *)values;
 - (void)removeAccounts:(NSSet *)values;
+
+- (void)addAdminOfTeamsObject:(Team *)value;
+- (void)removeAdminOfTeamsObject:(Team *)value;
+- (void)addAdminOfTeams:(NSSet *)values;
+- (void)removeAdminOfTeams:(NSSet *)values;
 
 - (void)addAppPermissionsObject:(APIAppUserPermissions *)value;
 - (void)removeAppPermissionsObject:(APIAppUserPermissions *)value;
@@ -80,10 +85,5 @@
 - (void)removeVisiblePostsObject:(Post *)value;
 - (void)addVisiblePosts:(NSSet *)values;
 - (void)removeVisiblePosts:(NSSet *)values;
-
-- (void)addAdminOfTeamsObject:(Team *)value;
-- (void)removeAdminOfTeamsObject:(Team *)value;
-- (void)addAdminOfTeams:(NSSet *)values;
-- (void)removeAdminOfTeams:(NSSet *)values;
 
 @end

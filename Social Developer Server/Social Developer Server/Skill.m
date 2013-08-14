@@ -14,9 +14,9 @@
 
 @dynamic about;
 @dynamic date;
+@dynamic id;
 @dynamic name;
 @dynamic type;
-@dynamic id;
 @dynamic user;
 
 @end

@@ -28,6 +28,7 @@
 @dynamic username;
 @dynamic website;
 @dynamic accounts;
+@dynamic adminOfTeams;
 @dynamic appPermissions;
 @dynamic followers;
 @dynamic following;
@@ -37,6 +38,5 @@
 @dynamic skills;
 @dynamic teams;
 @dynamic visiblePosts;
-@dynamic adminOfTeams;
 
 @end

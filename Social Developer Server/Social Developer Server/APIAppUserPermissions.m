@@ -2,7 +2,7 @@
 //  APIAppUserPermissions.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/12/13.
+//  Created by Alsey Coleman Miller on 8/13/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @dynamic canEditUserInfo;
 @dynamic canPost;
 @dynamic canViewUserInfo;
-@dynamic app;
+@dynamic apiApp;
 @dynamic user;
 
 @end

@@ -18,9 +18,9 @@
 @dynamic id;
 @dynamic name;
 @dynamic open;
+@dynamic admin;
 @dynamic image;
 @dynamic members;
 @dynamic visiblePosts;
-@dynamic admin;
 
 @end

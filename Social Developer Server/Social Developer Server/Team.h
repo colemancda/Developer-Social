@@ -17,10 +17,10 @@
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * open;
+@property (nonatomic, retain) User *admin;
 @property (nonatomic, retain) Image *image;
 @property (nonatomic, retain) NSSet *members;
 @property (nonatomic, retain) NSSet *visiblePosts;
-@property (nonatomic, retain) User *admin;
 @end
 
 @interface Team (CoreDataGeneratedAccessors)

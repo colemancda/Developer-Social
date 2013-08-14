@@ -7,6 +7,7 @@
 //
 
 #import "APIApp.h"
+#import "APIAppSession.h"
 #import "APIAppUserPermissions.h"
 
 
@@ -17,5 +18,6 @@
 @dynamic name;
 @dynamic secret;
 @dynamic usersPermissions;
+@dynamic apiAppSessions;
 
 @end
