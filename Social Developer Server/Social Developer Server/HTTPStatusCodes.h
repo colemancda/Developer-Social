@@ -19,6 +19,7 @@ typedef NS_ENUM (NSInteger, HTTPStatusCode) {
     ForbiddenStatusCode, // item is invisible to user or api app
     NotFoundStatusCode, // item doesnt exist
     MethodNotAllowedStatusCode,
+    ConflictStatusCode = 409, // user already exists
     
     InternalServerErrorStatusCode = 500
     

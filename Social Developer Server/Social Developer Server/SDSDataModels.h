@@ -20,6 +20,7 @@
 #import "Team.h"
 #import "Post.h"
 #import "SiteAccount.h"
+#import "APIAppSession.h"
 
 // Categories
 #import "User+API.h"

@@ -71,9 +71,8 @@
         return ForbiddenStatusCode;
     }
     
-    // User profiles are public for 1st party API clients
+    // User profiles can be modified by 1st party API clients
     return OKStatusCode;
-    
 }
 
 

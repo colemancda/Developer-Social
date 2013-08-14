@@ -12,12 +12,20 @@
 @interface SDSServer : NSObject
 {
     RoutingHTTPServer *_server;
+    
+    // Operation queues
+    
+    NSOperationQueue *_createPostQueue;
 
 }
 
 @property CDASQLiteDataStore *dataStore;
 
 @property BOOL prettyPrintJSON;
+
+@property NSUInteger sessionTokenLength;
+
+@property NSUInteger apiAppSessionTokenLength;
 
 -(NSError *)startWithPort:(NSUInteger)port;
 
