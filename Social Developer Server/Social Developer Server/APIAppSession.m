@@ -2,7 +2,7 @@
 //  APIAppSession.m
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/13/13.
+//  Created by Alsey Coleman Miller on 8/14/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -13,13 +13,13 @@
 
 @implementation APIAppSession
 
-@dynamic useragent;
-@dynamic token;
-@dynamic lastUserAgent;
+@dynamic date;
+@dynamic ip;
 @dynamic lastDate;
 @dynamic lastIP;
-@dynamic ip;
-@dynamic date;
+@dynamic lastUserAgent;
+@dynamic token;
+@dynamic useragent;
 @dynamic apiApp;
 @dynamic sessions;
 

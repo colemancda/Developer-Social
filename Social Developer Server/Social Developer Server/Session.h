@@ -2,7 +2,7 @@
 //  Session.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/13/13.
+//  Created by Alsey Coleman Miller on 8/14/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -15,12 +15,12 @@
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * ip;
-@property (nonatomic, retain) NSString * lastIP;
 @property (nonatomic, retain) NSDate * lastDate;
+@property (nonatomic, retain) NSString * lastIP;
 @property (nonatomic, retain) NSString * lastUserAgent;
 @property (nonatomic, retain) NSString * token;
 @property (nonatomic, retain) NSString * useragent;
-@property (nonatomic, retain) User *user;
 @property (nonatomic, retain) APIAppSession *apiAppSession;
+@property (nonatomic, retain) User *user;
 
 @end

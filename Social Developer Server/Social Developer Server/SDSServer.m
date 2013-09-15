@@ -14,7 +14,6 @@
 #import "NSDate+CDAStringRepresentation.h"
 #import "HTTPStatusCodes.h"
 #import "RouteResponse+IPAddress.h"
-#import "Session+Authentication.h"
 
 #import "SDSDataModels.h"
 
@@ -168,12 +167,16 @@
 
 -(void)setupRoutes
 {
+        
+#pragma mark
     
-#pragma mark - Login API App - GET /login/apiApp
+#pragma mark Login API App - GET /login/apiApp
     
-#pragma mark - Login User - GET /login/user
+#pragma mark Login User - GET /login/user
     
-#pragma mark - Create new user - PUT /user
+#pragma mark 
+    
+#pragma mark Create new user - PUT /user
     
     [_server put:@"/user" withBlock:^(RouteRequest *request, RouteResponse *response) {
         
@@ -268,7 +271,7 @@
         }];
     }];
     
-#pragma mark - Get user info - GET /user/:username
+#pragma mark Get user info - GET /user/:username
     [_server get:@"/user/:username" withBlock:^(RouteRequest *request, RouteResponse *response) {
         
         [self authenticateUsingRequest:request response:response completion:^(APIAppSession *apiAppSession, Session *session) {
@@ -295,13 +298,46 @@
                     return;
                 }
                 
+                // check if user is visible
+                HTTPStatusCode statusCode = [user statusCodeForViewRequestFromUser:session.user
+                                                                            apiApp:apiAppSession.apiApp];
                 
+                if (statusCode != OKStatusCode) {
+                    
+                    response.statusCode = statusCode;
+                    return;
+                }
+                
+                // return JSON representation
+                NSDictionary *jsonObject = [user JSONRepresentationForUser:session.user
+                                                                    apiApp:apiAppSession.apiApp];
+                
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                                   options:self.jsonWritingOption
+                                                                     error:nil];
+                [response respondWithData:jsonData];
+                
+            }];
         }];
     }];
         
-#pragma mark - Edit User info - POST /user/:username
+#pragma mark Edit User info - POST /user/:username
+    
+    [_server post:@"/user/:username" withBlock:^(RouteRequest *request, RouteResponse *response) {
         
+        // authenticate
+        [self authenticateUsingRequest:request response:response completion:^(APIAppSession *apiAppSession, Session *session) {
+           
+            
+            
+        }];
+    }];
         
+#pragma mark Delete User - DELETE /user/:username
+    
+    
+#pragma mark
+    
     
 }
 

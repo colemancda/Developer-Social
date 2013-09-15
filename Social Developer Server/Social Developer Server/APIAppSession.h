@@ -2,7 +2,7 @@
 //  APIAppSession.h
 //  Social Developer Server
 //
-//  Created by Alsey Coleman Miller on 8/13/13.
+//  Created by Alsey Coleman Miller on 8/14/13.
 //  Copyright (c) 2013 ColemanCDA. All rights reserved.
 //
 
@@ -13,13 +13,13 @@
 
 @interface APIAppSession : NSManagedObject
 
-@property (nonatomic, retain) NSString * useragent;
-@property (nonatomic, retain) NSString * token;
-@property (nonatomic, retain) NSString * lastUserAgent;
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSString * ip;
 @property (nonatomic, retain) NSDate * lastDate;
 @property (nonatomic, retain) NSString * lastIP;
-@property (nonatomic, retain) NSString * ip;
-@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSString * lastUserAgent;
+@property (nonatomic, retain) NSString * token;
+@property (nonatomic, retain) NSString * useragent;
 @property (nonatomic, retain) APIApp *apiApp;
 @property (nonatomic, retain) NSSet *sessions;
 @end
